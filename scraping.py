@@ -40,7 +40,7 @@ try:
         database="vhv"
     )
     cursor = connection.cursor()
-    postgres_insert_query = """INSERT INTO users (firstname, lastname, sex) VALUES (%s, %s, %s)"""
+    postgres_insert_query = """INSERT INTO user_lists (firstname, lastname, sex) VALUES (%s, %s, %s)"""
     for item in data_list[1:]:
         record_to_insert = (
             str(item).split(",")[1].replace("'", '').strip(),

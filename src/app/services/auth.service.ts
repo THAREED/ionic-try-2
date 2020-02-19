@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { tap } from 'rxjs/operators';
 import { EnvService } from './env.service';
 import { AuthUser } from '../models/auth_user';
-import { Storage } from '@ionic/storage'
+import { Storage } from '@ionic/storage';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +12,7 @@ import { Storage } from '@ionic/storage'
 export class AuthService {
   isLoggedIn = false;
   token: any;
-  AUTH_SERVER_ADDRESS: string = 'http://localhost:3000'; // Your Node Address
+  AUTH_SERVER_ADDRESS = 'http://localhost:3000'; // Your Node Address
 
   constructor(
     private http: HttpClient,
@@ -20,9 +20,9 @@ export class AuthService {
     private env: EnvService,
   ) { }
 
-  login(user: AuthUser) {
+  login(auth_user: AuthUser) {
     return this.http.post(`${this.AUTH_SERVER_ADDRESS}/auth/login`,
-      user
+      auth_user
     ).pipe(
       tap(token => {
         this.storage.set('token', token)
@@ -39,39 +39,39 @@ export class AuthService {
     );
   }
 
-  register(uName: String, password: String) {
+  register(fName: String, lName: String, email: String, password: String) {
     return this.http.post(`${this.AUTH_SERVER_ADDRESS}/auth/register`,
-      { user: uName, password: password }
-    )
+      { first_name: fName, last_name: lName, email: email, password: password }
+    );
   }
 
   logout() {
-    console.log('Logout')
+    console.log('Logout');
     const headers = new HttpHeaders({
-      'Authorization': this.token["token_type"] + " " + this.token["access_token"]
+      'Authorization': this.token['token_type'] + ' ' + this.token['access_token']
     });
     return this.http.get(`${this.AUTH_SERVER_ADDRESS}/auth/logout`, { headers: headers })
       .pipe(
         tap(data => {
-          this.storage.remove("token");
+          this.storage.remove('token');
           this.isLoggedIn = false;
           delete this.token;
           return data;
         })
-      )
+      );
   }
 
   user() {
     console.log('GET User Data');
     const headers = new HttpHeaders({
-      'Authorization': this.token["token_type"] + " " + this.token["access_token"]
+      'Authorization': this.token['token_type'] + ' ' + this.token['access_token']
     });
-    return this.http.get<AuthUser>(`${this.AUTH_SERVER_ADDRESS}/user`, { headers: headers })
+    return this.http.get<AuthUser>(`${this.AUTH_SERVER_ADDRESS}/users`, { headers: headers })
       .pipe(
         tap(user => {
           return user;
         })
-      )
+      );
   }
 
   getToken() {
@@ -80,6 +80,7 @@ export class AuthService {
         this.token = data;
         if (this.token != null) {
           this.isLoggedIn = true;
+          console.log(data);
         } else {
           this.isLoggedIn = false;
         }
@@ -90,4 +91,5 @@ export class AuthService {
       }
     );
   }
+
 }

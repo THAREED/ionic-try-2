@@ -189,18 +189,16 @@ app.get('/', (request, response) => {
     })
 })
 
-app.get('/auth/logout', (req, res) => {
+app.get('/auth/logout', (request, response) => {
     res.status(200).send({ auth: false, token: null });
 });
 
-app.post('/auth/register', (req, res) => {
-    const  first_name  =  req.body.first_name;
-    const  last_name  =  req.body.last_name;
-    const  email  =  req.body.email;
+app.post('/auth/register', (request, response) => {
+    const  username  =  req.body.username;
     console.log(req.body);
     const  password  =  bcrypt.hashSync(req.body.password);
 
-    createUser([first_name,last_name, email, password], (err)=>{
+    createUser([username, password], (err)=>{
         if(err) return  res.status(500).send("Server error!");
         findUserByEmail(email, (err, user)=>{
             if (err) return  res.status(500).send('Server error!');  

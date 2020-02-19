@@ -1,5 +1,5 @@
 export class AuthUser {
     id: number;
-    usernam: string;
+    username: string;
     password: string;
 } 

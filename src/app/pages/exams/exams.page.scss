@@ -1,0 +1,58 @@
+* {
+    font-family: 'Sarabun', sans-serif;
+    color: #4BA4E8;
+}
+
+ion-title {
+    text-align: left;
+    padding-left: 20pt;
+    font-size: 1.3em;
+    color: #061E4C;
+    background-color: #DCF7FC;
+    height: 50px;
+}
+
+ion-content {
+    --background: url('src/assets/img/login_bg.png') no-repeat center/cover fixed;
+}
+
+ion-col {
+    border: 1pt solid #5DBAE8;
+    border-radius: 10px;
+    margin: 6px;
+    background-color: #FFFFFF;
+}
+
+ion-grid {
+    margin: 12px;
+}
+
+.icon-btn {
+    margin: 0px;
+    padding: 0px;
+    background-color: white;
+    height: 84px;
+    width: 84px;
+}
+
+.label-bor {
+    border-bottom: 0.5pt solid #5DBAE8;
+    margin: 5px 8px 5px 8px;
+}
+
+.level {
+    height: 18px;
+}
+
+.blank-col {
+    background-color: transparent;
+    border: transparent;
+}
+
+.text-size-s {
+    font-size: 0.8em;
+}
+
+.text-size-ss {
+    font-size: 0.78em;
+}

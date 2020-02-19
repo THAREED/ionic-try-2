@@ -232,8 +232,9 @@ app.post('/auth/login', (request, response) => {
             result = true;
         }
         else return  response.status(401).send('Password not valid!');
+        const  expiresIn  =  24  *  60  *  60
         const  accessToken  =  jwt.sign({ id:  user.rows[0].id }, SECRET_KEY);
-        response.status(200).send({ "access_token":  accessToken});
+        response.status(200).send({ "access_token":  accessToken, "expires_in":  expiresIn});
     })
 });
 

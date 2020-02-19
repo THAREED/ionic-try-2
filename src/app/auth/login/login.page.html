@@ -1,0 +1,35 @@
+<ion-content class="login_view">
+
+  <ion-row justify-content-center>
+    <ion-col align-self-center size-md="6" size-lg="5" size-xs="10">
+      <img class="logo" src="assets/img/logo and name.png">
+      <h6 class="app_name">ระบบฝึกคัดกรองความผิดปกติทางทันตกรรมสำหรับ อสม. และพยาบาล</h6>
+      <form #form="ngForm" (ngSubmit)="login(form)">
+        <div padding>
+          <ion-input class="box-shadow placeholder" type="text" [(ngModel)]="username" name="username" placeholder="ชื่อผู้ใช้ เช่น สมหวัง"></ion-input>
+        </div>
+        <div padding>
+          <ion-input class="box-shadow placeholder" ngModel type="password" [(ngModel)]="password" name="password" placeholder="รหัสผ่าน 8 ตัวอักษร">
+          </ion-input>
+        </div>
+        <div padding>
+          <ion-button type="submit" expand="block">เข้าสู่ระบบ</ion-button>
+        </div>
+      </form>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col style="margin-left: 15%;">
+      <ion-checkbox checked></ion-checkbox>
+      <ion-label id="remember-label"> จำรหัสผ่าน</ion-label>
+    </ion-col>
+    <ion-col style="margin-right: 15%; text-align: right;">
+      <a href="https://www.w3schools.com">ลืมรหัสผ่าน?</a>
+    </ion-col>
+  </ion-row>
+
+  <ion-row justify-content-center padding>
+    <a id="no_account" href="https://www.w3schools.com">ยังไม่มีบัญชีผู้ใช้?</a>
+  </ion-row>
+</ion-content>

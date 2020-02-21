@@ -3,8 +3,8 @@ const bcrypt = require('bcryptjs');
 const SECRET_KEY = "secretkey5432";
 const Pool = require('pg').Pool
 const pool = new Pool({
-    host: 'localhost',
-    port: 5500,
+    host: 'postgres',
+    port: 5432,
     user: 'postgres',
     password: 'password',
     database: 'vhv',

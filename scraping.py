@@ -19,7 +19,8 @@ for element in prov_options:
     prov_list.append(element.get_attribute("value"))
 
 driver.find_element_by_name('provinceid').click()
-driver.find_element_by_xpath("//select/option[@value='" + prov_list[61] + "']").click()
+driver.find_element_by_xpath(
+    "//select/option[@value='" + prov_list[61] + "']").click()
 driver.find_element_by_name('search').click()
 time.sleep(7)
 
@@ -31,6 +32,13 @@ data_list = []
 for a in items:
     data_list.append(a.text.split())
 
+def RepresentsInt(s):
+    try:
+        int(s)
+        return True
+    except ValueError:
+        return False
+
 try:
     connection = psycopg2.connect(
         user="postgres",
@@ -39,17 +47,26 @@ try:
         port="5500",
         database="vhv"
     )
+    firstname = ""
+    lastname = ""
+    sex = ""
     cursor = connection.cursor()
     postgres_insert_query = """INSERT INTO user_lists (firstname, lastname, sex) VALUES (%s, %s, %s)"""
     for item in data_list[1:]:
+        firstname = str(item).split(",")[1].replace("'", '').strip()
+        lastname = str(item).split(",")[2].replace("'", '').strip()
+        if RepresentsInt(str(item).split(",")[3].replace("'", '').strip()):
+            sex = "-"
+        else:
+            sex = str(item).split(",")[3].replace("'", '').strip()
         record_to_insert = (
-            str(item).split(",")[1].replace("'", '').strip(),
-            str(item).split(",")[2].replace("'", '').strip(),
-            str(item).split(",")[3].replace("'", '').strip(),
+            firstname,
+            lastname,
+            sex,
         )
         cursor.execute(postgres_insert_query, record_to_insert)
-        connection.commit()
         count = cursor.rowcount
+        connection.commit()
 
     print(count, "Record inserted successfully into users table")
 

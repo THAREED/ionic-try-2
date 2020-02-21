@@ -2,7 +2,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const app = express()
 const port = 3000
-const db = require('./vhv-query')
+const vhv = require('./vhv-query')
 const cors = require('cors')
 
 app.use(cors())
@@ -16,28 +16,28 @@ app.use(
 
 app.get('/', (request, response) => {
     response.json({
-        info: 'Node.js, Express, and Postgres API'
+        info: 'Node.js, Express, and Postgres API Yeah'
     })
 })
 
-app.get('/users', db.getUsers)
-app.get('/users/:id', db.getUserById)
-app.get('/auth_users', db.getAuthUsers)
-app.get('/auth_users/:id', db.getAuthUserById)
-app.get('/auth/logout', db.logout)
+app.get('/users', vhv.getUsers)
+app.get('/users/:id', vhv.getUserById)
+app.get('/auth_users', vhv.getAuthUsers)
+app.get('/auth_users/:id', vhv.getAuthUserById)
+app.get('/auth/logout', vhv.logout)
 
-app.post('/users', db.createUser)
-app.post('/auth_users', db.createAuthUser)
-app.post('/auth/register', db.register)
-app.post('/auth/login', db.login)
+app.post('/users', vhv.createUser)
+app.post('/auth_users', vhv.createAuthUser)
+app.post('/auth/register', vhv.register)
+app.post('/auth/login', vhv.login)
 
-app.put('/users/:id', db.updateUser)
-app.put('/auth_users/:id', db.updateAuthUser)
+app.put('/users/:id', vhv.updateUser)
+app.put('/auth_users/:id', vhv.updateAuthUser)
 
-app.delete('/users/:id', db.deleteUser)
-app.delete('/users/', db.deleteAllUser)
-app.delete('/auth_users/:id', db.deleteAuthUser)
-app.delete('/auth_users/', db.deleteAllAuthUser)
+app.delete('/users/:id', vhv.deleteUser)
+app.delete('/users/', vhv.deleteAllUser)
+app.delete('/auth_users/:id', vhv.deleteAuthUser)
+app.delete('/auth_users/', vhv.deleteAllAuthUser)
 
 app.listen(port, () => {
     console.log(`App running on port ${port}.`)

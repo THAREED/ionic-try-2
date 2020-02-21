@@ -29,7 +29,7 @@ export class LoginPage implements OnInit {
     });
     return await registerModal.present();
   }
-  
+
   login(form: NgForm) {
     this.authService.login(form.value).subscribe(
       data => {

@@ -1,9 +1,90 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>register</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content class="login_view">
 
-<ion-content>
+  <ion-row justify-content-center>
+    <ion-col align-self-center size-md="6" size-lg="5" size-xs="10">
+      <ion-row>
+        <ion-col>
+          <img class="logo" src="assets/img/logo and name.png">
+        </ion-col>
+        <ion-col>
+          <ion-radio-group value="volunteer">
+            <ion-row>
+              <ion-col class="career">
+                <ion-item class="box-shadow">
+                  <ion-label class="label-sex">อสม.</ion-label>
+                  <ion-radio slot="start" value="volunteer"></ion-radio>
+                </ion-item>
+              </ion-col>
+              <ion-col class="career career2">
+                <ion-item class="box-shadow">
+                  <ion-label class="label-sex">พยาบาล</ion-label>
+                  <ion-radio slot="start" value="nurse"></ion-radio>
+                </ion-item>
+              </ion-col>            
+            </ion-row>
+            </ion-radio-group>
+          
+        </ion-col>
+      </ion-row>
+      <!-- <form #form="ngForm" (ngSubmit)="login(form)"> -->
+        <ion-row>
+          <ion-col>
+            <ion-input class="box-shadow placeholder" type="text" name="firstname" placeholder="ชื่อ"></ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-input class="box-shadow placeholder" type="text" name="lastname" placeholder="สกุล"></ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-input class="box-shadow placeholder" type="text" name="phone" placeholder="หมายเลขโทรศัพท์"></ion-input>
+          </ion-col>
+        </ion-row> 
+        
+        <ion-radio-group value="woman">
+        <ion-row>
+          <ion-col>
+            <ion-item class="box-shadow">
+              <ion-label class="label-sex">หญิง</ion-label>
+              <ion-radio slot="start" value="woman"></ion-radio>
+            </ion-item>
+          </ion-col>
+          <ion-col >
+            <ion-item class="box-shadow">
+              <ion-label class="label-sex">ชาย</ion-label>
+              <ion-radio slot="start" value="man"></ion-radio>
+            </ion-item>
+          </ion-col>            
+        </ion-row>
+        </ion-radio-group>
+        <ion-row>
+          <ion-col>
+            <ion-input class="box-shadow placeholder" type="text" name="username" placeholder="ชื่อผู้ใช้"></ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-input class="box-shadow placeholder" type="text" name="password" placeholder="รหัสผ่าน"></ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-input class="box-shadow placeholder" type="text" name="password2" placeholder="ยืนยันรหัสผ่าน"></ion-input>
+          </ion-col>
+        </ion-row> 
+        
+        <div>
+          <ion-button type="submit" expand="block">ลงทะบียน</ion-button>
+        </div>
+      <!-- </form> -->
+    </ion-col>
+  </ion-row>
 
+
+
+  <ion-row justify-content-center>
+    <ion-label class="label-bottom">ระบบฝึกคัดกรองความผิดปกติทางทันตกรรมสำหรับ อสม. และพยาบาล</ion-label>
+  </ion-row>
 </ion-content>

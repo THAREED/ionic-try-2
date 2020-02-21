@@ -1,0 +1,68 @@
+* , .label-sex{
+    font-family: 'Sarabun', sans-serif;
+}
+
+ion-content {
+    --background: url('src/assets/img/login_bg.png') no-repeat center/cover fixed;
+}
+
+.logo{
+    margin-top: 15%;
+    width: 80%;
+    margin-left: 10%;
+}
+.career{
+    margin-top: 8%;
+    width: 70%;
+    margin-left: 10%;
+}
+.career2{
+    margin-top: 0%;
+}
+.placeholder {
+    text-align: center;
+    color: #5DBAE7;
+    background-color: white;
+}
+
+ion-button,
+ion-input,
+.box-shadow {
+    box-shadow: 0px 3px 5px #00000040;
+    border-radius: 10px;
+    background-color: white;
+}
+
+ion-checkbox{
+    --size: 22px;
+    float: left;
+    --border-radius: 3px;
+}
+
+.label-bottom{
+    position: fixed;
+    bottom: 10px;
+    font-size: 0.7em;
+    color: #483737;
+}
+
+ion-row{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.label-sex{
+    color: #483737;
+    font-size: 0.9em;
+    text-align: center;
+}
+
+ion-radio{
+    border: 3px solid #5DBAE7;
+    width: 24px;
+    border-radius: 100%;
+    margin: 0px;
+    padding: 2px;
+}
+
+

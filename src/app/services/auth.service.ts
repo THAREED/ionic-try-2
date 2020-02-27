@@ -12,7 +12,7 @@ import { Storage } from '@ionic/storage';
 export class AuthService {
   isLoggedIn = false;
   token: any;
-  AUTH_SERVER_ADDRESS = 'http://localhost:3000'; // Your Node Address
+  AUTH_SERVER_ADDRESS = 'http://localhost:8100'; // Your Node Address
 
   constructor(
     private http: HttpClient,

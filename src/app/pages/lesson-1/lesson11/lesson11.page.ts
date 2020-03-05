@@ -18,6 +18,11 @@ export class Lesson11Page implements OnInit {
     this.route.navigate(['/lesson12']);
   }
   
+  goToLessonPage()
+  {
+    this.route.navigate(['/tabs']);
+  }
+  
 
 
 }

@@ -14,6 +14,10 @@
     background-color: #DCF7FC;
     height: 50px;
   }
+  ion-title img{
+    height: 28px;
+    // float: left;
+  }
   ion-content{
     --background: url('src/assets/img/login_bg.png') no-repeat center/cover fixed;
   }

@@ -1,93 +1,92 @@
-<ion-content class="login_view">
+<ion-header translucent="true">
+  <ion-toolbar color="secondary">   
+    <!-- <ion-buttons collapse="true" slot="start"> -->
+    <ion-buttons slot="start">
+      <ion-button> <img class="home-btn" src="assets/icon/logo.png" alt="icon/logo"></ion-button>
+    </ion-buttons> 
+    <ion-title>ลงทะเบียน</ion-title>               
+  </ion-toolbar>
+</ion-header>
 
-  <ion-row justify-content-center>
-    <ion-col align-self-center size-md="6" size-lg="5" size-xs="10">
-      <form #form="ngForm" (ngSubmit)="register(form)" method="post">
-
-      <ion-row>
-        <ion-col>
-          <img class="logo" src="assets/img/logo and name.png">
-        </ion-col>
-        <ion-col>
-
-          <ion-radio-group value="volunteer">
-            <ion-row>
-              <ion-col class="career">
-                <ion-item class="box-shadow">
-                  <ion-label class="label-sex">อสม.</ion-label>
-                  <ion-radio slot="start" ng-model="career.volunteer" value="volunteer"></ion-radio>
-                </ion-item>
-              </ion-col>
-              <ion-col class="career career2">
-                <ion-item class="box-shadow">
-                  <ion-label class="label-sex">พยาบาล</ion-label>
-                  <ion-radio slot="start" ng-model="career.nurse" value="nurse"></ion-radio>
-                </ion-item>
-              </ion-col>            
-            </ion-row>
-            </ion-radio-group>
-          
-        </ion-col>
-      </ion-row>
-      <!-- <form #form="ngForm" (ngSubmit)="register(form)" method="post"> -->
-        <ion-row>
-          <ion-col>
-            <ion-input required class="box-shadow placeholder" type="text"  ngModel name="firstname" placeholder="ชื่อ"></ion-input>
-          </ion-col>
-        </ion-row>
-        <ion-row>
-          <ion-col>
-            <ion-input required class="box-shadow placeholder" type="text"  ngModel name="lastname" placeholder="สกุล"></ion-input>
-          </ion-col>
-        </ion-row>
-        <ion-row>
-          <ion-col>
-            <ion-input required  class="box-shadow placeholder" type="text"  ngModel name="phone" placeholder="หมายเลขโทรศัพท์"></ion-input>
-          </ion-col>
-        </ion-row> 
-        
-        <ion-radio-group value="woman">
-        <ion-row>
-          <ion-col>
-            <ion-item class="box-shadow">
-              <ion-label class="label-sex">หญิง</ion-label>
-              <ion-radio slot="start" ng-model="sex.woman"  value="woman"></ion-radio>
+<ion-content>
+  <ion-grid padding>
+    <ion-row>
+      <ion-col></ion-col>
+      <ion-col>
+        <ion-list lines="none">
+          <ion-radio-group radio-group [(ngModel)]="career">
+            <ion-item class="group-radio">
+              <ion-label class="thai-word text-s">อสม.</ion-label>
+              <ion-radio checked="true" value="volunteer" slot="start"></ion-radio>
             </ion-item>
-          </ion-col>
-          <ion-col >
-            <ion-item class="box-shadow">
-              <ion-label class="label-sex">ชาย</ion-label>
-              <ion-radio slot="start" ng-model="sex.man" value="man"></ion-radio>
+            <ion-item>
+              <ion-label class="thai-word text-s">พยาบาล</ion-label>
+              <ion-radio value="nurse" slot="start"></ion-radio>
             </ion-item>
-          </ion-col>            
-        </ion-row>
-        </ion-radio-group>
-        <ion-row>
-          <ion-col>
-            <ion-input class="box-shadow placeholder" type="text"  ngModel name="username" placeholder="ชื่อผู้ใช้"></ion-input>
-          </ion-col>
-        </ion-row>
-        <ion-row>
-          <ion-col>
-            <ion-input required class="box-shadow placeholder" type="password"  ngModel name="password" placeholder="รหัสผ่าน"></ion-input>
-          </ion-col>
-        </ion-row>
-        <ion-row>
-          <ion-col>
-            <ion-input required class="box-shadow placeholder" type="password"  ngModel name="password2"  placeholder="ยืนยันรหัสผ่าน"></ion-input>
-          </ion-col>
-        </ion-row> 
+          </ion-radio-group>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <h6>ข้อมูลทั่วไป</h6>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="4">
+        <ion-list>
+          <ion-item>
+            <ion-select [(ngModel)]="gender" placeholder="เพศ">
+              <ion-list-header>
+                <ion-label>กรุณาเลือกเพศ</ion-label>
+              </ion-list-header>
+              <ion-select-option value="woman">หญิง</ion-select-option>
+              <ion-select-option value="man">ชาย</ion-select-option>
+              <ion-select-option value="none">ไม่ระบุ</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-list>
         
-        <div>
-          <ion-button type="submit" expand="block">ลงทะบียน</ion-button>
-        </div>
-      </form>
-    </ion-col>
-  </ion-row>
+      </ion-col>
+      <ion-col>
+        <ion-input class="thai-word" required type="text"  [(ngModel)]="firstname" name="firstname" placeholder="ชื่อ"></ion-input>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-input class="thai-word" required type="text"  [(ngModel)]="lastname" name="lastname" placeholder="สกุล"></ion-input>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-input class="thai-word" required type="text"  [(ngModel)]="phone" name="phone" placeholder="หมายเลขโทรศัพท์"></ion-input>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <h6>บัญชีผู้ใช้</h6>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-input class="thai-word" required type="text"  [(ngModel)]="username" name="username" placeholder="ชื่อผู้ใช้"></ion-input>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-input class="thai-word" required type="password"  [(ngModel)]="password" name="password" placeholder="รหัสผ่าน"></ion-input>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-input class="thai-word" required type="password"  [(ngModel)]="password2" name="password2" placeholder="ยืนยันรหัสผ่าน"></ion-input>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-button class="regis-btn" type="submit" (click)="onClick(gender,firstname,lastname,phone,username,password,password2,career)" expand="block">ลงทะเบียน</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
-
-
-  <ion-row justify-content-center>
-    <ion-label class="label-bottom">ระบบฝึกคัดกรองความผิดปกติทางทันตกรรมสำหรับ อสม. และพยาบาล</ion-label>
-  </ion-row>
 </ion-content>

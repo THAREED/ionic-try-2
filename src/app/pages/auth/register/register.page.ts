@@ -4,6 +4,8 @@ import { LoginPage } from '../login/login.page';
 import { NgForm } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
 import { AlertService } from 'src/app/services/alert.service';
+import { Router } from '@angular/router';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-register',
@@ -18,49 +20,29 @@ export class RegisterPage implements OnInit {
     private authService: AuthService,
     private navCtrl: NavController,
     private alertService: AlertService,
-    // private menu: MenuController,
+    private storage: Storage,
+    private router: Router
   ) { }
 
   ngOnInit() {
   }
 
-  // Dismiss Register Modal
-  dismissRegister() {
-    this.modalController.dismiss();
-  }
+ 
+  //ปุ่มกดให้บันทึกค่าแล้วไปหน้า after
+  onClick(gender, firstname, lastname, phone, username, password, password2, career){
 
-  // On Login button tap, dismiss Register modal and open login Modal
-  async loginModal() {
-    this.dismissRegister();
-    const loginModal = await this.modalController.create({
-      component: LoginPage,
-    });
-    return await loginModal.present();
-  }
+    //เก็บค่าใน storage ที่ชื่อ input1 ก่อน โดยเอาค่า txtNumber ที่ทำการแมพ ngModel ไว้มาเก็บ
+    this.storage.set('gender', gender);
+    this.storage.set('firstname', firstname);
+    this.storage.set('lastname', lastname);
+    this.storage.set('phone', phone);
+    this.storage.set('username', username);
+    this.storage.set('password', password);
+    this.storage.set('password2', password2);
+    this.storage.set('career', career);
 
-  register(form: NgForm) {
-    this.authService.register(form.value.firstname, form.value.lastname, form.value.phone, form.value.sex, form.value.username, form.value.password, form.value.password2).subscribe(
-      data => {
-        this.authService.login(form.value).subscribe(
-          data => {
-          },
-          error => {
-            console.log(error);
-          },
-          () => {
-            this.dismissRegister();
-            // this.menu.enable(true);
-            this.navCtrl.navigateRoot('/app');
-          }
-        );
-        this.alertService.presentToast(data['message']);
-      },
-      error => {
-        console.log(error);
-      },
-      () => {
-        
-      }
-    );
+    //ไปหน้า p2 (หรืออาจจะไม่มีหน้านี้ก็ได้สามารถแสดงผลในหน้าไหนก็ได้)
+    this.router.navigateByUrl('/app');
+ 
   }
 }

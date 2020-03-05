@@ -1,0 +1,45 @@
+<ion-header>
+	<ion-title>
+	  บทเรียน - ลิ้น
+	</ion-title>
+</ion-header><div class="blank"></div>
+<ion-content>
+  
+ 	<div class="level-tab level-0">
+		ลิ้น - ระดับ 0 สุขภาพดี
+	</div>
+  <h4 class="level-h">จุดกำกวม</h4>
+    <ion-grid>
+      <ion-row class="card">
+        <ion-col  class="col-1" size="3">
+        <ion-row class="card-img" justify-content-center>
+          <img src="assets/img/tongue0-4.png">
+        </ion-row>
+        </ion-col>
+        <ion-col  class="col-2">
+        <ion-row class="card-content" justify-content-center>
+          สังเกตเส้นเลือดขอดใต้ลิ้น<br>ในรูปให้ดีๆ แบบนี้ยังจัดอยู่ใน<br>
+          <ion-label class="hilight-text">เกณฑ์ปกติ</ion-label>
+        </ion-row>    
+        </ion-col>    
+      </ion-row>
+    </ion-grid>
+    <ion-grid class="margin-img-top">
+      <ion-row>
+        <ion-col>
+          <img src="assets/img/tongue0-4.png"> 
+        </ion-col>    
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-button (click)="prevPage()" color="warning" type="submit" expand="block">ย้อนกลับ</ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button (click)="nextPage()" type="submit" expand="block">ต่อไป</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+  
+  
+  </ion-content>

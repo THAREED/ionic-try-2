@@ -22,6 +22,23 @@ const routes: Routes = [
   { path: 'exercise', loadChildren: './pages/exercises/exercises.module#ExercisesPageModule' },
   { path: 'exam', loadChildren: './pages/exams/exams.module#ExamsPageModule' },
   { path: 'screening', loadChildren: './pages/screening/screening.module#ScreeningPageModule' },
+  {
+    path: 'lesson11',
+    loadChildren: () => import('./pages/lesson-1/lesson11/lesson11.module').then( m => m.Lesson11PageModule)
+  },
+  {
+    path: 'lesson12',
+    loadChildren: () => import('./pages/lesson-1/lesson12/lesson12.module').then( m => m.Lesson12PageModule)
+  },
+  {
+    path: 'lesson13',
+    loadChildren: () => import('./pages/lesson-1/lesson13/lesson13.module').then( m => m.Lesson13PageModule)
+  },  {
+    path: 'lesson14',
+    loadChildren: () => import('./pages/lesson-1/lesson14/lesson14.module').then( m => m.Lesson14PageModule)
+  },
+
+
 ];
 @NgModule({
   imports: [

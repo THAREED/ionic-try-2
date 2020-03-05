@@ -52,7 +52,7 @@ try:
     sex = ""
     cursor = connection.cursor()
     postgres_insert_query = """INSERT INTO user_lists (firstname, lastname, sex) VALUES (%s, %s, %s)"""
-    for item in data_list[1:]:
+    for icurtem in data_list[1:]:
         firstname = str(item).split(",")[1].replace("'", '').strip()
         lastname = str(item).split(",")[2].replace("'", '').strip()
         if RepresentsInt(str(item).split(",")[3].replace("'", '').strip()):

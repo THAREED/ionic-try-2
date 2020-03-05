@@ -34,7 +34,8 @@ services:
     container_name: node-api
     image: node-practeeth:13.8.0-alpine3.11
     volumes:
-        - "./server:/server"
+        - ./server:/server
+        - ./src:/src
     ports:
       - "${NODE_PORT:-3000}:3000"
     networks:

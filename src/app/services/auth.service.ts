@@ -12,7 +12,7 @@ import { Storage } from '@ionic/storage';
 export class AuthService {
   isLoggedIn = false;
   token: any;
-  AUTH_SERVER_ADDRESS = 'http://localhost:8100'; // Your Node Address
+  AUTH_SERVER_ADDRESS = 'http://localhost:3000'; // Your Node Address
 
   constructor(
     private http: HttpClient,
@@ -38,10 +38,17 @@ export class AuthService {
       }),
     );
   }
-
-  register(username: String, password: String) {
+  register(firstname: String, lastname: String, phone: String, sex: String, username: String, password: String, password2: String) {
     return this.http.post(`${this.AUTH_SERVER_ADDRESS}/auth/register`,
-      { username: username, password: password }
+      {
+        firstname: firstname,
+        lastname: lastname,
+        phone_num: phone,
+        sex: sex,
+        username: username,
+        password: password,
+        password2: password2
+      }
     );
   }
 
@@ -66,7 +73,7 @@ export class AuthService {
     const headers = new HttpHeaders({
       'Authorization': this.token['token_type'] + ' ' + this.token['access_token']
     });
-    return this.http.get<AuthUser>(`${this.AUTH_SERVER_ADDRESS}/users`, { headers: headers })
+    return this.http.get<AuthUser>(`${this.AUTH_SERVER_ADDRESS}/auth_users`, { headers: headers })
       .pipe(
         tap(user => {
           return user;

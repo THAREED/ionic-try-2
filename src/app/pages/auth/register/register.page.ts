@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController, NavController, MenuController } from '@ionic/angular';
-import { LoginPage } from '../login/login.page';
 import { NgForm } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
 import { AlertService } from 'src/app/services/alert.service';
+import { from } from 'rxjs';
 
 @Component({
   selector: 'app-register',
@@ -14,32 +14,25 @@ import { AlertService } from 'src/app/services/alert.service';
 export class RegisterPage implements OnInit {
 
   constructor(
-    private modalController: ModalController,
     private authService: AuthService,
     private navCtrl: NavController,
     private alertService: AlertService,
-    // private menu: MenuController,
+    private menu: MenuController,
   ) { }
 
   ngOnInit() {
   }
 
-  // Dismiss Register Modal
-  dismissRegister() {
-    this.modalController.dismiss();
-  }
-
-  // On Login button tap, dismiss Register modal and open login Modal
-  async loginModal() {
-    this.dismissRegister();
-    const loginModal = await this.modalController.create({
-      component: LoginPage,
-    });
-    return await loginModal.present();
-  }
-
   register(form: NgForm) {
-    this.authService.register(form.value.firstname, form.value.lastname, form.value.phone, form.value.sex, form.value.username, form.value.password, form.value.password2).subscribe(
+    this.authService.register(
+      form.value.firstname,
+      form.value.lastname,
+      form.value.phone,
+      form.value.sex,
+      form.value.username,
+      form.value.password,
+      form.value.password2
+    ).subscribe(
       data => {
         this.authService.login(form.value).subscribe(
           data => {
@@ -48,9 +41,8 @@ export class RegisterPage implements OnInit {
             console.log(error);
           },
           () => {
-            this.dismissRegister();
-            // this.menu.enable(true);
-            this.navCtrl.navigateRoot('/app');
+            this.menu.enable(true);
+            this.navCtrl.navigateRoot('/login');
           }
         );
         this.alertService.presentToast(data['message']);
@@ -59,7 +51,7 @@ export class RegisterPage implements OnInit {
         console.log(error);
       },
       () => {
-        
+
       }
     );
   }

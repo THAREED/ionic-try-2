@@ -2,7 +2,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const app = express()
 const port = 3000
-const vhv = require('./vhv-query')
+const vhv = require('./vhv')
 const cors = require('cors')
 
 app.use(cors())
@@ -27,12 +27,12 @@ app.get('/auth_users/:id', vhv.getAuthUserById)
 app.get('/auth/logout', vhv.logout)
 
 app.post('/users', vhv.createUser)
-app.post('/auth_users', vhv.createAuthUser)
+// app.post('/auth_users', vhv.createAuthUser)
 app.post('/auth/register', vhv.register)
 app.post('/auth/login', vhv.login)
 
 app.put('/users/:id', vhv.updateUser)
-app.put('/auth_users/:id', vhv.updateAuthUser)
+// app.put('/auth_users/:id', vhv.updateAuthUser)
 
 app.delete('/users/:id', vhv.deleteUser)
 app.delete('/users/', vhv.deleteAllUser)

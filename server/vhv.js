@@ -109,35 +109,6 @@ const getAuthUserById = (request, response) => {
     })
 }
 
-const createAuthUser = (request, response) => {
-    const {
-        username,
-        password
-    } = request.body
-
-    pool.query('INSERT INTO auth_users (username, password) VALUES ($1, $2)', [username, password], (error, results) => {
-        if (error) {
-            throw error
-        }
-        response.status(201).send(`User added with ID: ${results.insertId}`)
-    })
-}
-
-const updateAuthUser = (request, response) => {
-    const id = parseInt(request.params.id)
-    const {
-        username,
-        password
-    } = request.body
-
-    pool.query('UPDATE auth_users SET username = $1, password = $2 WHERE id = $3', [username, password, id], (error, results) => {
-        if (error) {
-            throw error
-        }
-        response.status(200).send(`User modified with ID: ${id}`)
-    })
-}
-
 const deleteAuthUser = (request, response) => {
     const id = parseInt(request.params.id)
 
@@ -175,28 +146,64 @@ const logout = (request, response) => {
     });
 }
 
-const register = (request, response) => {
-    const username = request.body.username;
-    console.log(request.body);
-    const password = bcrypt.hashSync(request.body.password);
+const createAuthUser = (request, response) => {
+    const {
+        username,
+        password
+    } = request.body
 
-    createUser([username, password], (err) => {
-        if (err) return response.status(500).send("Server error!");
-        findUserByEmail(email, (err, user) => {
-            if (err) return response.status(500).send('Server error!');
-            const expiresIn = 24 * 60 * 60;
-            const accessToken = jwt.sign({
-                id: user.id
-            }, SECRET_KEY, {
-                expiresIn: expiresIn
-            });
-            response.status(200).send({
-                "user": user,
-                "access_token": accessToken,
-                "expires_in": expiresIn
-            });
-        });
-    });
+    pool.query('INSERT INTO auth_users (username, password) VALUES ($1, $2)', [username, password], (error, results) => {
+        if (error) {
+            throw error
+        }
+        response.status(201).send(`User added with ID: ${results.insertId}`)
+    })
+}
+
+// const updateAuthUser = (request, response) => {
+//     const id = parseInt(request.params.id)
+//     const {
+//         username,
+//         password
+//     } = request.body
+
+//     pool.query('UPDATE auth_users SET username = $1, password = $2 WHERE id = $3', [username, password, id], (error, results) => {
+//         if (error) {
+//             throw error
+//         }
+//         response.status(200).send(`User modified with ID: ${id}`)
+//     })
+// }
+
+const register = (request, response) => {
+    const {
+        username,
+        firstname,
+        lastname,
+        phone_num,
+        sex
+    } = request.body
+    const password = bcrypt.hashSync(request.body.password)
+    console.log(username)
+    console.log(sex)
+
+    // pool.query('INSERT INTO auth_users (username, password, firstname, lastname, phone_num, sex) VALUES ($1, $2, $3, $4, $5, $6)', [username, password, firstname, lastname, phone_num, sex], (error, results) => {
+    //     if (error) {
+    //         throw error
+    //     }
+    //     const expiresIn = 24 * 60 * 60;
+    //     const accessToken = jwt.sign({
+    //         id: results.rows[0].id
+    //     }, SECRET_KEY, {
+    //         expiresIn: expiresIn
+    //     });
+    //     res.status(200).send({
+    //         "user": results,
+    //         "access_token": accessToken,
+    //         "expires_in": expiresIn
+    //     });
+    //     response.status(201).send(`User added with ID: ${results.insertId}`)
+    // })
 }
 
 const login = (request, response) => {
@@ -237,8 +244,7 @@ module.exports = {
 
     getAuthUsers,
     getAuthUserById,
-    createAuthUser,
-    updateAuthUser,
+    // updateAuthUser,
     deleteAuthUser,
     deleteAllAuthUser,
 

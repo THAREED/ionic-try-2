@@ -15,6 +15,8 @@ import { Storage } from '@ionic/storage';
 
 export class RegisterPage implements OnInit {
 
+  
+
   constructor(
     private modalController: ModalController,
     private authService: AuthService,

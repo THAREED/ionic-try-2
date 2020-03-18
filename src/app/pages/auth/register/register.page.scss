@@ -1,13 +1,13 @@
 *{
     color: #496AA8;
+    font-family: 'Sarabun', sans-serif;
 }
 ion-header{
     margin-top: 12px;
 }
 ion-title{
     text-align: left;
-    // background-color: #DCF7FC;
-    padding-left: 64px;
+    padding-left: 0px;
     color: #496AA8;
 }
 ion-toolbar{
@@ -32,8 +32,11 @@ ion-content{
 }
 
 ion-item {
-    --background: rgb(245, 222, 179, 0.7);
-    --background-activated: #5DBAE8;
+    --background: white;
+    border: 1px solid #5DBAE8;
+    border-radius: 10px;
+    font-size: large;
+    --background-activated: wheat;
 }
 ion-list{
     border-radius: 10px;  
@@ -41,17 +44,33 @@ ion-list{
 }
 
 ion-input{
-    background-color: rgb(245, 222, 179);
-    opacity: 0.7;
+    // background-color: rgb(245, 222, 179);
+    // opacity: 0.7;
+    background-color: white;
     border-radius: 10px;  
     text-align: center; 
     color:  #496AA8;
+    border: 1px solid #5DBAE8;
 }
 
 .regis-btn{
     color: white;
-    font-weight: bold;
     margin-top: 16px;
     box-shadow: 0px 3px 3px wheat;
     border-radius: 10px;
+}
+
+.hidden-list-bg{
+    background-color: transparent;
+    border-radius: 10px;
+    padding: 0px;
+    margin: 0px;
+}
+
+.group-radio{
+    margin-bottom: 5px;
+}
+
+ion-radio{
+    --color: #5DBAE8;
 }

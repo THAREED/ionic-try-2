@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Route } from '@angular/compiler/src/core';
+import { ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: 'app-lesson11',
@@ -8,19 +9,23 @@ import { Route } from '@angular/compiler/src/core';
   styleUrls: ['./lesson11.page.scss'],
 })
 export class Lesson11Page implements OnInit {
-
-  constructor(private route: Router) { }
+  lesson: String
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit() {
+    this.lesson = this.route.snapshot.paramMap.get('lesson');
   }
 
   start(){
-    this.route.navigate(['/lesson12']);
+    this.router.navigate(['/lesson12', this.lesson]);
   }
   
   goToLessonPage()
   {
-    this.route.navigate(['/tabs']);
+    this.router.navigate(['/tabs']);
   }
   
 

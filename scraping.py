@@ -49,20 +49,20 @@ try:
     )
     firstname = ""
     lastname = ""
-    sex = ""
+    gender = ""
     cursor = connection.cursor()
-    postgres_insert_query = """INSERT INTO user_lists (firstname, lastname, sex) VALUES (%s, %s, %s)"""
+    postgres_insert_query = """INSERT INTO user_lists (firstname, lastname, gender) VALUES (%s, %s, %s)"""
     for item in data_list[1:]:
         firstname = str(item).split(",")[1].replace("'", '').strip()
         lastname = str(item).split(",")[2].replace("'", '').strip()
         if RepresentsInt(str(item).split(",")[3].replace("'", '').strip()):
-            sex = "-"
+            gender = "-"
         else:
-            sex = str(item).split(",")[3].replace("'", '').strip()
+            gender = str(item).split(",")[3].replace("'", '').strip()
         record_to_insert = (
             firstname,
             lastname,
-            sex,
+            gender,
         )
         cursor.execute(postgres_insert_query, record_to_insert)
         count = cursor.rowcount

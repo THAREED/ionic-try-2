@@ -34,10 +34,10 @@ const createUser = (request, response) => {
     const {
         firstname,
         lastname,
-        sex
+        gender
     } = request.body
 
-    pool.query('INSERT INTO user_lists (firstname, lastname, sex) VALUES ($1, $2, $3)', [firstname, lastname, sex], (error, results) => {
+    pool.query('INSERT INTO user_lists (firstname, lastname, gender) VALUES ($1, $2, $3)', [firstname, lastname, gender], (error, results) => {
         if (error) {
             throw error
         }
@@ -50,12 +50,12 @@ const updateUser = (request, response) => {
     const {
         firstname,
         lastname,
-        sex
+        gender
     } = request.body
 
     pool.query(
-        'UPDATE user_lists SET firstname = $1, lastname = $2 , sex = $3 WHERE id = $4',
-        [firstname, lastname, sex, id],
+        'UPDATE user_lists SET firstname = $1, lastname = $2 , gender = $3 WHERE id = $4',
+        [firstname, lastname, gender, id],
         (error, results) => {
             if (error) {
                 throw error
@@ -176,27 +176,27 @@ const logout = (request, response) => {
 }
 
 const register = (request, response) => {
-    const username = request.body.username;
-    console.log(request.body);
-    const password = bcrypt.hashSync(request.body.password);
-
-    createUser([username, password], (err) => {
-        if (err) return response.status(500).send("Server error!");
-        findUserByEmail(email, (err, user) => {
-            if (err) return response.status(500).send('Server error!');
-            const expiresIn = 24 * 60 * 60;
-            const accessToken = jwt.sign({
-                id: user.id
-            }, SECRET_KEY, {
-                expiresIn: expiresIn
-            });
-            response.status(200).send({
-                "user": user,
-                "access_token": accessToken,
-                "expires_in": expiresIn
-            });
-        });
-    });
+    const {
+        firstname,
+        lastname,
+        gender,
+        phone,
+        username,
+        password
+    } = request.body
+    pool.query('SELECT * FROM auth_users WHERE username = $1', [username], (error, user) => {
+        if (error) {
+            throw error
+        }
+        if (isEmpty(user.rows)) {
+            pool.query('INSERT INTO auth_users (firstname, lastname, gender, phone, username, password) VALUES ($1, $2, $3, $4, $5, $6)', [firstname, lastname, gender, phone, username, password], (error, results) => {
+                if (error) {
+                    throw error
+                }
+                response.status(201).send(`User added with ID: ${results.insertId}`)
+            })
+        }
+    })
 }
 
 const login = (request, response) => {

@@ -5,6 +5,7 @@ import { Lesson } from '../../../models/lesson';
 import { HttpClient } from '@angular/common/http';
 import { tap } from 'rxjs/operators';
 
+var d
 @Component({
   selector: 'app-lesson12',
   templateUrl: './lesson12.page.html',
@@ -13,6 +14,8 @@ import { tap } from 'rxjs/operators';
 export class Lesson12Page implements OnInit {
   title: String
   char0: String
+  char0_split0: String
+  char0_split1: String
   char1: String
   char2: String
   param: string
@@ -40,6 +43,9 @@ export class Lesson12Page implements OnInit {
         this.lesson = lesson
         this.title = lesson[0].title
         this.char0 = lesson[0].characteristic_0
+        d = this.char0.split(",", 2)
+        this.char0_split0 = d[0]
+        this.char0_split1 = d[1]
         this.char1 = lesson[0].characteristic_1
         this.char2 = lesson[0].characteristic_2
       });

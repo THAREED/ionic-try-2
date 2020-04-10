@@ -1,12 +1,12 @@
 <ion-header>
 	<ion-title>
-	  บทเรียน - ลิ้น
+	  บทเรียน - {{ title }}
 	</ion-title>
 </ion-header><div class="blank"></div>
 <ion-content>
   
  	<div class="level-tab level-0">
-		ลิ้น - ระดับ 0 สุขภาพดี
+		{{ title }} - ระดับ 0 สุขภาพดี
 	</div>
   <h4 class="level-h">ลักษณะสำคัญ</h4>
   <ion-grid>
@@ -18,7 +18,9 @@
       </ion-col>
       <ion-col  class="col-2">
       <ion-row class="card-content">
-        ชุ่มชื้น ลิ้นสีชมพู
+        <ion-item>
+          {{ char0 }}
+        </ion-item>
       </ion-row>    
       </ion-col>    
     </ion-row>
@@ -32,7 +34,9 @@
         </ion-col>
         <ion-col  class="col-2">
         <ion-row class="card-content">
-          ผิวหยาบ ไม่เรียบ
+          <ion-item>
+            {{char0}}
+          </ion-item>
         </ion-row>    
         </ion-col>    
       </ion-row>

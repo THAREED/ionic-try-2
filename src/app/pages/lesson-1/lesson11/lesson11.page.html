@@ -1,7 +1,7 @@
 
 <ion-header>
-	<ion-title>
-    บทเรียน - ลิ้น
+	<ion-title >
+	บทเรียน - {{ title }}
     <!-- <ion-button (click)="goToLessonPage()" fill="clear">  <img  src="assets/icon/home.png">  บทเรียน - ลิ้น    </ion-button> -->
 	</ion-title>
   </ion-header>
@@ -39,7 +39,7 @@
   </ion-grid>
 
   	<div class="lesson-review">
-	  ผู้เรียนจะได้เรียนรู้ลักษณะของลิ้น 3 ระดับ และการประเมินเส้นเลือดขอดใต้ลิ้น ซึ่งเป็นจุดที่มีความกำกวมที่สุดในบทเรียนนี้
+		{{ description }}
   	</div>
   	<h4 class="level-h">ระดับความผิดปกติมี 3 ระดับ ดังนี้</h4>
   	<div class="level-tab level-0">

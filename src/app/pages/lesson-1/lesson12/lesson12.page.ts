@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from "@angular/router";
+import { Lesson } from '../../../models/lesson';
+import { HttpClient } from '@angular/common/http';
+import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-lesson12',
@@ -8,18 +11,38 @@ import { ActivatedRoute } from "@angular/router";
   styleUrls: ['./lesson12.page.scss'],
 })
 export class Lesson12Page implements OnInit {
-
-  lesson: string
+  title: String
+  char0: String
+  char1: String
+  char2: String
+  param: string
+  lesson:Lesson
+  SERVER_ADDRESS = 'http://localhost:3000'; // Your Node Address
   constructor(
+    private http: HttpClient,
     private router: Router,    
     private route: ActivatedRoute
   ) { }
 
   ngOnInit() {
-    this.lesson = this.route.snapshot.paramMap.get('lesson');
+    this.param = this.route.snapshot.paramMap.get('lesson');
   }
   nextPage(){
-    this.router.navigate(['/lesson13', this.lesson]);
+    this.router.navigate(['/lesson13', this.param]);
+  }
+  ionViewWillEnter() {
+      this.http.get<Lesson>(`${this.SERVER_ADDRESS}/` + this.param)
+      .pipe(
+        tap(lesson => {
+          return lesson;
+        })
+      ).subscribe(lesson => {
+        this.lesson = lesson
+        this.title = lesson[0].title
+        this.char0 = lesson[0].characteristic_0
+        this.char1 = lesson[0].characteristic_1
+        this.char2 = lesson[0].characteristic_2
+      });
   }
 
 }

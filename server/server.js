@@ -3,6 +3,7 @@ const bodyParser = require('body-parser')
 const app = express()
 const port = 3000
 const vhv = require('./vhv-query')
+const lesson = require('./lesson')
 const cors = require('cors')
 
 app.use(cors())
@@ -38,6 +39,8 @@ app.delete('/users/:id', vhv.deleteUser)
 app.delete('/users/', vhv.deleteAllUser)
 app.delete('/auth_users/:id', vhv.deleteAuthUser)
 app.delete('/auth_users/', vhv.deleteAllAuthUser)
+
+app.get('/tongue/', lesson.getTongue)
 
 app.listen(port, () => {
     console.log(`App running on port ${port}.`)

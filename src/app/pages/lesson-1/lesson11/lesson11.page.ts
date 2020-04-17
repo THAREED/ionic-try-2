@@ -37,7 +37,6 @@ export class Lesson11Page implements OnInit {
   
 
   ionViewWillEnter() {
-    if(this.param == "tongue"){
       this.http.get<Lesson>(`${this.SERVER_ADDRESS}/` + this.param)
       .pipe(
         tap(lesson => {
@@ -48,6 +47,5 @@ export class Lesson11Page implements OnInit {
         this.title = lesson[0].title
         this.description = lesson[0].description
       });
-    }
   }
 }

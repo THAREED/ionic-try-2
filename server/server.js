@@ -40,7 +40,14 @@ app.delete('/users/', vhv.deleteAllUser)
 app.delete('/auth_users/:id', vhv.deleteAuthUser)
 app.delete('/auth_users/', vhv.deleteAllAuthUser)
 
+app.get('/lip/', lesson.getLip)
 app.get('/tongue/', lesson.getTongue)
+app.get('/gum/', lesson.getGum)
+app.get('/saliva/', lesson.getSaliva)
+app.get('/teeth/', lesson.getTeeth)
+app.get('/denture/', lesson.getDenture)
+app.get('/cleanliness/', lesson.getCleanliness)
+app.get('/pain/', lesson.getPain)
 
 app.listen(port, () => {
     console.log(`App running on port ${port}.`)

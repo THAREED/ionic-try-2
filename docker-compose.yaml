@@ -23,7 +23,7 @@ services:
       PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-pgadmin4@pgadmin.org}
       PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:-admin}
     volumes:
-       - ///c/Users/verie/OneDrive/เดสก์ท็อป/ionic-try-2/pgadmin:/root/.pgadmin
+       - pg-admin:/root/.pgadmin
     ports:
       - "${PGADMIN_PORT:-5050}:80"
     networks:
@@ -45,7 +45,9 @@ services:
 volumes:
   data-psql:
     driver: local
-
+  pg-admin:
+    driver: local
+  
 
 networks:
   postgres:

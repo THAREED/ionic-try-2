@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { Lesson13PageRoutingModule } from './lesson13-routing.module';
+import { Ambiguous0PageRoutingModule } from './ambiguous0-routing.module';
 
-import { Lesson13Page } from './lesson13.page';
+import { Ambiguous0Page } from './ambiguous0.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    Lesson13PageRoutingModule
+    Ambiguous0PageRoutingModule
   ],
-  declarations: [Lesson13Page]
+  declarations: [Ambiguous0Page]
 })
-export class Lesson13PageModule {}
+export class Ambiguous0PageModule {}

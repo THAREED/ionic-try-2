@@ -21,12 +21,28 @@ const routes: Routes = [
     loadChildren: () => import('./pages/lesson-1/lesson12/lesson12.module').then( m => m.Lesson12PageModule)
   },
   {
-    path: 'lesson13/:lesson',
-    loadChildren: () => import('./pages/lesson-1/lesson13/lesson13.module').then( m => m.Lesson13PageModule)
-  },
-  {
     path: 'lesson14/:lesson',
     loadChildren: () => import('./pages/lesson-1/lesson14/lesson14.module').then( m => m.Lesson14PageModule)
+  },
+  {
+    path: 'lesson21/:lesson',
+    loadChildren: () => import('./pages/lesson-1/lesson21/lesson21.module').then( m => m.Lesson21PageModule)
+  },
+  {
+    path: 'lesson31/:lesson',
+    loadChildren: () => import('./pages/lesson-1/lesson31/lesson31.module').then( m => m.Lesson31PageModule)
+  },
+  {
+    path: 'ambiguous0/:lesson',
+    loadChildren: () => import('./pages/lesson-1/ambiguous0/ambiguous0.module').then( m => m.Ambiguous0PageModule)
+  },
+  {
+    path: 'ambiguous1/:lesson',
+    loadChildren: () => import('./pages/lesson-1/ambiguous1/ambiguous1.module').then( m => m.Ambiguous1PageModule)
+  },
+  {
+    path: 'ambiguous2/:lesson',
+    loadChildren: () => import('./pages/lesson-1/ambiguous2/ambiguous2.module').then( m => m.Ambiguous2PageModule)
   },
 
 

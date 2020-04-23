@@ -5,20 +5,20 @@ import { Lesson } from '../../../models/lesson';
 import { HttpClient } from '@angular/common/http';
 import { tap } from 'rxjs/operators';
 
-var split
+var d
 @Component({
-  selector: 'app-lesson12',
-  templateUrl: './lesson12.page.html',
-  styleUrls: ['./lesson12.page.scss'],
+  selector: 'app-lesson21',
+  templateUrl: './lesson21.page.html',
+  styleUrls: ['./lesson21.page.scss'],
 })
-export class Lesson12Page implements OnInit {
+export class Lesson21Page implements OnInit {
   title: String
   char0: String
   char0_split0: String
   char0_split1: String
   char1: String
   char2: String
-  ambiguous0: String
+  ambiguous1: String
   param: string
   lesson:Lesson
   SERVER_ADDRESS = 'http://localhost:3000'; // Your Node Address
@@ -32,11 +32,11 @@ export class Lesson12Page implements OnInit {
     this.param = this.route.snapshot.paramMap.get('lesson');
   }
   nextPage(){
-    if(this.ambiguous0 != null){
-      this.router.navigate(['/ambiguous0', this.param]);
+    if(this.ambiguous1 != null){
+      this.router.navigate(['/ambiguous1', this.param]);
     }
     else{
-      this.router.navigate(['/lesson21', this.param]);
+      this.router.navigate(['/lesson31', this.param]);
     }
   }
   ionViewWillEnter() {
@@ -48,14 +48,15 @@ export class Lesson12Page implements OnInit {
       ).subscribe(lesson => {
         this.lesson = lesson
         this.title = lesson[0].title
-        this.char0 = lesson[0].characteristic_0
-        split = this.char0.split(",", 2)
-        this.char0_split0 = split[0]
-        this.char0_split1 = split[1]
+        this.char0 = lesson[0].characteristic_1
+        d = this.char0.split(",", 2)
+        this.char0_split0 = d[0]
+        this.char0_split1 = d[1]
         this.char1 = lesson[0].characteristic_1
         this.char2 = lesson[0].characteristic_2
-        this.ambiguous0 = lesson[0].ambiguous_0
+        this.ambiguous1 = lesson[0].ambiguous_1
       });
+
   }
 
 }

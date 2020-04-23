@@ -1,0 +1,55 @@
+<ion-header>
+	<ion-title>
+	  บทเรียน - {{ title }}
+	</ion-title>
+</ion-header><div class="blank"></div>
+<ion-content>
+  
+ 	<div class="level-tab level-1">
+		{{ title }} - ระดับ 1 เริ่มมีปัญหาแล้วนะ
+	</div>
+  <h4 class="level-h">ลักษณะสำคัญ</h4>
+  <ion-grid>
+    <ion-row class="card">
+      <ion-col  class="col-1" size="3">
+      <ion-row class="card-img" justify-content-center>
+        <img src="assets/img/tongue0-1.png">
+      </ion-row>
+      </ion-col>
+      <ion-col  class="col-2">
+      <ion-row class="card-content">
+          {{ char0_split0 }}
+      </ion-row>    
+      </ion-col>    
+    </ion-row>
+    </ion-grid>
+    <ion-grid>
+      <ion-row class="card">
+        <ion-col  class="col-1" size="3">
+        <ion-row class="card-img" justify-content-center>
+          <img src="assets/img/tongue0-2.png">
+        </ion-row>
+        </ion-col>
+        <ion-col  class="col-2">
+        <ion-row class="card-content">
+            {{ char0_split1 }}
+        </ion-row>    
+        </ion-col>    
+      </ion-row>
+    </ion-grid>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <img src="assets/img/tongue0-3.png"> 
+        </ion-col>    
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-button (click)="nextPage()" type="submit" expand="block">ต่อไป</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+  
+  
+  </ion-content>

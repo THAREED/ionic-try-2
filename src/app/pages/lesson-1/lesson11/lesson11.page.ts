@@ -12,6 +12,7 @@ import { tap } from 'rxjs/operators';
 })
 export class Lesson11Page implements OnInit {
   param: String
+  src: String
   title: String
   description: String
   lesson:Lesson
@@ -24,6 +25,30 @@ export class Lesson11Page implements OnInit {
 
   ngOnInit() {
     this.param = this.route.snapshot.paramMap.get('lesson');
+    if(this.param == "lip"){
+      this.src = "assets/icon/ริมฝีปาก.png";
+    }
+    if(this.param == "tongue"){
+      this.src = "assets/icon/ลิ้น.png";
+    }
+    if(this.param == "gum"){
+      this.src = "assets/icon/เหงือก.png";
+    }
+    if(this.param == "saliva"){
+      this.src = "assets/icon/น้ำลาย.png";
+    }
+    if(this.param == "teeth"){
+      this.src = "assets/icon/ฟันธรรมชาติ.png";
+    }
+    if(this.param == "denture"){
+      this.src = "assets/icon/ฟันเทียม.png";
+    }
+    if(this.param == "cleanliness"){
+      this.src = "assets/icon/แปรงสีฟัน.png";
+    }
+    if(this.param == "pain"){
+      this.src = "assets/icon/ความเจ็บปวด.png";
+    }
   }
 
   start(){
@@ -37,15 +62,15 @@ export class Lesson11Page implements OnInit {
   
 
   ionViewWillEnter() {
-      this.http.get<Lesson>(`${this.SERVER_ADDRESS}/` + this.param)
-      .pipe(
-        tap(lesson => {
-          return lesson;
-        })
-      ).subscribe(lesson => {
-        this.lesson = lesson
-        this.title = lesson[0].title
-        this.description = lesson[0].description
-      });
+    this.http.get<Lesson>(`${this.SERVER_ADDRESS}/` + this.param)
+    .pipe(
+      tap(lesson => {
+        return lesson;
+      })
+    ).subscribe(lesson => {
+      this.lesson = lesson
+      this.title = lesson[0].title
+      this.description = lesson[0].description
+    });
   }
 }

@@ -2,21 +2,9 @@
     max-height: 35vh;
     overflow: hidden;
   }
-  *{
+  ion-content{
     font-family: 'Sarabun', sans-serif;
     color: #061E4C;   
-  }
-  ion-title{
-    text-align: left;
-    padding-left: 20pt;
-    font-size: 1.3em;
-    color: #061E4C;
-    background-color: #DCF7FC;
-    height: 50px;
-  }
-  ion-title img{
-    height: 28px;
-    // float: left;
   }
   ion-content{
     --background: url('src/assets/img/login_bg.png') no-repeat center/cover fixed;

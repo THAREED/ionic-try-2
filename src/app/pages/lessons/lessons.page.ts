@@ -72,7 +72,7 @@ export class LessonsPage implements OnInit {
   }
   lesson1()
   {
-    this.route.navigate(['/tabs']);
+    this.route.navigate(['/lesson11']);
   }
 
 

@@ -2,20 +2,16 @@
     font-family: 'Sarabun', sans-serif;
     color: #061E4C;   
   }
-  ion-title{
-    text-align: left;
-    padding-left: 20pt;
-    font-size: 1.3em;
-    color: #061E4C;
-    background-color: #DCF7FC;
-    height: 50px;
-  }
-  ion-content{
+
+ion-content{
     --background: url('src/assets/img/login_bg.png') no-repeat center/cover fixed;
 }
-.blank{
-  //  height: 50px;
+ion-title{
+    text-align: left;
+    padding-left: 64px;
+    color: #496AA8;
 }
+
 .card{
 border: 1pt solid #5DBAE8;
 border-radius: 10px;
@@ -73,7 +69,7 @@ height: 64px;
 .level-2{
     background-color: #FD7878;
 }
-ion-button, .box-shadow{
+.prev-button, .next-button, .box-shadow{
     box-shadow: 0px 3px 5px #00000040;
     border-radius: 10px;
     color: white;

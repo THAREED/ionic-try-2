@@ -1,8 +1,12 @@
-<ion-header>
-  <ion-title>
-    แบบฝึกหัด
-  </ion-title>
-</ion-header>
+<ion-header translucent="true">
+	<ion-toolbar color="secondary">   
+	  <!-- <ion-buttons collapse="true" slot="start"> -->
+	  <ion-buttons slot="start">
+		<ion-button> <img class="home-btn" src="assets/icon/logo.png" alt="icon/logo"></ion-button>
+	  </ion-buttons> 
+	  <ion-title class="thai-word">แบบฝึกหัด - ลิ้น</ion-title>               
+	</ion-toolbar>
+  </ion-header>
 
 <ion-content>
 
@@ -25,7 +29,7 @@
 
     <ion-col>  
       <ion-row justify-content-center>
-        <ion-button class="icon-btn" shape="round" color="secondary">
+        <ion-button class="icon-btn" (click) ="ex1()" shape="round" color="secondary">
           <img src="assets/icon/ลิ้น.png">
         </ion-button>
       </ion-row>

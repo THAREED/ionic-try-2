@@ -21,10 +21,6 @@ const routes: Routes = [
     loadChildren: () => import('./pages/lesson-1/lesson12/lesson12.module').then( m => m.Lesson12PageModule)
   },
   {
-    path: 'lesson14/:lesson',
-    loadChildren: () => import('./pages/lesson-1/lesson14/lesson14.module').then( m => m.Lesson14PageModule)
-  },
-  {
     path: 'lesson21/:lesson',
     loadChildren: () => import('./pages/lesson-1/lesson21/lesson21.module').then( m => m.Lesson21PageModule)
   },
@@ -51,6 +47,18 @@ const routes: Routes = [
   {
     path: 'ex1-score',
     loadChildren: () => import('./pages/exercises/exercise/ex1-score/ex1-score.module').then( m => m.Ex1ScorePageModule)
+  },
+  {
+    path: 'lesson14/:lesson',
+    loadChildren: () => import('./pages/lesson-1/lesson14/lesson14.module').then( m => m.Lesson14PageModule)
+  },
+  {
+    path: 'lesson24/:lesson',
+    loadChildren: () => import('./pages/lesson-1/lesson24/lesson24.module').then( m => m.Lesson24PageModule)
+  },
+  {
+    path: 'lesson34/:lesson',
+    loadChildren: () => import('./pages/lesson-1/lesson34/lesson34.module').then( m => m.Lesson34PageModule)
   },
 ];
 @NgModule({

@@ -34,7 +34,7 @@ export class Ambiguous1Page implements OnInit {
   //   this.router.navigate(['/lesson12', this.param]);
   // }
   nextPage(){
-    this.router.navigate(['/lesson31', this.param]);
+    this.router.navigate(['/lesson24', this.param]);
   }
   ionViewWillEnter() {
     this.http.get<Lesson>(`${this.SERVER_ADDRESS}/` + this.param)

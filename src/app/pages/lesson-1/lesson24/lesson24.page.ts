@@ -9,11 +9,11 @@ import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
 
 var split
 @Component({
-  selector: 'app-lesson14',
-  templateUrl: './lesson14.page.html',
-  styleUrls: ['./lesson14.page.scss'],
+  selector: 'app-lesson24',
+  templateUrl: './lesson24.page.html',
+  styleUrls: ['./lesson24.page.scss'],
 })
-export class Lesson14Page implements OnInit {
+export class Lesson24Page implements OnInit {
   title: String
   param: String
   seq: number
@@ -58,7 +58,7 @@ export class Lesson14Page implements OnInit {
 
   stopTimer(){
     clearInterval(this.interval)
-    this.router.navigate(['/lesson21', this.param])
+    this.router.navigate(['/lesson31', this.param])
   }
 
   nextTimer(){
@@ -99,7 +99,7 @@ export class Lesson14Page implements OnInit {
     this.startTimer(5)
   }
   nextPage(){
-      this.router.navigate(['/lesson21', this.param])
+      this.router.navigate(['/lesson31', this.param])
   }
   ionViewWillEnter() {
     console.log(this.screenOrientation.type);

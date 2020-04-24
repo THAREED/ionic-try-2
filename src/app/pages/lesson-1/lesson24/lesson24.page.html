@@ -7,7 +7,7 @@
         </ion-row>
         <ion-row justify-content-center name="cnt-img">{{ seq }} จาก 5</ion-row>
       </ion-col>
-      <ion-col size="3" class="level-0-bg">
+      <ion-col size="3" class="level-1-bg">
         <ion-row class="btn-row" justify-content-center>
               <img *ngIf="state === 'start' "(click) ="pauseTimer()" class="btn" src="assets/icon/หยุด.png">
               <img *ngIf="state === 'pause' "(click) ="continueTimer()" class="btn" src="assets/icon/เล่นต่อ.png">
@@ -21,7 +21,7 @@
           <h2>ระดับ</h2>
         </ion-row>
         <ion-row justify-content-center>
-          <h1 name="level">0</h1>
+          <h1 name="level">1</h1>
         </ion-row>
         <ion-row justify-content-center>
           <ion-col size="3"></ion-col>

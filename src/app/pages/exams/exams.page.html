@@ -1,141 +1,39 @@
-<ion-header>
-  <ion-title>
-    PRACTEETH
-  </ion-title>
+<ion-header translucent="true">
+  <ion-toolbar color="secondary">   
+    <!-- <ion-buttons collapse="true" slot="start"> -->
+    <ion-buttons slot="start">
+      <ion-button> <img class="home-btn" src="assets/icon/แบบทดสอบ.png" alt="icon/howto"></ion-button>
+    </ion-buttons> 
+    <ion-title class="thai-word">แบบทดสอบ</ion-title>               
+  </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
-  <ion-grid>
+  <ion-grid class="case-card" padding>
+    <ion-button expand="block" class="do-exam"><img src="assets/icon/แบบทดสอบ.png" alt="icon/howto"> <label>ทำแบบทดสอบ</label> </ion-button>  
+    <b><br>ประวัติการทำแบบทดสอบ</b>
+    <p class="txt-right">ข้อมูลตั้งแต่ 23/09/2562 - วันนี้</p>
     <ion-row>
-
-      <ion-col class="first-col">
-        <ion-row justify-content-center>
-          <ion-button class="icon-btn" shape="round" color="secondary">
-            <img src="assets/icon/ริมฝีปาก.png">
-          </ion-button>
-        </ion-row>
-        <ion-row class="label-bor" justify-content-center>
-          ริมฝีปาก
-        </ion-row>
-        <ion-row justify-content-center>
-          <img class="level" src="assets/icon/ระดับ0.png">
-        </ion-row>
-      </ion-col>
-
       <ion-col>
-        <ion-row justify-content-center>
-          <ion-button class="icon-btn" shape="round" color="secondary">
-            <img src="assets/icon/ลิ้น.png">
-          </ion-button>
-        </ion-row>
-        <ion-row class="label-bor" justify-content-center>
-          ลิ้น
-        </ion-row>
-        <ion-row justify-content-center>
-          <img class="level" src="assets/icon/ระดับ1.png">
-        </ion-row>
+          <p class="case-id">กรณี 255961 <label class="txt-right">12/12/2562</label></p>
+          <p class="case-detail">หญิง, 52ปี <label class="txt-right"> 82 คะแนน</label></p>
+          <ion-row>
+            <ion-col>
+              <img src="assets/img/tongue0-4.png">
+            </ion-col>
+            <ion-col>
+              <img src="assets/img/tongue0-4.png">
+            </ion-col>
+            <ion-col>
+              <img src="assets/img/tongue0-4.png">
+            </ion-col>
+          </ion-row>
       </ion-col>
 
-      <ion-col class="last-col">
-        <ion-row justify-content-center>
-          <ion-button class="icon-btn" shape="round" color="secondary">
-            <img src="assets/icon/เหงือก.png">
-          </ion-button>
-        </ion-row>
-        <ion-row class="label-bor" justify-content-center>
-          เหงือก
-        </ion-row>
-        <ion-row justify-content-center>
-          <img class="level" src="assets/icon/ระดับ2.png">
-        </ion-row>
-      </ion-col>
+      
 
     </ion-row>
-
-    <ion-row>
-
-      <ion-col class="first-col">
-        <ion-row justify-content-center>
-          <ion-button class="icon-btn" shape="round" color="secondary">
-            <img src="assets/icon/น้ำลาย.png">
-          </ion-button>
-        </ion-row>
-        <ion-row class="label-bor" justify-content-center>
-          น้ำลาย
-        </ion-row>
-        <ion-row justify-content-center>
-          <img class="level" src="assets/icon/ระดับ3.png">
-        </ion-row>
-      </ion-col>
-
-      <ion-col>
-        <ion-row justify-content-center>
-          <ion-button class="icon-btn" shape="round" color="secondary">
-            <img src="assets/icon/ฟันธรรมชาติ.png">
-          </ion-button>
-        </ion-row>
-        <ion-row class="label-bor text-size-s" justify-content-center>
-          ฟันธรรมชาติ
-        </ion-row>
-        <ion-row justify-content-center>
-          <img class="level" src="assets/icon/ระดับ1.png">
-        </ion-row>
-      </ion-col>
-
-      <ion-col class="last-col">
-        <ion-row justify-content-center>
-          <ion-button class="icon-btn" shape="round" color="secondary">
-            <img src="assets/icon/ฟันเทียม.png">
-          </ion-button>
-        </ion-row>
-        <ion-row class="label-bor" justify-content-center>
-          ฟันปลอม
-        </ion-row>
-        <ion-row justify-content-center>
-          <img class="level" src="assets/icon/ระดับ2.png">
-        </ion-row>
-      </ion-col>
-
-    </ion-row>
-
-    <ion-row>
-
-      <ion-col class="first-col">
-        <ion-row justify-content-center>
-          <ion-button class="icon-btn" shape="round" color="secondary">
-            <img src="assets/icon/แปรงสีฟัน.png">
-          </ion-button>
-        </ion-row>
-        <ion-row class="label-bor text-size-s" justify-content-center>
-          ความสะอาด
-        </ion-row>
-        <ion-row justify-content-center>
-          <img class="level" src="assets/icon/ระดับ2.png">
-        </ion-row>
-      </ion-col>
-
-      <ion-col>
-        <ion-row justify-content-center>
-          <ion-button class="icon-btn" shape="round" color="secondary">
-            <img src="assets/icon/ความเจ็บปวด.png">
-          </ion-button>
-        </ion-row>
-        <ion-row class="label-bor text-size-ss" justify-content-center>
-          ความเจ็บปวด
-        </ion-row>
-        <ion-row justify-content-center>
-          <img class="level" src="assets/icon/ระดับ3.png">
-        </ion-row>
-      </ion-col>
-
-      <ion-col class="blank-col"></ion-col>
-
-    </ion-row>
+    
   </ion-grid>
-
-
-
-
 
 </ion-content>

@@ -1,0 +1,108 @@
+<ion-header translucent="true">
+  <ion-toolbar color="secondary">   
+    <!-- <ion-buttons collapse="true" slot="start"> -->
+    <ion-buttons slot="end">
+      <ion-button> <img class="home-btn" src="assets/icon/วิธีใช้.png" alt="icon/howto"></ion-button>
+    </ion-buttons> 
+    <ion-buttons slot="start">
+      <ion-button> <img class="home-btn" src="assets/icon/home.png" alt="icon/home"></ion-button>
+    </ion-buttons> 
+    <ion-title class="thai-word">สรุปคะแนนและประวัติแบบฝึกหัด - {{ title }}</ion-title>               
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid padding>
+    <ion-row>
+      <ion-col size="9">
+        <label class="title-score">คะแนนดิบ: <b>20</b> </label><br>
+        <label class="title-score">หยุดเวลา: <b>2</b> </label><br>
+        <label class="title-score">การใช้ตัวช่วย: <b>1</b> </label><br>
+        <label class="title-score txt-hilight">         
+          <img class="score-icon" src="assets/icon/คะแนน.png" alt="icon/Score">
+          คะแนนสุทธิ(100): <b>80</b> </label><br>
+      </ion-col>
+      <ion-col>
+        <img class="user-level" src="assets/icon/new-student.png" alt="icon/new-student">
+      </ion-col>
+    </ion-row>
+    <ion-row class="answer" justify-content-center>เฉลยแบบฝึกหัด</ion-row>
+    <ion-row class="level-0">
+      <ion-row class="ans-level">ระดับ 0 สุขภาพดี</ion-row>
+      <ion-row>
+        <ion-col class="card-img">
+          <img src="assets/img/tongue0-4.png">
+          <img class="posi" src="assets/icon/ถูก.png">
+        </ion-col>
+        <ion-col class="card-img">
+          <img src="assets/img/tongue0-4.png">
+          <img class="posi" src="assets/icon/ถูก.png">
+        </ion-col>
+        <ion-col class="card-img">
+          <img src="assets/img/tongue0-4.png">
+          <img class="posi" src="assets/icon/ถูก.png">
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="card-img">
+          <img src="assets/img/tongue0-4.png">
+          <img class="posi" src="assets/icon/ผิด.png">
+        </ion-col>
+        <ion-col class="card-img">
+          <img src="assets/img/tongue0-4.png">
+          <img class="posi" src="assets/icon/ผิด.png">
+        </ion-col>
+        <ion-col>
+        </ion-col>
+      </ion-row>
+    </ion-row>
+
+    <ion-row class="level-1">
+      <ion-row class="ans-level">ระดับ 0 เริ่มมีปัญหาแล้วนะ</ion-row>
+      <ion-row>
+        <ion-col class="card-img">
+          <img src="assets/img/tongue0-4.png">
+          <img class="posi" src="assets/icon/ถูก.png">
+        </ion-col>
+        <ion-col class="card-img">
+          <img src="assets/img/tongue0-4.png">
+          <img class="posi" src="assets/icon/ถูก.png">
+        </ion-col>
+        <ion-col class="card-img">
+          <img src="assets/img/tongue0-4.png">
+          <img class="posi" src="assets/icon/ผิด.png">
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col class="card-img">
+          <img src="assets/img/tongue0-4.png">
+          <img class="posi" src="assets/icon/ผิด.png">
+        </ion-col>
+        <ion-col>
+        </ion-col>
+        <ion-col>
+        </ion-col>
+      </ion-row>
+    </ion-row>
+
+    <ion-row class="level-2">
+      <ion-row class="ans-level">ระดับ 2 ไปหาหมอด่วน</ion-row>
+      <ion-row>
+        <ion-col class="card-img">
+          <img src="assets/img/tongue0-4.png">
+          <img class="posi" src="assets/icon/ถูก.png">
+        </ion-col>
+        <ion-col class="card-img">
+          <img src="assets/img/tongue0-4.png">
+          <img class="posi" src="assets/icon/ถูก.png">
+        </ion-col>
+        <ion-col class="card-img">
+          <img src="assets/img/tongue0-4.png">
+          <img class="posi" src="assets/icon/ถูก.png">
+        </ion-col>
+      </ion-row>
+      
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

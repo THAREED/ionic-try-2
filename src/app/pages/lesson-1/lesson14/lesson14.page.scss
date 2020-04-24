@@ -1,0 +1,47 @@
+*{
+    font-family: 'Sarabun', sans-serif;
+    color: #061E4C;   
+}
+
+ion-content{
+    --background: url('src/assets/img/login_bg.png') no-repeat center/cover fixed;
+}
+.level-0-bg{
+    background-color: #17F6AD;
+    border-radius: 0px 10px 10px 0px;
+    box-shadow: 0px 3px 2px #00000040;
+}
+.btn{
+    width: 30%;
+    margin: 1.2%;
+    float: left;
+    box-shadow: 0px 2px 1px #00000040;
+    border-radius: 100%;
+}
+.btn-row{
+    margin: 0px;
+    background-color: #5DBAE8;
+    padding: 5px;
+    border-radius: 0px 10px 10px 10px;
+    box-shadow: 5px 3px 2px #00000040;
+}
+.timmer{
+    background-color: #F8CD0C;
+    font-weight: bolder;
+    border: 3px dashed #FF6B6B;
+    border-radius: 100%;
+    text-align: center;
+}
+.card-img img{
+    border-radius: 10px 0px 10px 10px;
+}
+.img-bg{
+    background-color: #5DBAE8;
+    border-radius: 10px 0px 0px 10px;
+    box-shadow: 0px 3px 2px #00000040;
+}
+label{
+    font-size: 0.6em;
+    padding-left: 5px;
+    color: white;
+}

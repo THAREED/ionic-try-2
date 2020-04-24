@@ -11,6 +11,23 @@
 @import '~@ionic/angular/css/flex-utils.css';
 
 
-*{
+*, .thai-word{
     font-family: 'Sarabun', sans-serif;
+}
+ion-header{
+    margin-top: 12px;
+}
+ion-title{
+    text-align: left;
+    padding-left: 64px;
+    color: #496AA8;
+}
+ion-toolbar{
+    box-shadow: 0px 3px 3px wheat;
+    // background-color: #DCF7FC;
+}
+.home-btn{
+    width: 32px;
+    height: auto;
+    margin-left: 16px;
 }

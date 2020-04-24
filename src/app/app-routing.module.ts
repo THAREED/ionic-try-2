@@ -44,8 +44,14 @@ const routes: Routes = [
     path: 'ambiguous2/:lesson',
     loadChildren: () => import('./pages/lesson-1/ambiguous2/ambiguous2.module').then( m => m.Ambiguous2PageModule)
   },
-
-
+  {
+    path: 'ex1',
+    loadChildren: () => import('./pages/exercises/exercise/ex1/ex1.module').then( m => m.Ex1PageModule)
+  },
+  {
+    path: 'ex1-score',
+    loadChildren: () => import('./pages/exercises/exercise/ex1-score/ex1-score.module').then( m => m.Ex1ScorePageModule)
+  },
 ];
 @NgModule({
   imports: [

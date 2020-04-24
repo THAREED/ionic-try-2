@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Platform } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from "@angular/router";
 import { Lesson } from '../../../models/lesson';
@@ -22,13 +23,15 @@ export class Lesson14Page implements OnInit {
   timer: number
   interval;
   lesson:Lesson
+  currentScreenOrientation:string
   SERVER_ADDRESS = 'http://localhost:3000'; // Your Node Address
   constructor(
     private http: HttpClient,
     private router: Router,    
     private route: ActivatedRoute,
-    private screenOrientation: ScreenOrientation
-  ) { }
+    private screenOrientation: ScreenOrientation,
+    public platform: Platform
+  ) {}
 
   startTimer(duration: number){
       this.state = 'start'
@@ -94,15 +97,14 @@ export class Lesson14Page implements OnInit {
   
   ngOnInit() {
     this.param = this.route.snapshot.paramMap.get('lesson')
-    // this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
     this.seq = 1
     this.startTimer(5)
+    this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
   }
   nextPage(){
       this.router.navigate(['/lesson21', this.param])
   }
   ionViewWillEnter() {
-    console.log(this.screenOrientation.type);
     this.http.get<Lesson>(`${this.SERVER_ADDRESS}/` + this.param)
     .pipe(
       tap(lesson => {

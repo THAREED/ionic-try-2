@@ -4,6 +4,7 @@ import { ActivatedRoute } from "@angular/router";
 import { Lesson } from '../../../models/lesson';
 import { HttpClient } from '@angular/common/http';
 import { tap } from 'rxjs/operators';
+import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
 
 var d
 @Component({
@@ -25,11 +26,13 @@ export class Lesson21Page implements OnInit {
   constructor(
     private http: HttpClient,
     private router: Router,    
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private screenOrientation: ScreenOrientation
   ) { }
 
   ngOnInit() {
     this.param = this.route.snapshot.paramMap.get('lesson');
+    this.screenOrientation.unlock();
   }
   nextPage(){
     if(this.ambiguous1 != null){

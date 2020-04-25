@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Platform } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from "@angular/router";
 import { Lesson } from '../../../models/lesson';
@@ -8,7 +7,6 @@ import { tap } from 'rxjs/operators';
 import { BehaviorSubject } from 'rxjs';
 import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
 
-var split
 @Component({
   selector: 'app-lesson14',
   templateUrl: './lesson14.page.html',
@@ -29,8 +27,7 @@ export class Lesson14Page implements OnInit {
     private http: HttpClient,
     private router: Router,    
     private route: ActivatedRoute,
-    private screenOrientation: ScreenOrientation,
-    public platform: Platform
+    private screenOrientation: ScreenOrientation
   ) {}
 
   startTimer(duration: number){

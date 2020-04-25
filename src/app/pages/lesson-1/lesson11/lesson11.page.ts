@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Route } from '@angular/compiler/src/core';
 import { ActivatedRoute } from "@angular/router";
 import { Lesson } from '../../../models/lesson';
 import { HttpClient } from '@angular/common/http';
 import { tap } from 'rxjs/operators';
+import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
+
 @Component({
   selector: 'app-lesson11',
   templateUrl: './lesson11.page.html',
@@ -20,10 +21,12 @@ export class Lesson11Page implements OnInit {
   constructor(
     private http: HttpClient,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private screenOrientation: ScreenOrientation
   ) { }
 
   ngOnInit() {
+    this.screenOrientation.unlock();
     this.param = this.route.snapshot.paramMap.get('lesson');
     if(this.param == "lip"){
       this.src = "assets/icon/ริมฝีปาก.png";

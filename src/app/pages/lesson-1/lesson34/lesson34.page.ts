@@ -58,6 +58,7 @@ export class Lesson34Page implements OnInit {
 
   stopTimer(){
     clearInterval(this.interval)
+    this.screenOrientation.unlock();
     this.router.navigate(['/app'])
   }
 
@@ -94,9 +95,9 @@ export class Lesson34Page implements OnInit {
   
   ngOnInit() {
     this.param = this.route.snapshot.paramMap.get('lesson')
-    // this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
     this.seq = 1
     this.startTimer(5)
+    this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
   }
   nextPage(){
       this.router.navigate(['/lesson21', this.param])

@@ -94,9 +94,9 @@ export class Lesson24Page implements OnInit {
   
   ngOnInit() {
     this.param = this.route.snapshot.paramMap.get('lesson')
-    // this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
     this.seq = 1
     this.startTimer(5)
+    this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
   }
   nextPage(){
       this.router.navigate(['/lesson31', this.param])

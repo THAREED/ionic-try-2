@@ -41,7 +41,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/lesson-1/ambiguous2/ambiguous2.module').then( m => m.Ambiguous2PageModule)
   },
   {
-    path: 'ex1',
+    path: 'ex1/:lesson',
     loadChildren: () => import('./pages/exercises/exercise/ex1/ex1.module').then( m => m.Ex1PageModule)
   },
   {

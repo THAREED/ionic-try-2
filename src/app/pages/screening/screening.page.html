@@ -1,7 +1,11 @@
-<ion-header>
-    <ion-title>
-      คัดกรองผู้ป่วย
-    </ion-title>
+<ion-header translucent="true">
+  <ion-toolbar color="secondary">   
+    <!-- <ion-buttons collapse="true" slot="start"> -->
+    <ion-buttons slot="start">
+      <ion-button> <img class="home-btn" src="assets/icon/คัดกรอง.png" alt="icon/screen"></ion-button>
+    </ion-buttons> 
+    <ion-title class="thai-word">คัดกรอง</ion-title>               
+  </ion-toolbar>
 </ion-header>
 
 <ion-content>
@@ -9,7 +13,7 @@
    <ion-row>
       <ion-col  class="first-col">
         <ion-row justify-content-center>
-          <ion-button class="icon-btn" shape="round" color="secondary">
+          <ion-button (click)="addPatient()" class="icon-btn" shape="round" color="secondary">
             <img src="assets/icon/คัดกรอง.png">
           </ion-button>
         </ion-row>
@@ -21,7 +25,7 @@
   <ion-row>
     <ion-col  class="first-col">
       <ion-row justify-content-center>
-        <ion-button class="icon-btn" shape="round" color="secondary">
+        <ion-button (click)="lookUp()" class="icon-btn" shape="round" color="secondary">
           <img src="assets/icon/ผู้ป่วยของฉัน.png">
         </ion-button>
       </ion-row>

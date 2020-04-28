@@ -13,7 +13,7 @@ services:
     ports:
       - "5500:5432"
     networks:
-      - postgres
+      - internal
     restart: unless-stopped
   
   pgadmin:
@@ -27,7 +27,7 @@ services:
     ports:
       - "${PGADMIN_PORT:-5050}:80"
     networks:
-      - postgres
+      - internal
     restart: unless-stopped
   
   node-api:
@@ -39,7 +39,17 @@ services:
     ports:
       - "${NODE_PORT:-3000}:3000"
     networks:
-      - postgres
+      - internal
+    restart: unless-stopped
+
+  python-http-server:
+    container_name: python-http-server
+    build: ./picture/.
+    image: python:3.9.0a5-alpine3.11
+    ports:
+      - "51412:51412"
+    networks:
+      - internal
     restart: unless-stopped
 
 volumes:
@@ -50,5 +60,5 @@ volumes:
   
 
 networks:
-  postgres:
+  internal:
     driver: bridge

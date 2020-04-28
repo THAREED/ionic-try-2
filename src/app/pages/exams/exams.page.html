@@ -9,16 +9,17 @@
 </ion-header>
 
 <ion-content>
-  <ion-grid class="case-card" padding>
-    <ion-button expand="block" class="do-exam"><img src="assets/icon/แบบทดสอบ.png" alt="icon/howto"> <label>ทำแบบทดสอบ</label> </ion-button>  
+  <ion-grid padding>
+    <ion-button (click)="startExam()" expand="block" class="do-exam"><img src="assets/icon/แบบทดสอบ.png" alt="icon/howto"> <label>ทำแบบทดสอบ</label> </ion-button>  
     <b><br>ประวัติการทำแบบทดสอบ</b>
-    <p class="txt-right">ข้อมูลตั้งแต่ 23/09/2562 - วันนี้</p>
-    <ion-row>
-      <ion-col>
-          <p class="case-id">กรณี 255961 <label class="txt-right">12/12/2562</label></p>
-          <p class="case-detail">หญิง, 52ปี <label class="txt-right"> 82 คะแนน</label></p>
+    <p class="txt-right font-xs">ข้อมูลตั้งแต่ 23/09/2562 - วันนี้</p>
+    <ion-row  class="case-card">
+      <ion-row>
+      <ion-col size="8">
+        <label class="case-id">กรณี #255961</label><label class="case-status level-2">ฉุกเฉิน</label>
+        <p class="case-detail">หญิง, 52 ปี</p>
           <ion-row>
-            <ion-col>
+            <ion-col class="pad-0">
               <img src="assets/img/tongue0-4.png">
             </ion-col>
             <ion-col>
@@ -29,8 +30,82 @@
             </ion-col>
           </ion-row>
       </ion-col>
+      <ion-col>
+        <p class="lint-h-s txt-right font-xs">23/09/2562</p>
+        <p class="lint-h-s font-l txt-center font-w-b">82 คะแนน</p>
+        <ion-button expand="block" class="button-icon"><img src="assets/icon/คะแนน.png" alt="icon/history"> <label>ดูประวัติ</label> </ion-button>  
+      </ion-col> 
+    </ion-row>
 
-      
+    <ion-row>
+      <ion-col size="8">
+        <label class="case-id">กรณี #255961</label><label class="case-status level-2">ฉุกเฉิน</label>
+        <p class="case-detail">ชาย, 43 ปี</p>
+          <ion-row >
+            <ion-col class="pad-0">
+              <img src="assets/img/tongue0-4.png">
+            </ion-col>
+            <ion-col>
+              <img src="assets/img/tongue0-4.png">
+            </ion-col>
+            <ion-col>
+              <img src="assets/img/tongue0-4.png">
+            </ion-col>
+          </ion-row>
+      </ion-col>
+      <ion-col>
+        <p class="lint-h-s txt-right font-xs">23/09/2562</p>
+        <p class="lint-h-s font-l txt-center font-w-b">82 คะแนน</p>
+        <ion-button expand="block" class="button-icon"><img src="assets/icon/คะแนน.png" alt="icon/history"> <label>ดูประวัติ</label> </ion-button>  
+      </ion-col> 
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="8">
+        <label class="case-id">กรณี #255961</label><label class="case-status level-0">สุขภาพดี</label>
+        <p class="case-detail">หญิง, 52 ปี</p>
+          <ion-row >
+            <ion-col class="pad-0">
+              <img src="assets/img/tongue0-4.png">
+            </ion-col>
+            <ion-col>
+              <img src="assets/img/tongue0-4.png">
+            </ion-col>
+            <ion-col>
+              <img src="assets/img/tongue0-4.png">
+            </ion-col>
+          </ion-row>
+      </ion-col>
+      <ion-col>
+        <p class="lint-h-s txt-right font-xs">23/09/2562</p>
+        <p class="lint-h-s font-l txt-center font-w-b">82 คะแนน</p>
+        <ion-button expand="block" class="button-icon"><img src="assets/icon/คะแนน.png" alt="icon/history"> <label>ดูประวัติ</label> </ion-button>  
+      </ion-col> 
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="8">
+        <label class="case-id">กรณี #255961</label><label class="case-status level-1">ควรพบ</label>
+        <p class="case-detail">หญิง, 46 ปี</p>
+          <ion-row >
+            <ion-col class="pad-0">
+              <img src="assets/img/tongue0-4.png">
+            </ion-col>
+            <ion-col>
+              <img src="assets/img/tongue0-4.png">
+            </ion-col>
+            <ion-col>
+              <img src="assets/img/tongue0-4.png">
+            </ion-col>
+          </ion-row>
+      </ion-col>
+      <ion-col>
+        <p class="lint-h-s txt-right font-xs">23/09/2562</p>
+        <p class="lint-h-s font-l txt-center font-w-b">82 คะแนน</p>
+        <ion-button expand="block" class="button-icon"><img src="assets/icon/คะแนน.png" alt="icon/history"> <label>ดูประวัติ</label> </ion-button>  
+      </ion-col> 
+    </ion-row>
+
 
     </ion-row>
     

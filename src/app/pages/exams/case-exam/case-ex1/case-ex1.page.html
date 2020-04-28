@@ -1,0 +1,49 @@
+<ion-header translucent="true">
+  <ion-toolbar color="secondary">   
+    <!-- <ion-buttons collapse="true" slot="start"> -->
+    <ion-buttons slot="end">
+      <ion-button> <img class="home-btn" src="assets/icon/วิธีใช้.png" alt="icon/howto"></ion-button>
+    </ion-buttons> 
+    <ion-title class="thai-word">แบบทดสอบ</ion-title>               
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid padding>
+    <ion-row justify-content-center>1/8</ion-row>
+    <ion-row>
+        <label class="timer">1.46 <label class="min">นาที</label></label>
+        <img class="stop-button" src="assets/icon/หยุด.png">
+        <label class="case-info">ชาย, 57 ปี</label>
+    </ion-row>
+    <ion-row class="card-img" justify-content-center>
+      <img src="assets/img/tongue0-4.png">
+    </ion-row>
+    <ion-row class="title">
+      ริมฝีปาก
+    </ion-row>
+     <ion-row>
+      <ion-list class="hidden-list-bg" lines="none">
+        <ion-radio-group radio-group [(ngModel)]="meeting" name = "meeting">
+          <ion-item class="group-radio level-0">
+            <ion-label class="thai-word">ระดับ 0 ชุ่มชื้น เรียบ ชมพู</ion-label>
+            <ion-radio value="0" slot="start"></ion-radio>
+          </ion-item>
+          <ion-item class="group-radio level-1">
+            <ion-label class="thai-word">ระดับ 1 แห้งแตก มีสีแดงที่มุมปาก</ion-label>
+            <ion-radio value="1" slot="start"></ion-radio>
+          </ion-item>
+          <ion-item class="group-radio level-2">
+            <ion-label class="thai-word">ระดับ 2 บวม มีก้อน เลือดออก เป็นแผล</ion-label>
+            <ion-radio value="2" slot="start"></ion-radio>
+          </ion-item>
+        </ion-radio-group>
+      </ion-list>
+    </ion-row>
+     <ion-row>
+      <ion-col><ion-button disabled color="warning" class="render-button" (click)="prevPage()" type="submit" expand="block">ย้อนกลับ</ion-button>       </ion-col>
+      <ion-col><ion-button class="render-button" (click)="checkAns()" type="submit" expand="block">ต่อไป</ion-button>       </ion-col>
+     </ion-row>
+  </ion-grid>
+
+</ion-content>

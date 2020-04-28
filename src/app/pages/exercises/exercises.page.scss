@@ -6,6 +6,9 @@
 ion-content{
     --background: url('src/assets/img/login_bg.png') no-repeat center/cover fixed;
 }
+ion-title{
+    color: #496AA8;
+}
 ion-col{
     border: 1pt solid #5DBAE8;
     border-radius: 10px;
@@ -27,11 +30,11 @@ ion-grid{
     margin: 5px 8px 5px 8px;
 }
 .cnt{
-    height: 26px;
+    height: 24px;
 }
 .cnt_text{
-    font-size: 1.5em;
     padding-left: 5px;
+    padding-top: 2px;
 }
 .blank-col{
     background-color: transparent;

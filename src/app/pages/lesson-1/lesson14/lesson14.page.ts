@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { ActivatedRoute } from "@angular/router";
 import { Lesson } from '../../../models/lesson';
 import { HttpClient } from '@angular/common/http';
-import { tap } from 'rxjs/operators';
+import { tap, first } from 'rxjs/operators';
 import { BehaviorSubject } from 'rxjs';
 import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
 
@@ -13,6 +13,8 @@ import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
   styleUrls: ['./lesson14.page.scss'],
 })
 export class Lesson14Page implements OnInit {
+  paths: Array<string>;
+  src: String
   title: String
   param: String
   seq: number
@@ -31,6 +33,7 @@ export class Lesson14Page implements OnInit {
   ) {}
 
   startTimer(duration: number){
+      this.src = this.paths[this.seq-1];
       this.state = 'start'
       clearInterval(this.interval)
       this.timer = duration; //second
@@ -47,7 +50,7 @@ export class Lesson14Page implements OnInit {
 
   continueTimer(){
     clearInterval(this.interval)
-    console.log(this.timer)
+    // console.log(this.timer)
     if(this.timer == 0){
       this.startTimer(5)
     }
@@ -81,7 +84,7 @@ export class Lesson14Page implements OnInit {
 
     --this.timer
     if(this.timer < 0){
-      console.log(this.seq)
+      // console.log(this.seq)
       if(this.seq == 5){
         this.stopTimer()
       }
@@ -93,6 +96,7 @@ export class Lesson14Page implements OnInit {
   }
   
   ngOnInit() {
+    this.paths = ['http://localhost:51412/1_0/1_0_001.png', 'http://localhost:51412/1_0/1_0_002.png', 'http://localhost:51412/1_0/1_0_003.png','http://localhost:51412/1_0/1_0_004.png','http://localhost:51412/1_0/1_0_005.png'];
     this.param = this.route.snapshot.paramMap.get('lesson')
     this.seq = 1
     this.startTimer(5)

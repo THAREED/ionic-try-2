@@ -60,6 +60,22 @@ const routes: Routes = [
     path: 'lesson34/:lesson',
     loadChildren: () => import('./pages/lesson-1/lesson34/lesson34.module').then( m => m.Lesson34PageModule)
   },
+  {
+    path: 'case-ex1',
+    loadChildren: () => import('./pages/exams/case-exam/case-ex1/case-ex1.module').then( m => m.CaseEx1PageModule)
+  },
+  {
+    path: 'case-checkans',
+    loadChildren: () => import('./pages/exams/case-exam/case-checkans/case-checkans.module').then( m => m.CaseCheckansPageModule)
+  },
+  {
+    path: 'patient-list',
+    loadChildren: () => import('./pages/screening/patient/patient-list/patient-list.module').then( m => m.PatientListPageModule)
+  },
+  {
+    path: 'add-patient',
+    loadChildren: () => import('./pages/screening/add-screening/add-patient/add-patient.module').then( m => m.AddPatientPageModule)
+  },
 ];
 @NgModule({
   imports: [

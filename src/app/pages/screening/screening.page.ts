@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-screening',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ScreeningPage implements OnInit {
 
-  constructor() { }
+  constructor(
+    private route: Router,
+  ) { }
 
   ngOnInit() {
+  }
+  lookUp()
+  {
+    this.route.navigate(['patient-list']);
+  }
+  addPatient()
+  {
+    this.route.navigate(['add-patient']);
   }
 
 }

@@ -11,24 +11,10 @@ ion-title{
     color: #496AA8;
 }
 .home-btn{
-    width: 26px;
+    height: 24px;
+    width: 18px;
 }
-.do-exam img{
-    width: 56px;
-    height: auto;
-    // background-color: #DCF7FC;
-}
-.do-exam{
-    height: 100px;
-    
-}
-.do-exam label{
-    color: white;
-    padding-left: 20px;
-    font-size: x-large;
-    font-weight: bolder;
-    text-shadow: 0px 2px 0px #00000040;
-}
+
 .txt-right{
     text-align: right;
 }
@@ -46,6 +32,7 @@ img{
     border: solid 1px #4BA4E8 ;
     border-radius: 10px;
     padding-left: 5px;
+    margin-top: 15px;
 }
 .case-card ion-row{
     margin-top: 10px;
@@ -58,6 +45,11 @@ img{
 }
 .font-s{
     font-size: small;
+}
+.button-icon{
+    height: 32px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 1px #00000040;
 }
 .button-icon img{
     width: 18px;
@@ -99,4 +91,41 @@ img{
 }
 .level-2{
     background-color: #FD7878;
+}
+.mar-top{
+    margin-top: 15px;
+}
+.detail{
+    text-align: center;
+}
+.detail h1{
+    line-height: 10px;
+    font-weight: bolder;
+    color: #496AA8;
+    margin-bottom: 15px;
+}
+.detail ion-col{
+    color: snow;
+    font-weight: bold;
+    font-size: smaller;
+}
+.first-tab{
+    border-radius: 10px 0px 0px 10px;
+}
+.end-tab{
+    border-radius: 0px 10px 10px 0px;
+}
+.emergency b{
+    color: #FD7878;
+}
+.emergency img{
+    margin-top: 10px;
+    border-radius: 100%;
+    background-color: whitesmoke;
+    padding: 5px;
+    border: double 4px #DCF7FC;
+}
+.emergency ion-col{
+    font-size: smaller;
+    text-align: center;
 }

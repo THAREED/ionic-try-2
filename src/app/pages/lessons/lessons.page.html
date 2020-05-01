@@ -4,7 +4,7 @@
     <ion-buttons slot="start">
       <ion-button> <img class="home-btn" src="assets/icon/บทเรียน.png" alt="icon/lesson"></ion-button>
     </ion-buttons> 
-    <ion-title class="thai-word">PRACTEETH</ion-title>               
+    <ion-title class="thai-word">PRACTEETH - {{ firstname }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -132,8 +132,21 @@
         <img class="level" src="assets/icon/ระดับ3.png">
       </ion-row> 
     </ion-col>
+    
 
-    <ion-col class="blank-col"></ion-col>
+    <ion-col>  
+      <ion-row justify-content-center>
+        <ion-button (click) ="logout()" class="icon-btn" shape="round" color="secondary">
+          <!-- <img src="assets/icon/ความเจ็บปวด.png"> -->
+        </ion-button>
+      </ion-row>
+      <ion-row class="label-bor text-size-ss" justify-content-center>
+        Logout
+      </ion-row>       
+      <ion-row justify-content-center>
+        <!-- <img class="level" src="assets/icon/ระดับ3.png"> -->
+      </ion-row> 
+    </ion-col>
 
   </ion-row>
 </ion-grid>

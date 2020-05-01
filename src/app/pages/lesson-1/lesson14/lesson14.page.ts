@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { ActivatedRoute } from "@angular/router";
 import { Lesson } from '../../../models/lesson';
 import { HttpClient } from '@angular/common/http';
-import { tap, first } from 'rxjs/operators';
+import { tap } from 'rxjs/operators';
 import { BehaviorSubject } from 'rxjs';
 import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
 
@@ -13,7 +13,7 @@ import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
   styleUrls: ['./lesson14.page.scss'],
 })
 export class Lesson14Page implements OnInit {
-  paths: Array<string>;
+  paths: Array<string>
   src: String
   title: String
   param: String
@@ -96,8 +96,30 @@ export class Lesson14Page implements OnInit {
   }
   
   ngOnInit() {
-    this.paths = ['http://localhost:51412/1_0/1_0_001.png', 'http://localhost:51412/1_0/1_0_002.png', 'http://localhost:51412/1_0/1_0_003.png','http://localhost:51412/1_0/1_0_004.png','http://localhost:51412/1_0/1_0_005.png'];
     this.param = this.route.snapshot.paramMap.get('lesson')
+    if(this.param == 'lip'){
+      this.paths = [
+        'http://localhost:51412/1_0/1_0_001.png', 
+        'http://localhost:51412/1_0/1_0_002.png', 
+        'http://localhost:51412/1_0/1_0_003.png',
+        'http://localhost:51412/1_0/1_0_004.png',
+        'http://localhost:51412/1_0/1_0_005.png',
+        'http://localhost:51412/1_0/1_0_006.png',
+        'http://localhost:51412/1_0/1_0_007.png',
+        'http://localhost:51412/1_0/1_0_008.png',
+      ];
+    }
+    else{
+      this.paths = []
+    }
+    var i = this.paths.length, j, temp
+    while(--i > 0){
+      j = Math.floor(Math.random()* (i+1))
+      temp = this.paths[j];
+      this.paths[j] = this.paths[i]
+      this.paths[i] = temp
+    }
+    console.log(this.paths)
     this.seq = 1
     this.startTimer(5)
     this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);

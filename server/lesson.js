@@ -80,5 +80,5 @@ module.exports = {
     getTeeth,
     getDenture,
     getCleanliness,
-    getPain
+    getPain,
 }

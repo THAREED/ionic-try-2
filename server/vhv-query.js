@@ -10,6 +10,14 @@ const pool = new Pool({
     database: 'vhv',
 })
 
+function isEmpty(obj) {
+    for (var key in obj) {
+        if (obj.hasOwnProperty(key))
+            return false;
+    }
+    return true;
+}
+
 const getUsers = (request, response) => {
     pool.query('SELECT * FROM user_lists ORDER BY id ASC', (error, results) => {
         if (error) {
@@ -160,16 +168,8 @@ const deleteAllAuthUser = (request, response) => {
     })
 }
 
-function isEmpty(obj) {
-    for (var key in obj) {
-        if (obj.hasOwnProperty(key))
-            return false;
-    }
-    return true;
-}
-
 const logout = (request, response) => {
-    request.status(200).send({
+    response.status(200).send({
         auth: false,
         token: null
     });

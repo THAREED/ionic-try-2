@@ -75,6 +75,19 @@ export class AuthService {
       );
   }
 
+  authUser() {
+    console.log('GET User Data');
+    const headers = new HttpHeaders({
+      'Authorization': this.token['token_type'] + ' ' + this.token['access_token']
+    });
+    return this.http.get<AuthUser>(`${this.AUTH_SERVER_ADDRESS}/auth_users`, { headers: headers })
+      .pipe(
+        tap(user => {
+          return user;
+        })
+      );
+  }
+
   getToken() {
     return this.storage.get('token').then(
       data => {

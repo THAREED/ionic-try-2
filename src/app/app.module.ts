@@ -13,6 +13,7 @@ import { IonicStorageModule } from '@ionic/storage';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
 import { HttpClientModule } from '@angular/common/http';
 import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
+import { File } from '@ionic-native/file/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -28,7 +29,8 @@ import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     NativeStorage,
-    ScreenOrientation
+    ScreenOrientation,
+    File
   ],
   bootstrap: [AppComponent]
 })

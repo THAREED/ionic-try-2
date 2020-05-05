@@ -22,7 +22,7 @@ export class Lesson31Page implements OnInit {
   ambiguous2: String
   param: string
   lesson:Lesson
-  SERVER_ADDRESS = 'http://localhost:3000'; // Your Node Address
+  SERVER_ADDRESS = 'http://localhost:3000'; 
   constructor(
     private http: HttpClient,
     private router: Router,    
@@ -43,7 +43,7 @@ export class Lesson31Page implements OnInit {
     }
   }
   ionViewWillEnter() {
-      this.http.get<Lesson>(`${this.SERVER_ADDRESS}/` + this.param)
+      this.http.get<Lesson>(`${this.SERVER_ADDRESS}/lesson/` + this.param)
       .pipe(
         tap(lesson => {
           return lesson;

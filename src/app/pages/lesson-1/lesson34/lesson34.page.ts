@@ -22,7 +22,7 @@ export class Lesson34Page implements OnInit {
   timer: number
   interval;
   lesson:Lesson
-  SERVER_ADDRESS = 'http://localhost:3000'; // Your Node Address
+  SERVER_ADDRESS = 'http://localhost:3000'; 
   constructor(
     private http: HttpClient,
     private router: Router,    
@@ -104,7 +104,7 @@ export class Lesson34Page implements OnInit {
   }
   ionViewWillEnter() {
     console.log(this.screenOrientation.type);
-    this.http.get<Lesson>(`${this.SERVER_ADDRESS}/` + this.param)
+    this.http.get<Lesson>(`${this.SERVER_ADDRESS}/lesson/` + this.param)
     .pipe(
       tap(lesson => {
         return lesson;

@@ -4,6 +4,7 @@ const app = express()
 const port = 3000
 const vhv = require('./vhv-query')
 const lesson = require('./lesson')
+const vhv_progress = require('./vhv-progress')
 const cors = require('cors')
 
 app.use(cors())
@@ -40,14 +41,16 @@ app.delete('/users/', vhv.deleteAllUser)
 app.delete('/auth_users/:id', vhv.deleteAuthUser)
 app.delete('/auth_users/', vhv.deleteAllAuthUser)
 
-app.get('/lip/', lesson.getLip)
-app.get('/tongue/', lesson.getTongue)
-app.get('/gum/', lesson.getGum)
-app.get('/saliva/', lesson.getSaliva)
-app.get('/teeth/', lesson.getTeeth)
-app.get('/denture/', lesson.getDenture)
-app.get('/cleanliness/', lesson.getCleanliness)
-app.get('/pain/', lesson.getPain)
+app.get('/lesson/lip/', lesson.getLip)
+app.get('/lesson/tongue/', lesson.getTongue)
+app.get('/lesson/gum/', lesson.getGum)
+app.get('/lesson/saliva/', lesson.getSaliva)
+app.get('/lesson/teeth/', lesson.getTeeth)
+app.get('/lesson/denture/', lesson.getDenture)
+app.get('/lesson/cleanliness/', lesson.getCleanliness)
+app.get('/lesson/pain/', lesson.getPain)
+
+app.get('/progress/:id', vhv_progress.getProg)
 
 app.listen(port, () => {
     console.log(`App running on port ${port}.`)

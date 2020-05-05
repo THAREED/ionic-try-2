@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController, NavController, MenuController } from '@ionic/angular';
-import { LoginPage } from '../login/login.page';
+import { NavController } from '@ionic/angular';
 import { NgForm } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
 import { AlertService } from 'src/app/services/alert.service';
-import { Router } from '@angular/router';
 import { Storage } from '@ionic/storage';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
 
 @Component({
   selector: 'app-register',
@@ -14,22 +14,19 @@ import { Storage } from '@ionic/storage';
 })
 
 export class RegisterPage implements OnInit {
-
-  
+  AUTH_SERVER_ADDRESS = 'http://localhost:3000';
 
   constructor(
-    private modalController: ModalController,
     private authService: AuthService,
     private navCtrl: NavController,
     private alertService: AlertService,
     private storage: Storage,
-    private router: Router
+    private http: HttpClient
   ) { }
 
   ngOnInit() {
   }
 
- 
   //ปุ่มกดให้บันทึกค่าแล้วไปหน้า after
   onClick(gender, firstname, lastname, phone, username, password, password2, career){
 
@@ -47,8 +44,17 @@ export class RegisterPage implements OnInit {
     // this.router.navigateByUrl('/app');
   }
   register(form: NgForm) {
-    if(form.value.password == form.value.password2){
-      this.authService.register(form.value.firstname, form.value.lastname, form.value.gender,form.value.phone, form.value.username, form.value.password, form.value.password2).subscribe(
+    if (form.value.password === form.value.password2) {
+      this.authService.register(
+        form.value.firstname,
+        form.value.lastname,
+        form.value.career,
+        form.value.gender,
+        form.value.phone,
+        form.value.username,
+        form.value.password,
+        form.value.password2
+      ).subscribe(
         data => {
           this.authService.login(form.value).subscribe(
             data => {
@@ -66,7 +72,6 @@ export class RegisterPage implements OnInit {
           console.log(error);
         },
         () => {
-          
         }
       );
     }

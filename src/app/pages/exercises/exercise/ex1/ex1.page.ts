@@ -13,7 +13,7 @@ export class Ex1Page implements OnInit {
   param: String
   title: String
   lesson:Lesson
-  SERVER_ADDRESS = 'http://localhost:3000'; // Your Node Address
+  SERVER_ADDRESS = 'http://localhost:3000'; 
   constructor(
     private route: ActivatedRoute,
     private http: HttpClient,
@@ -24,7 +24,7 @@ export class Ex1Page implements OnInit {
     console.log(this.param)
   }
   ionViewWillEnter() {
-    this.http.get<Lesson>(`${this.SERVER_ADDRESS}/` + this.param)
+    this.http.get<Lesson>(`${this.SERVER_ADDRESS}/lesson/` + this.param)
     .pipe(
       tap(lesson => {
         return lesson;

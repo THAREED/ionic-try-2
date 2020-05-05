@@ -17,7 +17,7 @@ export class Lesson11Page implements OnInit {
   title: String
   description: String
   lesson:Lesson
-  SERVER_ADDRESS = 'http://localhost:3000'; // Your Node Address
+  SERVER_ADDRESS = 'http://localhost:3000';
   constructor(
     private http: HttpClient,
     private router: Router,
@@ -65,15 +65,15 @@ export class Lesson11Page implements OnInit {
   
 
   ionViewWillEnter() {
-    this.http.get<Lesson>(`${this.SERVER_ADDRESS}/` + this.param)
+    this.http.get<Lesson>(`${this.SERVER_ADDRESS}/lesson/` + this.param)
     .pipe(
       tap(lesson => {
         return lesson;
       })
     ).subscribe(lesson => {
-      this.lesson = lesson
-      this.title = lesson[0].title
-      this.description = lesson[0].description
+      this.lesson = lesson;
+      this.title = lesson[0].title;
+      this.description = lesson[0].description;
     });
   }
 }

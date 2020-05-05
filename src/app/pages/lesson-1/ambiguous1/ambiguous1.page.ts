@@ -18,7 +18,7 @@ export class Ambiguous1Page implements OnInit {
   ambi1_txt: String
   ambi1_img: String
   lesson:Lesson
-  SERVER_ADDRESS = 'http://localhost:3000'; // Your Node Address
+  SERVER_ADDRESS = 'http://localhost:3000'; 
   constructor(
     private http: HttpClient,
     private router: Router,    
@@ -37,7 +37,7 @@ export class Ambiguous1Page implements OnInit {
     this.router.navigate(['/lesson24', this.param]);
   }
   ionViewWillEnter() {
-    this.http.get<Lesson>(`${this.SERVER_ADDRESS}/` + this.param)
+    this.http.get<Lesson>(`${this.SERVER_ADDRESS}/lesson/` + this.param)
     .pipe(
       tap(lesson => {
         return lesson;

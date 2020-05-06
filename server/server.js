@@ -51,6 +51,7 @@ app.get('/lesson/cleanliness/', lesson.getCleanliness)
 app.get('/lesson/pain/', lesson.getPain)
 
 app.get('/progress/:id', vhv_progress.getProg)
+app.put('/progress/:id/:less_num', vhv_progress.updateLessProg)
 
 app.listen(port, () => {
     console.log(`App running on port ${port}.`)

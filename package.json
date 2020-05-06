@@ -49,6 +49,7 @@
     "cors": "^2.8.5",
     "es6-promise-plugin": "^4.2.2",
     "express": "^4.17.1",
+    "ionic-angular": "3.9.10",
     "jsonwebtoken": "^8.5.1",
     "pg": "^7.18.1",
     "rxjs": "^6.5.4",

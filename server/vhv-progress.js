@@ -20,15 +20,14 @@ const getProg = (request, response) => {
 
 const updateLessProg = (request, response) => {
     const id = parseInt(request.params.id)
+    const less_num = request.params.less_num
     const {
-        firstname,
-        lastname,
-        gender
+        progress
     } = request.body
 
     pool.query(
-        `UPDATE user_progression SET gender = $3 WHERE user_id = $4`,
-        [firstname, lastname, gender, id],
+        `UPDATE user_progression SET ${less_num} = $1 WHERE user_id = $2`,
+        [progress, id],
         (error, results) => {
             if (error) {
                 throw error
@@ -39,5 +38,6 @@ const updateLessProg = (request, response) => {
 
 
 module.exports = {
-    getProg
+    getProg,
+    updateLessProg
 }

@@ -18,12 +18,9 @@
 			<img [src]=src>
 		  </ion-button>
 		</ion-row>
-		<ion-row class="status label-bor" justify-content-center>
-		  ไม่เคยเรียน
-		</ion-row>       
-		<ion-row justify-content-center>
-		  <img class="level" src="assets/icon/ระดับ0.png">
-		</ion-row> 
+		<ion-row [class]="class" justify-content-center>
+			{{ status }}
+		</ion-row>
 	  </ion-col>
 	  <ion-col  class="col-2">
 		

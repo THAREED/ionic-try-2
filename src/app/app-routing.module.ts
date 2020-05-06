@@ -13,35 +13,35 @@ const routes: Routes = [
   { path: 'exam', loadChildren: './pages/exams/exams.module#ExamsPageModule' },
   { path: 'screening', loadChildren: './pages/screening/screening.module#ScreeningPageModule' },
   {
-    path: 'lesson11/:lesson', 
+    path: 'lesson11/:id/:lesson', 
     loadChildren: () => import('./pages/lesson-1/lesson11/lesson11.module').then( m => m.Lesson11PageModule)
   },
   {
-    path: 'lesson12/:lesson',
+    path: 'lesson12/:id/:lesson',
     loadChildren: () => import('./pages/lesson-1/lesson12/lesson12.module').then( m => m.Lesson12PageModule)
   },
   {
-    path: 'lesson21/:lesson',
+    path: 'lesson21/:id/:lesson',
     loadChildren: () => import('./pages/lesson-1/lesson21/lesson21.module').then( m => m.Lesson21PageModule)
   },
   {
-    path: 'lesson31/:lesson',
+    path: 'lesson31/:id/:lesson',
     loadChildren: () => import('./pages/lesson-1/lesson31/lesson31.module').then( m => m.Lesson31PageModule)
   },
   {
-    path: 'ambiguous0/:lesson',
+    path: 'ambiguous0/:id/:lesson',
     loadChildren: () => import('./pages/lesson-1/ambiguous0/ambiguous0.module').then( m => m.Ambiguous0PageModule)
   },
   {
-    path: 'ambiguous1/:lesson',
+    path: 'ambiguous1/:id/:lesson',
     loadChildren: () => import('./pages/lesson-1/ambiguous1/ambiguous1.module').then( m => m.Ambiguous1PageModule)
   },
   {
-    path: 'ambiguous2/:lesson',
+    path: 'ambiguous2/:id/:lesson',
     loadChildren: () => import('./pages/lesson-1/ambiguous2/ambiguous2.module').then( m => m.Ambiguous2PageModule)
   },
   {
-    path: 'ex1/:lesson',
+    path: 'ex1/:id/:lesson',
     loadChildren: () => import('./pages/exercises/exercise/ex1/ex1.module').then( m => m.Ex1PageModule)
   },
   {
@@ -49,15 +49,15 @@ const routes: Routes = [
     loadChildren: () => import('./pages/exercises/exercise/ex1-score/ex1-score.module').then( m => m.Ex1ScorePageModule)
   },
   {
-    path: 'lesson14/:lesson',
+    path: 'lesson14/:id/:lesson',
     loadChildren: () => import('./pages/lesson-1/lesson14/lesson14.module').then( m => m.Lesson14PageModule)
   },
   {
-    path: 'lesson24/:lesson',
+    path: 'lesson24/:id/:lesson',
     loadChildren: () => import('./pages/lesson-1/lesson24/lesson24.module').then( m => m.Lesson24PageModule)
   },
   {
-    path: 'lesson34/:lesson',
+    path: 'lesson34/:id/:lesson',
     loadChildren: () => import('./pages/lesson-1/lesson34/lesson34.module').then( m => m.Lesson34PageModule)
   },
   {

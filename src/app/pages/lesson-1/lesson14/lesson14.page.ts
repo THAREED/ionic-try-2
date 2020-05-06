@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute } from '@angular/router';
 import { Lesson } from '../../../models/lesson';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders, } from '@angular/common/http';
 import { tap } from 'rxjs/operators';
 import { BehaviorSubject } from 'rxjs';
 import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
+import { Progress } from '../../../models/progress';
 
 @Component({
   selector: 'app-lesson14',
@@ -13,130 +14,197 @@ import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
   styleUrls: ['./lesson14.page.scss'],
 })
 export class Lesson14Page implements OnInit {
-  paths: Array<string>
-  src: String
-  title: String
-  param: String
-  seq: number
-  state: 'start' | 'pause' = 'pause'
+  paths: Array<string>;
+  user_id: String;
+  src: String;
+  title: String;
+  lessonParam: String;
+  less_num: String;
+  idParam: String;
+  seq: number;
+  progress: Progress;
+  lessonProg: Number;
+  state: 'start' | 'pause' = 'pause';
   time: BehaviorSubject<string> = new BehaviorSubject('0');
-  timer: number
+  timer: number;
   interval;
-  lesson:Lesson
-  currentScreenOrientation:string
-  SERVER_ADDRESS = 'http://localhost:3000'; 
+  lesson: Lesson;
+  currentScreenOrientation: string;
+  SERVER_ADDRESS = 'http://localhost:3000';
   constructor(
     private http: HttpClient,
-    private router: Router,    
+    private router: Router,
     private route: ActivatedRoute,
     private screenOrientation: ScreenOrientation
   ) {}
 
-  startTimer(duration: number){
-      this.src = this.paths[this.seq-1];
-      this.state = 'start'
-      clearInterval(this.interval)
-      this.timer = duration; //second
-      this.updateTimeValue()
+  startTimer(duration: number) {
+      this.src = this.paths[this.seq - 1];
+      this.state = 'start';
+      clearInterval(this.interval);
+      this.timer = duration; // second
+      this.updateTimeValue();
       this.interval = setInterval(() => {
-        this.updateTimeValue()
-      }, 1000)
+        this.updateTimeValue();
+      }, 1000);
   }
 
-  pauseTimer(){
-    clearInterval(this.interval)
-    this.state = 'pause'
+  pauseTimer() {
+    clearInterval(this.interval);
+    this.state = 'pause';
   }
 
-  continueTimer(){
-    clearInterval(this.interval)
+  continueTimer() {
+    clearInterval(this.interval);
     // console.log(this.timer)
-    if(this.timer == 0){
-      this.startTimer(5)
-    }
-    else{
-      this.startTimer(this.timer)
-    }
-  }
-
-  stopTimer(){
-    clearInterval(this.interval)
-    this.router.navigate(['/lesson21', this.param])
-  }
-
-  nextTimer(){
-    clearInterval(this.interval)
-    if(this.seq >= 5){
-      this.stopTimer()
-    }
-    else{
-      this.seq++
-      this.startTimer(5)
+    if (this.timer === 0) {
+      this.startTimer(5);
+    } else {
+      this.startTimer(this.timer);
     }
   }
 
-  updateTimeValue(){
-    let seconds: any = this.timer % 60
+  stopTimer() {
+    clearInterval(this.interval);
+    if (this.lessonProg <= 1) {
+      this.updateProgress(this.idParam, '1', this.less_num);
+    }
+    this.router.navigate(['/lesson21', this.idParam, this.lessonParam]);
+  }
 
-    seconds = String(Math.floor(seconds)).slice(-2)
-    const text = seconds
-    this.time.next(text)
+  nextTimer() {
+    clearInterval(this.interval);
+    if (this.seq >= 5) {
+      this.stopTimer();
+    } else {
+      this.seq++;
+      this.startTimer(5);
+    }
+  }
 
-    --this.timer
-    if(this.timer < 0){
+  updateTimeValue() {
+    let seconds: any = this.timer % 60;
+
+    seconds = String(Math.floor(seconds)).slice(-2);
+    const text = seconds;
+    this.time.next(text);
+
+    --this.timer;
+    if (this.timer < 0) {
       // console.log(this.seq)
-      if(this.seq == 5){
-        this.stopTimer()
-      }
-      else{
-        this.seq++
-        this.startTimer(5)
+      if (this.seq === 5) {
+        this.stopTimer();
+      } else {
+        this.seq++;
+        this.startTimer(5);
       }
     }
   }
-  
+
   ngOnInit() {
-    this.param = this.route.snapshot.paramMap.get('lesson')
-    if(this.param == 'lip'){
-      this.paths = [
-        'http://localhost:51412/1_0/1_0_001.png', 
-        'http://localhost:51412/1_0/1_0_002.png', 
-        'http://localhost:51412/1_0/1_0_003.png',
-        'http://localhost:51412/1_0/1_0_004.png',
-        'http://localhost:51412/1_0/1_0_005.png',
-        'http://localhost:51412/1_0/1_0_006.png',
-        'http://localhost:51412/1_0/1_0_007.png',
-        'http://localhost:51412/1_0/1_0_008.png',
-      ];
+    this.idParam = this.route.snapshot.paramMap.get('id');
+    this.lessonParam = this.route.snapshot.paramMap.get('lesson');
+    if (this.lessonParam === 'lip') {
+      this.paths = [];
     }
-    else{
-      this.paths = []
+    if (this.lessonParam === 'tongue') {
+
     }
-    var i = this.paths.length, j, temp
-    while(--i > 0){
-      j = Math.floor(Math.random()* (i+1))
+    if (this.lessonParam === 'gum') {
+
+    }
+    if (this.lessonParam === 'saliva') {
+
+    }
+    if (this.lessonParam === 'teeth') {
+
+    }
+    if (this.lessonParam === 'denture') {
+
+    }
+    if (this.lessonParam === 'cleanliness') {
+
+    }
+    if (this.lessonParam === 'pain') {
+
+    }
+    let i = this.paths.length, j, temp;
+    while (--i > 0) {
+      j = Math.floor(Math.random() * (i + 1));
       temp = this.paths[j];
-      this.paths[j] = this.paths[i]
-      this.paths[i] = temp
+      this.paths[j] = this.paths[i];
+      this.paths[i] = temp;
     }
-    console.log(this.paths)
-    this.seq = 1
-    this.startTimer(5)
+    this.seq = 1;
+    this.startTimer(5);
     this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
   }
-  nextPage(){
-      this.router.navigate(['/lesson21', this.param])
+  nextPage() {
+      this.router.navigate(['/lesson21', this.idParam, this.lessonParam]);
   }
+
+  updateProgress(user_id: String, progress: String, less_num: String) {
+    this.http.put(`${this.SERVER_ADDRESS}/progress/${user_id}/less_${less_num}_prog`, {progress: progress})
+    .subscribe(data => {
+      console.log(data);
+    });
+  }
+
+  getProgress(user_id) {
+    this.user_id = user_id;
+    this.http.get<Progress>(`${this.SERVER_ADDRESS}/progress/` + this.user_id)
+    .pipe(
+      tap(progress => {
+        return progress;
+      })
+    ).subscribe(progress => {
+      this.progress = progress;
+      if (this.lessonParam === 'lip') {
+        this.lessonProg = progress[0].less_1_prog;
+        this.less_num = '1';
+      }
+      if (this.lessonParam === 'tongue') {
+        this.lessonProg = progress[0].less_2_prog;
+        this.less_num = '2';
+      }
+      if (this.lessonParam === 'gum') {
+        this.lessonProg = progress[0].less_3_prog;
+        this.less_num = '3';
+      }
+      if (this.lessonParam === 'saliva') {
+        this.lessonProg = progress[0].less_4_prog;
+        this.less_num = '4';
+      }
+      if (this.lessonParam === 'teeth') {
+        this.lessonProg = progress[0].less_5_prog;
+        this.less_num = '5';
+      }
+      if (this.lessonParam === 'denture') {
+        this.lessonProg = progress[0].less_6_prog;
+        this.less_num = '6';
+      }
+      if (this.lessonParam === 'cleanliness') {
+        this.lessonProg = progress[0].less_7_prog;
+        this.less_num = '7';
+      }
+      if (this.lessonParam === 'pain') {
+        this.lessonProg = progress[0].less_8_prog;
+        this.less_num = '8';
+      }
+    });
+  }
+
   ionViewWillEnter() {
-    this.http.get<Lesson>(`${this.SERVER_ADDRESS}/lesson/` + this.param)
+    this.getProgress(this.idParam);
+    this.http.get<Lesson>(`${this.SERVER_ADDRESS}/lesson/` + this.lessonParam)
     .pipe(
       tap(lesson => {
         return lesson;
       })
     ).subscribe(lesson => {
-      this.lesson = lesson
-      this.title = lesson[0].title
+      this.lesson = lesson;
+      this.title = lesson[0].title;
     });
-  } 
-  
+  }
+
 }

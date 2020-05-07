@@ -6,6 +6,7 @@ import { HttpClient } from '@angular/common/http';
 import { tap } from 'rxjs/operators';
 import { BehaviorSubject } from 'rxjs';
 import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
+import { Progress } from '../../../models/progress';
 
 @Component({
   selector: 'app-lesson24',
@@ -13,15 +14,20 @@ import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
   styleUrls: ['./lesson24.page.scss'],
 })
 export class Lesson24Page implements OnInit {
+  paths: Array<string>;
+  user_id: String;
   title: String;
   idParam: String;
   lessonParam: String;
+  less_num: String;
   seq: number;
   state: 'start' | 'pause' = 'pause';
   time: BehaviorSubject<string> = new BehaviorSubject('0');
   timer: number;
   interval;
   lesson: Lesson;
+  progress: Progress;
+  lessonProg: Number;
   SERVER_ADDRESS = 'http://localhost:3000';
   constructor(
     private http: HttpClient,
@@ -57,7 +63,9 @@ export class Lesson24Page implements OnInit {
 
   stopTimer() {
     clearInterval(this.interval);
-    // this.updateProgress(this.idParam, '2');
+    if (this.lessonProg <= 2) {
+      this.updateProgress(this.idParam, '2', this.less_num);
+    }
     this.router.navigate(['/lesson31', this.idParam, this.lessonParam]);
   }
 
@@ -73,7 +81,6 @@ export class Lesson24Page implements OnInit {
 
   updateTimeValue() {
     let seconds: any = this.timer % 60;
-
     seconds = String(Math.floor(seconds)).slice(-2);
     const text = seconds;
     this.time.next(text);
@@ -93,6 +100,37 @@ export class Lesson24Page implements OnInit {
   ngOnInit() {
     this.lessonParam = this.route.snapshot.paramMap.get('lesson');
     this.idParam = this.route.snapshot.paramMap.get('id');
+    if (this.lessonParam === 'lip') {
+      this.paths = [];
+    }
+    if (this.lessonParam === 'tongue') {
+      this.paths = [];
+    }
+    if (this.lessonParam === 'gum') {
+      this.paths = [];
+    }
+    if (this.lessonParam === 'saliva') {
+      this.paths = [];
+    }
+    if (this.lessonParam === 'teeth') {
+      this.paths = [];
+    }
+    if (this.lessonParam === 'denture') {
+      this.paths = [];
+    }
+    if (this.lessonParam === 'cleanliness') {
+      this.paths = [];
+    }
+    if (this.lessonParam === 'pain') {
+      this.paths = [];
+    }
+    let i = this.paths.length, j, temp;
+    while (--i > 0) {
+      j = Math.floor(Math.random() * (i + 1));
+      temp = this.paths[j];
+      this.paths[j] = this.paths[i];
+      this.paths[i] = temp;
+    }
     this.seq = 1;
     this.startTimer(5);
     this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
@@ -108,7 +146,52 @@ export class Lesson24Page implements OnInit {
     });
   }
 
+  getProgress(user_id) {
+    this.user_id = user_id;
+    this.http.get<Progress>(`${this.SERVER_ADDRESS}/progress/` + this.user_id)
+    .pipe(
+      tap(progress => {
+        return progress;
+      })
+    ).subscribe(progress => {
+      this.progress = progress;
+      if (this.lessonParam === 'lip') {
+        this.lessonProg = progress[0].less_1_prog;
+        this.less_num = '1';
+      }
+      if (this.lessonParam === 'tongue') {
+        this.lessonProg = progress[0].less_2_prog;
+        this.less_num = '2';
+      }
+      if (this.lessonParam === 'gum') {
+        this.lessonProg = progress[0].less_3_prog;
+        this.less_num = '3';
+      }
+      if (this.lessonParam === 'saliva') {
+        this.lessonProg = progress[0].less_4_prog;
+        this.less_num = '4';
+      }
+      if (this.lessonParam === 'teeth') {
+        this.lessonProg = progress[0].less_5_prog;
+        this.less_num = '5';
+      }
+      if (this.lessonParam === 'denture') {
+        this.lessonProg = progress[0].less_6_prog;
+        this.less_num = '6';
+      }
+      if (this.lessonParam === 'cleanliness') {
+        this.lessonProg = progress[0].less_7_prog;
+        this.less_num = '7';
+      }
+      if (this.lessonParam === 'pain') {
+        this.lessonProg = progress[0].less_8_prog;
+        this.less_num = '8';
+      }
+    });
+  }
+
   ionViewWillEnter() {
+    this.getProgress(this.idParam);
     console.log(this.screenOrientation.type);
     this.http.get<Lesson>(`${this.SERVER_ADDRESS}/lesson/` + this.lessonParam)
     .pipe(

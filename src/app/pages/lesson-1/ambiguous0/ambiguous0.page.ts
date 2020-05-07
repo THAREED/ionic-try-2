@@ -52,7 +52,7 @@ export class Ambiguous0Page implements OnInit {
       this.ambi0_txt = split[0];
       this.ambi0_img = split[1];
     });
-}
+  }
 
 
 }

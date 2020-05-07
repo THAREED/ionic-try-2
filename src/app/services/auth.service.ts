@@ -40,6 +40,7 @@ export class AuthService {
   }
 
 
+  // tslint:disable-next-line: max-line-length
   register(firstname: String, lastname: String, career: String, gender: String, phone: String, username: String, password: String, password2: String) {
     return this.http.post(`${this.AUTH_SERVER_ADDRESS}/auth/register`,
       { firstname: firstname,
@@ -54,7 +55,6 @@ export class AuthService {
   }
 
   logout() {
-    console.log('Logout');
     const headers = new HttpHeaders({
       'Authorization': this.token['token_type'] + ' ' + this.token['access_token']
     });
@@ -70,7 +70,6 @@ export class AuthService {
   }
 
   user() {
-    console.log('GET User Data');
     const headers = new HttpHeaders({
       'Authorization': this.token['token_type'] + ' ' + this.token['access_token']
     });
@@ -83,7 +82,6 @@ export class AuthService {
   }
 
   authUser() {
-    console.log('GET User Data');
     const headers = new HttpHeaders({
       'Authorization': this.token['token_type'] + ' ' + this.token['access_token']
     });

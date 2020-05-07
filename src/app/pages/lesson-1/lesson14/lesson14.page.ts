@@ -108,25 +108,25 @@ export class Lesson14Page implements OnInit {
       this.paths = [];
     }
     if (this.lessonParam === 'tongue') {
-
+      this.paths = [];
     }
     if (this.lessonParam === 'gum') {
-
+      this.paths = [];
     }
     if (this.lessonParam === 'saliva') {
-
+      this.paths = [];
     }
     if (this.lessonParam === 'teeth') {
-
+      this.paths = [];
     }
     if (this.lessonParam === 'denture') {
-
+      this.paths = [];
     }
     if (this.lessonParam === 'cleanliness') {
-
+      this.paths = [];
     }
     if (this.lessonParam === 'pain') {
-
+      this.paths = [];
     }
     let i = this.paths.length, j, temp;
     while (--i > 0) {

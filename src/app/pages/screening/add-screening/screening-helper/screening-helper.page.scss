@@ -1,0 +1,75 @@
+*, .thai-word{
+    font-family: 'Sarabun', sans-serif;
+    color: #496AA8;
+}
+
+ion-content{
+    --background: url('src/assets/img/login_bg.png') no-repeat center/cover fixed;
+}
+ion-title{
+    text-align: left;
+    padding-left: 64px;
+    color:  #496AA8;
+}
+.home-btn{
+    height: 24px;
+    width: 18px;
+}
+
+.case-info{
+    position: absolute;
+    right: 16px;
+    margin-top: 14px;
+    font-size: 16px;
+    font-weight: bolder;
+}
+.card-img{
+    margin-top: 20px;
+    box-shadow: 0px 3px 1px #00000040;
+    border-radius: 10%;
+    width: 100%;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.level-0{
+    color: green;    
+}
+.level-1{
+    color: #FEA54C;
+}
+.level-2{
+    color: #FD7878;
+}
+.title{
+    font-size: x-large;
+    font-weight: bolder;
+    margin-top: 5px;
+}
+.render-button{
+    box-shadow: 0px 3px 5px #00000040;
+    border-radius: 10px;
+    color: white;
+}
+.col-helper {
+    text-align: right;
+}
+.status-msg{
+    font-size: large;
+    font-weight: bolder;
+    padding-top: 20px;
+}
+p{
+    margin-bottom: 0px;
+}
+.img-info{
+    border-radius: 10px;
+    width: 100%;
+}
+.choose{
+    border: 3px solid #4BA4E8;
+    transform: rotate(3deg);
+    box-shadow: 5px 5px 0px ;
+}

@@ -1,0 +1,24 @@
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle class="level-tab level-0">{{ title }} - ระดับ 0 สุขภาพดี</ion-card-subtitle>
+      <ion-card-title>มาสร้างความจำกัน</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+      ต่อไปนี้จะเป็นภาพ{{ title }} ระดับ 0 <br>
+      โดยเราจะให้ท่านดูภาพแต่ละภาพ <br>เป็นระยะเวลา 5 วินาที จำนวน 5 ภาพ 
+      <br>เพื่อสร้างความจำให้กับจุดสังเกตต่าง ๆ<br>ที่ท่านได้เรียนไปแล้วในระดับนี้ 
+    <ion-label class="flip-t"><br>(กรุณาพลิกโทรศัพท์ให้อยู่ในแนวนอน)</ion-label>  
+  
+    <ion-row>
+      <ion-col>
+        <ion-button color="warning" (click)="goHome()">ยังไม่พร้อม</ion-button>
+        <ion-button (click)="nextPage()">เริ่มเลย</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-card-content>
+</ion-card>
+
+
+</ion-content>

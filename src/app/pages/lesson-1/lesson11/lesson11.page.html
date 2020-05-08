@@ -1,58 +1,53 @@
- <ion-header translucent="true">
-	<ion-toolbar color="secondary">   
-	  <!-- <ion-buttons collapse="true" slot="start"> -->
-	  <ion-buttons slot="start">
-		<ion-button> <img class="home-btn" src="assets/icon/logo.png" alt="icon/logo"></ion-button>
-	  </ion-buttons> 
-	  <ion-title class="thai-word">	บทเรียน - {{ title }}</ion-title>               
+<ion-header translucent="true">
+	<ion-toolbar color="secondary">
+		<ion-back-button text=""  slot="start" color="tertiary"></ion-back-button>
+		<ion-title class="thai-word">บทเรียน - {{ title }}</ion-title>     
 	</ion-toolbar>
   </ion-header>
-  <ion-content>
-  
-  <ion-grid>
-	<ion-row class="card">
-  
-	  <ion-col  class="col-1" size="4">
-		<ion-row justify-content-center>
-		  <ion-button class="icon-btn" shape="round" color="secondary">
-			<img [src]=src>
-		  </ion-button>
+	  <ion-content>
+	  
+	  <ion-grid>
+		<ion-row class="card">
+	  
+		  <ion-col  class="col-1" size="4">
+			<ion-row justify-content-center>
+			  <ion-button class="icon-btn" shape="round" color="secondary">
+				<img [src]=src>
+			  </ion-button>
+			</ion-row>
+			<ion-row [class]="class" justify-content-center>
+				{{ status }}
+			</ion-row>
+		  </ion-col>
+		  <ion-col  class="col-2">
+			
+			<ion-row class="label-bor" justify-content-center>
+			  เวลาในการเรียน: 12 นาที
+			</ion-row>   
+			<ion-row class="label-bor" justify-content-center>
+			  สะสมแต้มระหว่างเรียน: 2 ครั้ง
+			</ion-row>    
+			
+		  </ion-col>
+	  
 		</ion-row>
-		<ion-row [class]="class" justify-content-center>
-			{{ status }}
-		</ion-row>
-	  </ion-col>
-	  <ion-col  class="col-2">
-		
-		<ion-row class="label-bor" justify-content-center>
-		  เวลาในการเรียน: 12 นาที
-		</ion-row>   
-		<ion-row class="label-bor" justify-content-center>
-		  สะสมแต้มระหว่างเรียน: 2 ครั้ง
-		</ion-row>    
-		
-	  </ion-col>
-  
-	</ion-row>
-  </ion-grid>
-
-  	<div class="lesson-review">
-		{{ description }}
-  	</div>
-  	<h4 class="level-h">ระดับความผิดปกติมี 3 ระดับ ดังนี้</h4>
-  	<div class="level-tab level-0">
-		ระดับ 0 สุขภาพดี
-	</div>
-	<div class="level-tab level-1">
-		ระดับ 1 เริ่มมีปัญหาแล้วนะ
-	</div>
-	<div class="level-tab level-2">
-		ระดับ 2 ไปหาหมอด่วน
-	 </div>
-        <div class="start-btn">
-          <ion-button (click) ="start()" class="box-shadow" type="submit" expand="block">เริ่มเรียนเลย</ion-button>
+	  </ion-grid>
+	
+		  <div class="lesson-review">
+			{{ description }}
+		  </div>
+		  <h4 class="level-h">ระดับความผิดปกติมี 3 ระดับ ดังนี้</h4>
+		  <div class="level-tab level-0">
+			ระดับ 0 สุขภาพดี
 		</div>
-  
-  </ion-content>
-
-
+		<div class="level-tab level-1">
+			ระดับ 1 เริ่มมีปัญหาแล้วนะ
+		</div>
+		<div class="level-tab level-2">
+			ระดับ 2 ไปหาหมอด่วน
+		 </div>
+			<div class="start-btn">
+			  <ion-button (click) ="start()" class="box-shadow" type="submit" expand="block">เริ่มเรียนเลย</ion-button>
+			</div>
+	  
+	  </ion-content>	

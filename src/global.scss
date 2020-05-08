@@ -13,22 +13,54 @@
 
 *, .thai-word{
     font-family: 'Sarabun', sans-serif;
+    color: #496AA8;
 }
 ion-header{
     margin-top: 12px;
 }
 ion-title{
     text-align: left;
-    padding-left: 64px;
+    padding-left: 0px;
     color: #496AA8;
     font-size: 1.2em;
+    font-weight: bolder;
 }
 ion-toolbar{
     box-shadow: 0px 3px 3px wheat;
-    // background-color: #DCF7FC;
 }
 .home-btn{
     width: 32px;
     height: auto;
+}
+ion-menu-button{
     margin-left: 16px;
+}
+.menu-title{
+    text-align: center;
+}
+.user-img{
+    background-color: white;
+    padding: 3px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 1px #496AA8;
+}
+.user-img-info{
+    width: 36px;
+    height: auto;
+    margin-right: 16px;
+}
+.button-icon{
+    height: 48px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 1px #00000040;
+}
+.button-icon img{
+    width: 32px;
+}
+.button-icon label{
+    color: white;
+    padding-left: 5px;
+}
+.bt-page{
+    margin-top: 84px;
 }

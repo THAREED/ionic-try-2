@@ -1,3 +1,68 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+  <!-- <ion-router-outlet></ion-router-outlet> -->
+  <ion-menu contentId="content1" side="start">
+    <ion-header>
+      <ion-toolbar color="secondary">
+        <ion-title class="menu-title">PRACTEETH</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content color="cool">
+      <ion-list>
+        <ion-item>
+          <ion-thumbnail slot="start">
+            <img class="user-img" src="assets/icon/man.png">
+          </ion-thumbnail>
+          <ion-label >
+            <h2>สมหวัง ประกาสิต</h2>
+            <p>ระดับมือใหม่</p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+      <ion-list>
+        <ion-item  href="#">  
+            <img class="user-img-info" src="assets/icon/บทเรียน.png">
+          <ion-label>
+            <p>7 บทเรียน</p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+      <ion-list>
+        <ion-item   [routerLink]="['/exercise']" >  
+            <img class="user-img-info" src="assets/icon/จำนวนแบบฝึกหัด.png">
+          <ion-label>
+            <p>36 แบบฝึกหัด</p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+      <ion-list>
+        <ion-item  [routerLink]="['/exam']">  
+            <img class="user-img-info" src="assets/icon/แบบทดสอบ.png">
+          <ion-label>
+            <p>4 แบบทดสอบ</p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+      <ion-list>
+        <ion-item  [routerLink]="['/patient-list']">  
+            <img class="user-img-info" src="assets/icon/ผู้ป่วยของฉัน.png">
+          <ion-label>
+            <p>ผู้ป่วยของฉัน 16 คน</p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+      <ion-grid class="bt-page">
+        <ion-row>
+          <ion-col>
+            <ion-button color="primary" expand="block" class="button-icon"><img src="assets/icon/แก้ไขส่วนตัว.png" alt="icon/fix"> <label>แก้ไขข้อมูลส่วนตัว</label> </ion-button>      
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-button color="danger" expand="block" class="button-icon"><img src="assets/icon/ออก.png" alt="icon/report"> <label>ออกจากระบบ</label> </ion-button>  
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-content>
+  </ion-menu>
+  <ion-router-outlet id="content1" main></ion-router-outlet>
 </ion-app>

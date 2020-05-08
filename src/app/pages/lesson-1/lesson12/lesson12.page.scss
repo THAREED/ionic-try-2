@@ -7,7 +7,6 @@ ion-content{
 }
 ion-title{
 text-align: left;
-padding-left: 64px;
 color: #496AA8;
 }
 .card{
@@ -38,11 +37,6 @@ height: 64px;
  height: 60px;
 }
 
-.case-img img{
-  width: 100%;
-  height: 100%;
- }
- 
 ion-grid{
  margin: 0px 12px;
 }
@@ -73,4 +67,7 @@ ion-grid{
   border-radius: 10px;
   color: white;
   margin-top: 36px;
+}
+.img-slide{
+  width: 100%;
 }

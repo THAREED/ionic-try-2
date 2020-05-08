@@ -1,0 +1,21 @@
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <img class="level-img" src="assets/icon/logowithshadow.png">
+      <ion-card-subtitle class="level-tab level-1">{{ title }} - ระดับ 1</ion-card-subtitle>
+      <ion-card-title>{{ title }}เริ่มมีปัญหา<br>แต่ไม่ต้องรีบไปหาหมอ</ion-card-title>
+    </ion-card-header>  
+    <ion-card-content>
+      เป็นไงบ้างระดับ 0 ยังง่ายๆ อยู่ใช่ไหมล่ะ<br>
+      ระดับต่อไปจะเริ่มอยากขึ้นแล้วนะ
+    <ion-row>
+      <ion-col>
+        <ion-button color="warning" (click)="goHome()">พักก่อนนะ</ion-button>
+        <ion-button (click)="nextPage()">เริ่มเลย</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-card-content>
+</ion-card>
+
+
+</ion-content>

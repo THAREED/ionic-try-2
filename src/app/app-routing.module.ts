@@ -76,6 +76,34 @@ const routes: Routes = [
     path: 'add-patient',
     loadChildren: () => import('./pages/screening/add-screening/add-patient/add-patient.module').then( m => m.AddPatientPageModule)
   },
+  {
+    path: 'add-patient-img',
+    loadChildren: () => import('./pages/screening/add-screening/add-patient-img/add-patient-img.module').then( m => m.AddPatientImgPageModule)
+  },
+  {
+    path: 'add-patient-img2',
+    loadChildren: () => import('./pages/screening/add-screening/add-patient-img2/add-patient-img2.module').then( m => m.AddPatientImg2PageModule)
+  },
+  {
+    path: 'screening-step1',
+    loadChildren: () => import('./pages/screening/add-screening/screening-step1/screening-step1.module').then( m => m.ScreeningStep1PageModule)
+  },
+  {
+    path: 'screening-helper',
+    loadChildren: () => import('./pages/screening/add-screening/screening-helper/screening-helper.module').then( m => m.ScreeningHelperPageModule)
+  },
+  {
+    path: 'screening-recheck',
+    loadChildren: () => import('./pages/screening/add-screening/screening-recheck/screening-recheck.module').then( m => m.ScreeningRecheckPageModule)
+  },
+  {
+    path: 'lesson13',
+    loadChildren: () => import('./pages/lesson-1/lesson13/lesson13.module').then( m => m.Lesson13PageModule)
+  },
+  {
+    path: 'lesson15',
+    loadChildren: () => import('./pages/lesson-1/lesson15/lesson15.module').then( m => m.Lesson15PageModule)
+  },
 ];
 @NgModule({
   imports: [

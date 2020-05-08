@@ -6,7 +6,7 @@ ion-content{
     --background: url('src/assets/img/login_bg.png') no-repeat center/cover fixed;
 }
 ion-title{
-    color: #496AA8;
+    color: #496AA8;    
 }
 ion-col{
     border: 1pt solid #5DBAE8;
@@ -42,19 +42,10 @@ ion-grid{
 .text-size-ss{
     font-size: 0.78em;
 }
-.status-0{
-    color: #F95454;
-    font-weight: bolder;
-  }
-  .status-1{
-    color: #F95454;
-    font-weight: bolder;
-  }
-  .status-2{
-    color: #F95454;
-    font-weight: bolder;
-  }
-  .status-3{
-    color: #F95454;
-    font-weight: bolder;
-  }
+
+.menu-btn{
+    width: 36px;
+    height: 32px;
+    margin-right: 16px;
+    color: white;
+}

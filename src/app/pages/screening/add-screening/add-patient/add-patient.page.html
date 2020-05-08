@@ -4,7 +4,7 @@
     <ion-buttons slot="start">
       <ion-button> <img class="home-btn" src="assets/icon/เลื่อนซ้าย.png" alt="icon/screen"></ion-button>
     </ion-buttons> 
-    <ion-title class="thai-word">ผู้ป่วยของฉัน</ion-title>               
+    <ion-title class="thai-word">คัดกรอง</ion-title>               
   </ion-toolbar>
 </ion-header>
 <ion-content>
@@ -45,6 +45,14 @@
     </ion-row>
     <ion-row>
       <p id="check-label"> <ion-checkbox checked></ion-checkbox> อนุญาตให้นำข้อมูลภาพถ่ายช่องปากไปใช้ เพื่อประโยชน์สำหรับการศึกษาต่อได้</p>
+    </ion-row>
+    <ion-row>
+      <div padding class="singname">ลายมือชื่อผู้รับการคัดกรอง</div>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-button (click) ="nextPage()" class="next-button" type="submit" expand="block">ต่อไป</ion-button>
+      </ion-col>
     </ion-row>
   </ion-grid>
 </ion-content>

@@ -200,6 +200,11 @@ const register = (request, response) => {
                     throw error
                 }
             })
+            pool.query('INSERT INTO user_exercise_score (user_id, lip_score, tongue_score, gum_score, saliva_score, teeth_score, denture_score, cleanliness_score, pain_score ) VALUES ((SELECT id FROM auth_users WHERE username=$1), 0, 0, 0, 0, 0, 0, 0, 0)', [username], (error, results) => {
+                if (error) {
+                    throw error
+                }
+            })
         }
     })
 }

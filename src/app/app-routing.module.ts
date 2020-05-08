@@ -7,13 +7,13 @@ const routes: Routes = [
   { path: 'login', loadChildren: './pages/auth/login/login.module#LoginPageModule' },
   { path: 'register', loadChildren: './pages/auth/register/register.module#RegisterPageModule' },
   // Redirect to tab-routing.module
-  { path: 'app', loadChildren: './tabs/tabs.module#TabsPageModule'},
+  { path: 'app', loadChildren: './tabs/tabs.module#TabsPageModule', canActivate: [AuthGuard]},
   { path: 'lesson', loadChildren: './pages/lessons/lessons.module#LessonsPageModule' },
   { path: 'exercise', loadChildren: './pages/exercises/exercises.module#ExercisesPageModule' },
   { path: 'exam', loadChildren: './pages/exams/exams.module#ExamsPageModule' },
   { path: 'screening', loadChildren: './pages/screening/screening.module#ScreeningPageModule' },
   {
-    path: 'lesson11/:id/:lesson', 
+    path: 'lesson11/:id/:lesson',
     loadChildren: () => import('./pages/lesson-1/lesson11/lesson11.module').then( m => m.Lesson11PageModule)
   },
   {

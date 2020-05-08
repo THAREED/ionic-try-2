@@ -4,7 +4,6 @@ import { RegisterPage } from '../register/register.page';
 import { NgForm } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
 import { AlertService } from 'src/app/services/alert.service';
-import { Router } from '@angular/router';
 import { Storage } from '@ionic/storage';
 
 @Component({
@@ -20,8 +19,8 @@ export class LoginPage implements OnInit {
     private navCtrl: NavController,
     private alertService: AlertService,
     private menu: MenuController,
-    private storage: Storage,
-  ){}
+    private storage: Storage
+  ) {}
 
   ngOnInit() {
   }
@@ -36,6 +35,7 @@ export class LoginPage implements OnInit {
   login(form: NgForm) {
     this.authService.login(form.value).subscribe(
       data => {
+        this.storage.set('username', form.value.username);
         this.alertService.presentToast('Logged In');
       },
       error => {

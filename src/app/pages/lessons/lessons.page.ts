@@ -7,6 +7,7 @@ import { NavController } from '@ionic/angular';
 import { HttpClient } from '@angular/common/http';
 import { tap } from 'rxjs/operators';
 import { Progress } from '../../models/progress';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-lessons',
@@ -27,17 +28,18 @@ export class LessonsPage implements OnInit {
   less_7: String;
   less_8: String;
   progress: Progress;
+  username: String;
   SERVER_ADDRESS = 'http://localhost:3000';
   constructor(
     private route: Router,
     private http: HttpClient,
     private authService: AuthService,
     private alertService: AlertService,
-    private navCtrl: NavController
+    private navCtrl: NavController,
+    private storage: Storage,
   ) {}
 
   ngOnInit() {
-
   }
   lesson1() {
     return this.route.navigate(['/lesson11', this.user_id, 'lip']);
@@ -63,13 +65,23 @@ export class LessonsPage implements OnInit {
   lesson8() {
     return this.route.navigate(['/lesson11', this.user_id, 'pain']);
   }
+  
   ionViewWillEnter() {
-    this.authService.authUser().subscribe(
-      user => {
-        this.authUser = user;
-        this.user_id = this.authUser[0].id;
-        this.firstname = this.authUser[0].firstname;
-        this.getProgress(this.user_id);
+    this.storage.get('username').then(
+      data => {
+        this.username = data;
+        this.authService.authUsername(this.username).subscribe(
+          user => {
+            this.authUser = user;
+            console.log(user);
+            this.user_id = this.authUser[0].id;
+            this.firstname = this.authUser[0].firstname;
+            this.getProgress(this.user_id);
+          }
+        );
+      },
+      error => {
+        this.username = null;
       }
     );
   }

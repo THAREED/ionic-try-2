@@ -12,6 +12,7 @@ import { Storage } from '@ionic/storage';
 export class AuthService {
   isLoggedIn = false;
   token: any;
+  username: any;
   AUTH_SERVER_ADDRESS = 'http://localhost:3000';
 
   constructor(
@@ -62,8 +63,10 @@ export class AuthService {
       .pipe(
         tap(data => {
           this.storage.remove('token');
+          this.storage.remove('username');
           this.isLoggedIn = false;
           delete this.token;
+          delete this.username;
           return data;
         })
       );
@@ -86,6 +89,18 @@ export class AuthService {
       'Authorization': this.token['token_type'] + ' ' + this.token['access_token']
     });
     return this.http.get<AuthUser>(`${this.AUTH_SERVER_ADDRESS}/auth_users`, { headers: headers })
+      .pipe(
+        tap(user => {
+          return user;
+        })
+      );
+  }
+
+  authUsername(username: String) {
+    const headers = new HttpHeaders({
+      'Authorization': this.token['token_type'] + ' ' + this.token['access_token']
+    });
+    return this.http.get<AuthUser>(`${this.AUTH_SERVER_ADDRESS}/auth_username/` + username, { headers: headers })
       .pipe(
         tap(user => {
           return user;

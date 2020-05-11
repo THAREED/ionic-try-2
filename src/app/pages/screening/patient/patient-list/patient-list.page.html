@@ -1,12 +1,9 @@
 <ion-header translucent="true">
-  <ion-toolbar color="secondary">   
-    <!-- <ion-buttons collapse="true" slot="start"> -->
-    <ion-buttons slot="start">
-      <ion-button> <img class="home-btn" src="assets/icon/เลื่อนซ้าย.png" alt="icon/screen"></ion-button>
-    </ion-buttons> 
-    <ion-title class="thai-word">ผู้ป่วยของฉัน</ion-title>               
-  </ion-toolbar>
-</ion-header>
+	<ion-toolbar color="secondary">
+		<ion-back-button text=""  slot="start" color="tertiary"></ion-back-button>
+		<ion-title class="thai-word">ผู้ป่วยของฉัน</ion-title>     
+	</ion-toolbar>
+  </ion-header>
 
 <ion-content>
   <ion-grid padding>
@@ -71,7 +68,7 @@
       </ion-col>
       <ion-col>
         <p class="lint-h-s txt-right font-xs">23/09/2562</p>
-        <ion-button color="warning" expand="block" class="button-icon"><img src="assets/icon/แปรงสีฟัน.png" alt="icon/fix"> <label>แก้ไข</label> </ion-button>  
+        <ion-button (click)="editInfo()" color="warning" expand="block" class="button-icon"><img src="assets/icon/แปรงสีฟัน.png" alt="icon/fix"> <label>แก้ไข</label> </ion-button>  
         <ion-button expand="block" class="button-icon"><img src="assets/icon/รายงาน.png" alt="icon/report"> <label>ส่งต่อ</label> </ion-button>  
       </ion-col> 
     </ion-row>
@@ -94,7 +91,7 @@
       </ion-col>
       <ion-col>
         <p class="lint-h-s txt-right font-xs">23/09/2562</p>
-        <ion-button color="warning" expand="block" class="button-icon"><img src="assets/icon/แปรงสีฟัน.png" alt="icon/fix"> <label>แก้ไข</label> </ion-button>  
+        <ion-button (click)="editInfo()" color="warning" expand="block" class="button-icon"><img src="assets/icon/แปรงสีฟัน.png" alt="icon/fix"> <label>แก้ไข</label> </ion-button>  
         <ion-button expand="block" class="button-icon"><img src="assets/icon/รายงาน.png" alt="icon/report"> <label>ส่งต่อ</label> </ion-button>  
       </ion-col> 
     </ion-row>
@@ -117,7 +114,7 @@
       </ion-col>
       <ion-col>
         <p class="lint-h-s txt-right font-xs">23/09/2562</p>
-        <ion-button color="warning" expand="block" class="button-icon"><img src="assets/icon/แปรงสีฟัน.png" alt="icon/fix"> <label>แก้ไข</label> </ion-button>  
+        <ion-button (click)="editInfo()" color="warning" expand="block" class="button-icon"><img src="assets/icon/แปรงสีฟัน.png" alt="icon/fix"> <label>แก้ไข</label> </ion-button>  
         <ion-button expand="block" class="button-icon"><img src="assets/icon/รายงาน.png" alt="icon/report"> <label>ส่งต่อ</label> </ion-button>  
       </ion-col> 
     </ion-row>

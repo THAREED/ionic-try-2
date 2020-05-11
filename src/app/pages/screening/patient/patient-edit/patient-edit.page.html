@@ -1,0 +1,58 @@
+<ion-header translucent="true">
+	<ion-toolbar color="secondary">
+		<ion-back-button text=""  slot="start" color="tertiary"></ion-back-button>
+		<ion-title class="thai-word">แก้ไขการตรวจ{{ title }}</ion-title>     
+	</ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-grid padding>
+    <ion-row justify-content-center>8/8</ion-row>
+    <ion-row>
+        <label class="title">วันที่บันทึกข้อมูล</label>
+        <label class="case-info">ชื่อผู้รับคัดกรอง, 57 ปี</label>
+    </ion-row>
+    <ion-row justify-content-center >
+        <img class="slide s-left"  src="assets/icon/เลื่อนซ้าย.png">
+      <ion-col>
+        <img class="img-set" src="assets/img/tongue0-4.png">
+      </ion-col>
+      <ion-col>
+        <img class="img-set" src="assets/img/tongue0-4.png">
+      </ion-col>
+      <ion-col>
+        <img class="img-set" src="assets/img/tongue0-4.png">
+      </ion-col>
+        <img class="slide s-right"  src="assets/icon/เลื่อนขวา.png">
+    </ion-row>
+    <ion-row padding justify-content-center class="recheck-text color-2">ควรพบทันตแพทย์ทันที</ion-row>
+  </ion-grid>
+  <div class="level-tab level-0">
+    ริมฝีปาก: ระดับ 0<a href="edit-case" class="fix-button">แก้ไข</a><img class="fix-icon" src="assets/icon/แปรงสีฟัน.png">
+  </div>
+  <div class="level-tab level-0">
+    ลิ้น: ระดับ 0<a href="edit-case" class="fix-button">แก้ไข</a><img class="fix-icon" src="assets/icon/แปรงสีฟัน.png">
+  </div>
+  <div class="level-tab level-2">
+    เหงือก: ระดับ 2<a href="edit-case" class="fix-button">แก้ไข</a><img class="fix-icon" src="assets/icon/แปรงสีฟัน.png">
+  </div>
+  <div class="level-tab level-1">
+    น้ำลาย: ระดับ 1<a href="edit-case" class="fix-button">แก้ไข</a><img class="fix-icon" src="assets/icon/แปรงสีฟัน.png">
+  </div>
+  <div class="level-tab level-0">
+    ฟันธรรมชาติ: ระดับ 0<a href="edit-case" class="fix-button">แก้ไข</a><img class="fix-icon" src="assets/icon/แปรงสีฟัน.png">
+  </div>
+  <div class="level-tab level-0">
+    ฟันปลอม: ระดับ 0<a href="edit-case" class="fix-button">แก้ไข</a><img class="fix-icon" src="assets/icon/แปรงสีฟัน.png">
+  </div>
+  <div class="level-tab level-1">
+    ความสะอาด: ระดับ 1<a href="edit-case" class="fix-button">แก้ไข</a><img class="fix-icon" src="assets/icon/แปรงสีฟัน.png">
+  </div>
+
+  <ion-row>
+      <ion-col></ion-col>
+      <ion-col><ion-button class="send-button" (click)="sendAns()" type="submit" expand="block">บันทึกการแก้ไข</ion-button>       </ion-col>
+      <ion-col></ion-col>
+    </ion-row>
+  
+
+</ion-content>

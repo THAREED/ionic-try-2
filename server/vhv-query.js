@@ -97,6 +97,7 @@ const deleteAllUser = (request, response) => {
 /////////////////////////////AUTH_USER/////////////////////////////
 
 const getAuthUsers = (request, response) => {
+    console.log("get auth user")
     pool.query('SELECT * FROM auth_users ORDER BY id ASC', (error, results) => {
         if (error) {
             throw error
@@ -106,6 +107,7 @@ const getAuthUsers = (request, response) => {
 }
 
 const getAuthUserById = (request, response) => {
+    console.log("get auth user by id")
     const id = parseInt(request.params.id)
 
     pool.query('SELECT * FROM auth_users WHERE id = $1', [id], (error, results) => {
@@ -116,15 +118,26 @@ const getAuthUserById = (request, response) => {
     })
 }
 
-const getAuthUserByUsername = (request, response) => {
-    const username = String(request.params.username)
-
-    pool.query('SELECT * FROM auth_users WHERE username = $1', [username], (error, results) => {
-        if (error) {
-            throw error
+const getAuthUsersById1 = (request, response) => {
+    if (request.headers && request.headers.authorization) {
+        var authorization = request.headers.authorization.split(' ')[1],
+            decoded;
+        try {
+            decoded = jwt.verify(authorization, SECRET_KEY);
+        } catch (e) {
+            return response.status(401).send('unauthorized');
         }
-        response.status(200).json(results.rows)
-    })
+        var userId = decoded.id;
+        
+        pool.query('SELECT * FROM auth_users WHERE id = $1', [userId], (error, results) => {
+            if (error) {
+                throw error
+            }
+            response.status(200).json(results.rows)
+        })
+    } else {
+        return response.send(500);
+    }
 }
 
 const createAuthUser = (request, response) => {
@@ -200,22 +213,35 @@ const register = (request, response) => {
             throw error
         }
         if (isEmpty(user.rows)) {
+            const expiresIn = 24 * 60 * 60;
+            const accessToken = jwt.sign({
+                id: user.id
+            }, SECRET_KEY, {
+                expiresIn: expiresIn
+            });
             pool.query('INSERT INTO auth_users (firstname, lastname, career, gender, phone, username, password) VALUES ($1, $2, $3, $4, $5, $6, $7)', [firstname, lastname, career, gender, phone, username, password], (error, results) => {
                 if (error) {
                     throw error
+                } else {
+                    pool.query('INSERT INTO user_progression (user_id, less_1_prog, less_2_prog, less_3_prog, less_4_prog, less_5_prog, less_6_prog, less_7_prog, less_8_prog, case_1_num, case_2_num, case_3_num, case_4_num, case_5_num, case_6_num, case_7_num, case_8_num) VALUES ((SELECT id FROM auth_users WHERE username=$1), 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ,0 ,0 ,0 ,0, 0, 0)', [username], (error, results) => {
+                        if (error) {
+                            throw error
+                        }
+                    })
+                    pool.query('INSERT INTO user_exercise_score (user_id, lip_score, tongue_score, gum_score, saliva_score, teeth_score, denture_score, cleanliness_score, pain_score ) VALUES ((SELECT id FROM auth_users WHERE username=$1), 0, 0, 0, 0, 0, 0, 0, 0)', [username], (error, results) => {
+                        if (error) {
+                            throw error
+                        }
+                    })
+                    response.status(200).send({
+                        "user": user,
+                        "access_token": accessToken,
+                        "expires_in": expiresIn
+                    });
+                    console.log('Registered',accessToken)
                 }
-                pool.query('INSERT INTO user_progression (user_id, less_1_prog, less_2_prog, less_3_prog, less_4_prog, less_5_prog, less_6_prog, less_7_prog, less_8_prog, case_1_num, case_2_num, case_3_num, case_4_num, case_5_num, case_6_num, case_7_num, case_8_num) VALUES ((SELECT id FROM auth_users WHERE username=$1), 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ,0 ,0 ,0 ,0, 0, 0)', [username], (error, results) => {
-                    if (error) {
-                        throw error
-                    }
-                })
-                pool.query('INSERT INTO user_exercise_score (user_id, lip_score, tongue_score, gum_score, saliva_score, teeth_score, denture_score, cleanliness_score, pain_score ) VALUES ((SELECT id FROM auth_users WHERE username=$1), 0, 0, 0, 0, 0, 0, 0, 0)', [username], (error, results) => {
-                    if (error) {
-                        throw error
-                    }
-                })
             })
-            
+
         }
     })
 }
@@ -258,7 +284,7 @@ module.exports = {
 
     getAuthUsers,
     getAuthUserById,
-    getAuthUserByUsername,
+    getAuthUsersById1,
     createAuthUser,
     updateAuthUser,
     deleteAuthUser,

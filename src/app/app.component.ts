@@ -6,6 +6,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { AuthService } from './services/auth.service';
 import { AlertService } from './services/alert.service';
+import { Storage } from '@ionic/storage';
 import { AuthUser } from 'src/app/models/auth_user';
 
 @Component({
@@ -14,16 +15,16 @@ import { AuthUser } from 'src/app/models/auth_user';
 })
 export class AppComponent {
   authUser: AuthUser;
-  user_id: String;
   firstname: String;
   lastname: String;
+  user_id: String;
+  username: String;
   constructor(
     private platform: Platform,
-    private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     private authService: AuthService,
+    private alertService: AlertService,
     private navCtrl: NavController,
-    private alertService: AlertService
   ) {
     this.initializeApp();
   }
@@ -31,18 +32,21 @@ export class AppComponent {
   initializeApp() {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
-      this.authService.getToken();
+      // this.authService.getToken();
     });
   }
-  // ionViewWillEnter() {
-  //   this.authService.authUser().subscribe(
-  //     user => {
-  //       console.log('this is: ' + user);
-  //       this.authUser = user;
-  //       this.user_id = this.authUser[0].id;
-  //       this.firstname = this.authUser[0].firstname;
-  //       this.lastname = this.authUser[0].lastname;
-  //     }
-  //   );
-  // }
+
+  logout() {
+    this.authService.logout().subscribe(
+        data => {
+        this.alertService.presentToast(data['Logout']);
+        },
+        error => {
+        console.log(error);
+        },
+        () => {
+        this.navCtrl.navigateRoot('/login');
+        }
+    );
+  }
 }

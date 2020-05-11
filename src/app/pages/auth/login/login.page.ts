@@ -35,7 +35,7 @@ export class LoginPage implements OnInit {
   login(form: NgForm) {
     this.authService.login(form.value).subscribe(
       data => {
-        this.storage.set('username', form.value.username);
+        // this.storage.set('username', form.value.username);
         this.alertService.presentToast('Logged In');
       },
       error => {

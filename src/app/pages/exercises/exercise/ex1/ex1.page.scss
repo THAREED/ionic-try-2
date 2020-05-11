@@ -7,9 +7,10 @@ ion-content{
     color: #061E4C;   
 }
 ion-title{
-    padding-left: 32px;
-    color: #4BA4E8;
-}
+    text-align: left;
+    padding-left: 16px;
+    color: #496AA8;
+    }
 .score-icon{
     width: 48px;
     height: auto;
@@ -27,7 +28,7 @@ ion-title{
 .score-txt label{
     font-size: xx-large;
     font-weight: bolder;
-    color: wheat;
+    color: white;
     text-shadow: 2px 2px #061E4C;
 }
 div.tool{

@@ -11,10 +11,10 @@
     <b><br>ประวัติการทำแบบทดสอบ</b>
     <p class="txt-right font-xs">ข้อมูลตั้งแต่ 23/09/2562 - วันนี้</p>
     <ion-row  class="case-card">
-      <ion-row>
+      <ion-row *ngFor="let a of item">
       <ion-col size="8">
-        <label class="case-id">กรณี #255961</label><label class="case-status level-2">ฉุกเฉิน</label>
-        <p class="case-detail">หญิง, 52 ปี</p>
+        <label class="case-id">กรณี #{{ a.case_number }}</label><label class="case-status level-2">ฉุกเฉิน</label>
+        <p class="case-detail">{{ a.gender }}, {{ a.age }} ปี</p>
           <ion-row>
             <ion-col class="pad-0">
               <img src="assets/img/tongue0-4.png">
@@ -28,13 +28,13 @@
           </ion-row>
       </ion-col>
       <ion-col>
-        <p class="lint-h-s txt-right font-xs">23/09/2562</p>
-        <p class="lint-h-s font-l txt-center font-w-b">82 คะแนน</p>
+        <p class="lint-h-s txt-right font-xs">{{ a.date }}</p>
+        <p class="lint-h-s font-l txt-center font-w-b">{{ a.case_score }} คะแนน</p>
         <ion-button expand="block" class="button-icon"><img src="assets/icon/คะแนน.png" alt="icon/history"> <label>ดูประวัติ</label> </ion-button>  
       </ion-col> 
     </ion-row>
 
-    <ion-row>
+    <!-- <ion-row>
       <ion-col size="8">
         <label class="case-id">กรณี #255961</label><label class="case-status level-2">ฉุกเฉิน</label>
         <p class="case-detail">ชาย, 43 ปี</p>
@@ -101,7 +101,7 @@
         <p class="lint-h-s font-l txt-center font-w-b">82 คะแนน</p>
         <ion-button expand="block" class="button-icon"><img src="assets/icon/คะแนน.png" alt="icon/history"> <label>ดูประวัติ</label> </ion-button>  
       </ion-col> 
-    </ion-row>
+    </ion-row> -->
 
 
     </ion-row>

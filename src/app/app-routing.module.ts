@@ -61,11 +61,11 @@ const routes: Routes = [
     loadChildren: () => import('./pages/lesson-1/lesson34/lesson34.module').then( m => m.Lesson34PageModule)
   },
   {
-    path: 'case-ex1',
+    path: 'case-ex1/:id',
     loadChildren: () => import('./pages/exams/case-exam/case-ex1/case-ex1.module').then( m => m.CaseEx1PageModule)
   },
   {
-    path: 'case-checkans',
+    path: 'case-checkans/:id/:data',
     loadChildren: () => import('./pages/exams/case-exam/case-checkans/case-checkans.module').then( m => m.CaseCheckansPageModule)
   },
   {
@@ -103,6 +103,18 @@ const routes: Routes = [
   {
     path: 'lesson15',
     loadChildren: () => import('./pages/lesson-1/lesson15/lesson15.module').then( m => m.Lesson15PageModule)
+  },
+  {
+    path: 'lesson30',
+    loadChildren: () => import('./pages/lesson-1/lesson30/lesson30.module').then( m => m.Lesson30PageModule)
+  },
+  {
+    path: 'patient-edit',
+    loadChildren: () => import('./pages/screening/patient/patient-edit/patient-edit.module').then( m => m.PatientEditPageModule)
+  },
+  {
+    path: 'edit-case',
+    loadChildren: () => import('./pages/screening/patient/edit-case/edit-case.module').then( m => m.EditCasePageModule)
   },
 ];
 @NgModule({

@@ -34,9 +34,6 @@ export class LessonsPage implements OnInit {
     private route: Router,
     private http: HttpClient,
     private authService: AuthService,
-    private alertService: AlertService,
-    private navCtrl: NavController,
-    private storage: Storage,
   ) {}
 
   ngOnInit() {
@@ -65,40 +62,17 @@ export class LessonsPage implements OnInit {
   lesson8() {
     return this.route.navigate(['/lesson11', this.user_id, 'pain']);
   }
-  
+
   ionViewWillEnter() {
-    this.storage.get('username').then(
-      data => {
-        this.username = data;
-        this.authService.authUsername(this.username).subscribe(
-          user => {
-            this.authUser = user;
-            console.log(user);
-            this.user_id = this.authUser[0].id;
-            this.firstname = this.authUser[0].firstname;
-            this.getProgress(this.user_id);
-          }
-        );
-      },
-      error => {
-        this.username = null;
+    this.authService.getUser().subscribe(
+      user => {
+        this.authUser = user;
+        this.user_id = this.authUser[0].id;
+        this.getProgress(this.user_id);
       }
     );
   }
 
-  logout() {
-    this.authService.logout().subscribe(
-        data => {
-        this.alertService.presentToast(data['message']);
-        },
-        error => {
-        console.log(error);
-        },
-        () => {
-        this.navCtrl.navigateRoot('/app');
-        }
-    );
-  }
   getProgress(user_id) {
     this.user_id = user_id;
     this.http.get<Progress>(`${this.SERVER_ADDRESS}/progress/` + this.user_id)

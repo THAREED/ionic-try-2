@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { tap } from 'rxjs/operators';
 import { AuthUser } from 'src/app/models/auth_user';
 import { AuthService } from 'src/app/services/auth.service';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-exercises',
@@ -16,6 +17,7 @@ export class ExercisesPage implements OnInit {
   user_id: String;
   progress: Progress;
   authUser: AuthUser;
+  username: String;
   case_1: String;
   case_2: String;
   case_3: String;
@@ -28,7 +30,8 @@ export class ExercisesPage implements OnInit {
   constructor(
     private router: Router,
     private http: HttpClient,
-    private authService: AuthService
+    private authService: AuthService,
+    private storage: Storage,
   ) { }
 
   ngOnInit() {
@@ -60,7 +63,7 @@ export class ExercisesPage implements OnInit {
   }
 
   ionViewWillEnter() {
-    this.authService.authUser().subscribe(
+    this.authService.getUser().subscribe(
       user => {
         this.authUser = user;
         this.user_id = this.authUser[0].id;

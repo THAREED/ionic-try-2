@@ -2,14 +2,18 @@
     font-family: 'Sarabun', sans-serif;
     color: #061E4C;   
   }
-  ion-title{
+//   ion-title{
+//     text-align: left;
+//     padding-left: 20pt;
+//     font-size: 1.3em;
+//     color: #061E4C;
+//     background-color: #DCF7FC;
+//     height: 50px;
+//   }
+ion-title{
     text-align: left;
-    padding-left: 20pt;
-    font-size: 1.3em;
-    color: #061E4C;
-    background-color: #DCF7FC;
-    height: 50px;
-  }
+    color: #496AA8;
+    }
   ion-content{
     --background: url('src/assets/img/login_bg.png') no-repeat center/cover fixed;
 }

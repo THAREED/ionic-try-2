@@ -63,10 +63,10 @@ export class AuthService {
       .pipe(
         tap(data => {
           this.storage.remove('token');
-          this.storage.remove('username');
+          // this.storage.remove('username');
           this.isLoggedIn = false;
           delete this.token;
-          delete this.username;
+          // delete this.username;
           return data;
         })
       );
@@ -96,11 +96,11 @@ export class AuthService {
       );
   }
 
-  authUsername(username: String) {
+  getUser() {
     const headers = new HttpHeaders({
       'Authorization': this.token['token_type'] + ' ' + this.token['access_token']
     });
-    return this.http.get<AuthUser>(`${this.AUTH_SERVER_ADDRESS}/auth_username/` + username, { headers: headers })
+    return this.http.get<AuthUser>(`${this.AUTH_SERVER_ADDRESS}/get_users`, { headers: headers })
       .pipe(
         tap(user => {
           return user;

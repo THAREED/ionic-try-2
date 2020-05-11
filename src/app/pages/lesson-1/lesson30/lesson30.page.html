@@ -1,0 +1,21 @@
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <img class="level-img" src="assets/icon/logowithshadow.png">
+      <ion-card-subtitle class="level-tab level-2">{{ title }} - ระดับ 2</ion-card-subtitle>
+      <ion-card-title>{{ title }}ต้องไปหาหมอด่วน</ion-card-title>
+    </ion-card-header>  
+    <ion-card-content>
+     ระดับต่อไปจะมีลักษณะใกล้เคียง<br>
+     กับระดับที่ผ่านมามาก ตั้งใจสังเกตดีๆ นะ
+    <ion-row>
+      <ion-col>
+        <ion-button color="warning" (click)="goHome()">พักก่อนนะ</ion-button>
+        <ion-button (click)="nextPage()">เริ่มเลย</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-card-content>
+</ion-card>
+
+
+</ion-content>

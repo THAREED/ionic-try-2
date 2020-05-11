@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthUser } from 'src/app/models/auth_user';
+import { AuthService } from 'src/app/services/auth.service';
+import { HttpClient } from '@angular/common/http';
+import { tap } from 'rxjs/operators';
 import { Router } from '@angular/router';
 
 @Component({
@@ -7,15 +11,47 @@ import { Router } from '@angular/router';
   styleUrls: ['./exams.page.scss'],
 })
 export class ExamsPage implements OnInit {
-
+  item: Array<string>;
+  idParam: String;
+  authUser: AuthUser;
+  firstname: String;
+  user_id: String;
+  SERVER_ADDRESS = 'http://localhost:3000';
   constructor(
-    private route:Router,
+    private authService: AuthService,
+    private router: Router,
+    private http: HttpClient
   ) { }
+
+  ionViewWillEnter() {
+    this.authService.getUser().subscribe(
+      user => {
+        this.authUser = user;
+        this.user_id = this.authUser[0].id;
+        this.getExam(this.user_id);
+      }
+    );
+  }
+
+  getExam(user_id) {
+    this.user_id = user_id;
+    this.http.get(`${this.SERVER_ADDRESS}/exam/` + this.user_id)
+    .pipe(
+      tap(exam_detail => {
+        return exam_detail;
+      })
+    ).subscribe(exam_detail => {
+      const ob = Object.keys(exam_detail).map(function(index) {
+        const data = exam_detail[index];
+        return data;
+      });
+      this.item = ob;
+    });
+  }
 
   ngOnInit() {
   }
-  startExam()
-  {
-    this.route.navigate(['case-ex1']);
+  startExam() {
+    this.router.navigate(['case-ex1', this.user_id]);
   }
 }

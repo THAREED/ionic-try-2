@@ -18,6 +18,17 @@ const getProg = (request, response) => {
     })
 }
 
+const getExam = (request, response) => {
+    const id = parseInt(request.params.id)
+
+    pool.query('SELECT * FROM exam_detail WHERE user_id = $1', [id], (error, results) => {
+        if (error) {
+            throw error
+        }
+        response.status(200).json(results.rows)
+    })
+}
+
 const updateLessProg = (request, response) => {
     const id = parseInt(request.params.id)
     const less_num = request.params.less_num
@@ -36,8 +47,20 @@ const updateLessProg = (request, response) => {
     )
 }
 
+const insertCase = (request, response) => {
+    const id = parseInt(request.params.id)
+    pool.query('INSERT INTO exam_detail (user_id, case_number) VALUES ((SELECT id FROM auth_users WHERE user_id=$1), 0)', [id], (error, results) => {
+        if (error) {
+            throw error
+        }
+        response.status(200).json(results.rows)
+    })
+}
+
 
 module.exports = {
     getProg,
-    updateLessProg
+    updateLessProg,
+    getExam,
+    insertCase
 }

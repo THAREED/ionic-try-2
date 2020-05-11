@@ -1,13 +1,9 @@
 <ion-header translucent="true">
-	<ion-toolbar color="secondary">   
-	  <!-- <ion-buttons collapse="true" slot="start"> -->
-	  <ion-buttons slot="start">
-		<ion-button> <img class="home-btn" src="assets/icon/logo.png" alt="icon/logo"></ion-button>
-	  </ion-buttons> 
-	  <ion-title class="thai-word">บทเรียน - {{ title }}</ion-title>               
+	<ion-toolbar color="secondary">
+		<ion-back-button text="" slot="start" color="tertiary"></ion-back-button>
+		<ion-title class="thai-word">บทเรียน - {{ title }}</ion-title>     
 	</ion-toolbar>
   </ion-header>
-<div class="blank"></div>
  <ion-content> 
  	<div class="level-tab level-2">
 		{{ title }} - ระดับ 2 ไปหาหมอด่วน

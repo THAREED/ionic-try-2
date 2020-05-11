@@ -25,8 +25,8 @@ app.get('/', (request, response) => {
 app.get('/users', vhv.getUsers)
 app.get('/users/:id', vhv.getUserById)
 app.get('/auth_users', vhv.getAuthUsers)
+app.get('/get_users', vhv.getAuthUsersById1)
 app.get('/auth_users/:id', vhv.getAuthUserById)
-app.get('/auth_username/:username', vhv.getAuthUserByUsername)
 app.get('/auth/logout', vhv.logout)
 
 app.post('/users', vhv.createUser)
@@ -53,6 +53,9 @@ app.get('/lesson/pain/', lesson.getPain)
 
 app.get('/progress/:id', vhv_progress.getProg)
 app.put('/progress/:id/:less_num', vhv_progress.updateLessProg)
+
+app.get('/exam/:id', vhv_progress.getExam)
+app.post('/exam/:id', vhv_progress.insertCase)
 
 app.listen(port, () => {
     console.log(`App running on port ${port}.`)

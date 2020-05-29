@@ -1,29 +1,32 @@
 <ion-header translucent="true">
-  <ion-toolbar color="secondary">   
-    <!-- <ion-buttons collapse="true" slot="start"> -->
-    <ion-buttons slot="start">
-      <ion-button> <img class="home-btn" src="assets/icon/logo.png" alt="icon/logo"></ion-button>
-    </ion-buttons> 
-    <ion-title class="thai-word">ลงทะเบียน</ion-title>               
-  </ion-toolbar>
-</ion-header>
+	<ion-toolbar color="secondary">
+		<ion-back-button text=""  slot="start" color="tertiary"></ion-back-button>
+		<ion-title class="thai-word">ลงทะเบียน</ion-title>     
+	</ion-toolbar>
+  </ion-header>
 
 <ion-content>
   <form #form="ngForm" (ngSubmit)="register(form)">
     <ion-grid padding>
       <ion-row>
-        <ion-col></ion-col>
         <ion-col>
+          <h6>ประเภทการใช้งาน</h6>
           <ion-list class="hidden-list-bg" lines="none">
             <ion-radio-group radio-group [(ngModel)]="career" name = "career">
-              <ion-item class="group-radio">
-                <ion-label class="thai-word text-s">อสม.</ion-label>
-                <ion-radio value="volunteer" slot="start" checked></ion-radio>
-              </ion-item>
-              <ion-item>
-                <ion-label class="thai-word text-s">พยาบาล</ion-label>
-                <ion-radio value="nurse" slot="start"></ion-radio>
-              </ion-item>
+              <ion-row>
+                <ion-col>
+                  <ion-item>
+                    <ion-label class="thai-word">อสม.</ion-label>
+                    <ion-radio value="volunteer" slot="start"></ion-radio>
+                  </ion-item>
+                </ion-col>
+                <ion-col>
+                  <ion-item>
+                    <ion-label class="thai-word">พยาบาล</ion-label>
+                    <ion-radio value="nurse" slot="start"></ion-radio>
+                  </ion-item>
+                </ion-col>
+              </ion-row>        
             </ion-radio-group>
           </ion-list>
         </ion-col>
@@ -35,8 +38,8 @@
       </ion-row>
       <ion-row>
         <ion-col size="4">
-          <ion-list class="hidden-list-bg">
-            <ion-item style="height: 43px;">
+          <ion-list  class="hidden-list-bg gender">
+            <ion-item style="height: 41px;">
               <ion-select [(ngModel)]="gender" name="gender" placeholder="เพศ">
                 <ion-list-header>
                   <ion-label>กรุณาเลือกเพศ</ion-label>

@@ -23,12 +23,20 @@ ion-title{
     font-weight: bolder;
 }
 .card-img{
-    margin-top: 20px;
+    clear: both;
+    margin-top: 15px;
     box-shadow: 0px 3px 1px #00000040;
     border-radius: 10%;
-    width: 100%;
+    border: solid 2px #4BA4E8;
+    background: linear-gradient(180deg, #4BA4E8 70%, white 60%);
+    margin-bottom: 0px;
 }
-
+.display{
+    margin-top: 15px;
+    border-radius: 10px;
+    width: 90%;
+    border: solid 2px white;
+}
 ion-item {
     --background: transparent;
     border-radius: 10px;
@@ -87,24 +95,25 @@ ion-radio{
     --color: white;
     margin-bottom: -5px;
 }
-.icon-btn{
-    padding: 0px;
-    height: 48px;
-}
 .icon-btn img{
-    height: 48px;
+    margin: 0px;
     padding: 0px;
+    background-color: white;
+    height: 48px;
+    width: 48px;
 }
-.col-helper {
-    text-align: right;
-    margin-top: 16px;
+.icon-btn{
+    height: 48px;
+    border: 100%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 70px;
 }
-.col-helper ion-label{
-    margin-right: 10px;
+.font-xs{
+    font-size: small;
+    margin-top: 15px;
+    margin-left: 20px;
 }
-.col-helper img{
-    box-shadow: 3px 2px 1px #00000040;
-    border-radius: 100%;
-    margin-bottom: 2px;
-    padding-top: 1px;
+.page{
+    margin-right: 15px;
 }

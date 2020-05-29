@@ -1,0 +1,67 @@
+*{
+    font-family: 'Sarabun', sans-serif;
+    color: #061E4C;   
+}
+ion-content{
+    --background: url('src/assets/img/login_bg.png') no-repeat center/cover fixed;
+    color: #061E4C;   
+}
+ion-title{
+    text-align: left;
+    color: #496AA8;
+    }
+.title-score{
+    font-weight: lighter;
+    line-height: 30px;
+}
+.txt-hilight, .txt-hilight b{
+    font-weight: bolder;
+    font-size: large;
+    color: red;
+}
+.score-icon{
+    width: 26px;
+    float: left;
+    transform: rotate(-15deg);
+    margin-right: 10px;
+}
+.user-level{
+    width: 100%;
+    animation: mymove 2s infinite;
+}
+@keyframes mymove {
+    50% {transform: rotate(-10deg);}
+  }
+
+.answer{
+    margin-top: 30px;
+    border-bottom: 1px solid #4BA4E8;
+}
+.ans-level{
+    font-size: small;
+    margin-top: 10px;
+}
+.level-0{
+    background-color: #17F6AD;
+}
+.level-1{
+    background-color: #FEA54C;
+}
+.level-2{
+    background-color: #FD7878;
+}
+.level-0, .level-1, .level-2{
+    padding-bottom: 20px;
+}
+.card-img{
+    margin: 10px 5px 0px 5px;
+    padding: 0px;
+    box-shadow: 0px 2px 1px #00000040;
+}
+
+.posi{
+    position: absolute;
+    width: 22px;
+    right: 6px;
+    bottom: 6px;
+}

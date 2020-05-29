@@ -7,6 +7,14 @@ const routes: Routes = [
   {
     path: '',
     component: ScreeningHelperPage
+  },
+  {
+    path: 'screening-helper2',
+    loadChildren: () => import('./screening-helper2/screening-helper2.module').then( m => m.ScreeningHelper2PageModule)
+  },
+  {
+    path: 'screening-helper2',
+    loadChildren: () => import('./screening-helper2/screening-helper2.module').then( m => m.ScreeningHelper2PageModule)
   }
 ];
 

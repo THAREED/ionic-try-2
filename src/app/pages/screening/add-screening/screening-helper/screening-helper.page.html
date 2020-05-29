@@ -1,57 +1,49 @@
 <ion-header translucent="true">
 	<ion-toolbar color="secondary">
 		<ion-back-button text=""  slot="start" color="tertiary"></ion-back-button>
-		<ion-title class="thai-word">คัดกรอง</ion-title>     
+    <ion-title class="thai-word">คัดกรอง - ตัวช่วย</ion-title>    
+    <ion-label slot="end" class="thai-word page">1/8  </ion-label>  
 	</ion-toolbar>
-</ion-header>
+  </ion-header>
+
 <ion-content>
   <ion-grid padding>
-    <ion-row justify-content-center>1/8</ion-row>
     <ion-row>
         <label class="title">ริมฝีปาก</label>
         <label class="case-info">ชื่อผู้รับคัดกรอง, 57 ปี</label>
     </ion-row>
     <ion-row class="card-img" justify-content-center>
-      <img src="assets/img/tongue0-4.png">
+      <img class="display" src="assets/img/tongue0-4.png">
+      <ion-row>
+        <ion-col>
+          <ion-label>เลือกภาพที่มีความใกล้เคียงกับภาพของผู้เข้ารับการคัดกรองที่สุด</ion-label>
+        </ion-col>
+        <ion-col>
+          <ion-button disabled class="render-button" (click)="confirm()" type="submit" expand="block">ยืนยัน</ion-button>
+        </ion-col>
+      </ion-row>
     </ion-row>
-    <p>เลือกภาพที่ใกล้เคียงกับลักษณะของคุณชื่อผู้รับคัดกรองมากที่สุด</p>
-    <ion-row>
-      <ion-col class="status-msg level-0">ใกล้เคียงระดับ 0</ion-col>
-      <ion-col class="col-helper">
-        <ion-button class="render-button" (click)="confirm()" type="submit" expand="block">ยืนยัน</ion-button>
-      </ion-col>      
-    </ion-row>
-    <ion-row justify-content-center>
-      <ion-col><img class="img-info" src="assets/img/tongue0-4.png"></ion-col>
-      <ion-col><img class="img-info choose" src="assets/img/tongue0-4.png"></ion-col>
-      <ion-col><img class="img-info" src="assets/img/tongue0-4.png"></ion-col>
-    </ion-row>
-    <ion-row justify-content-center>
-      <ion-col><img class="img-info" src="assets/img/tongue0-4.png"></ion-col>
-      <ion-col><img class="img-info" src="assets/img/tongue0-4.png"></ion-col>
-      <ion-col><img class="img-info" src="assets/img/tongue0-4.png"></ion-col>
+     <ion-row justify-content-center>
+      <ion-col><img (click)="choose()" class="img-info" src="assets/img/tongue0-4.png"></ion-col>
+      <ion-col><img (click)="choose()" class="img-info" src="assets/img/tongue0-4.png"></ion-col>
+      <ion-col><img (click)="choose()" class="img-info" src="assets/img/tongue0-4.png"></ion-col>
     </ion-row>
     <ion-row justify-content-center>
-      <ion-col><img class="img-info" src="assets/img/tongue0-4.png"></ion-col>
-      <ion-col><img class="img-info" src="assets/img/tongue0-4.png"></ion-col>
-      <ion-col><img class="img-info" src="assets/img/tongue0-4.png"></ion-col>
+      <ion-col><img (click)="choose()" class="img-info" src="assets/img/tongue0-4.png"></ion-col>
+      <ion-col><img (click)="choose()" class="img-info" src="assets/img/tongue0-4.png"></ion-col>
+      <ion-col><img (click)="choose()" class="img-info" src="assets/img/tongue0-4.png"></ion-col>
     </ion-row>
     <ion-row justify-content-center>
-      <ion-col><img class="img-info" src="assets/img/tongue0-4.png"></ion-col>
-      <ion-col><img class="img-info" src="assets/img/tongue0-4.png"></ion-col>
-      <ion-col><img class="img-info" src="assets/img/tongue0-4.png"></ion-col>
+      <ion-col><img (click)="choose()" class="img-info" src="assets/img/tongue0-4.png"></ion-col>
+      <ion-col><img (click)="choose()" class="img-info" src="assets/img/tongue0-4.png"></ion-col>
+      <ion-col><img (click)="choose()" class="img-info" src="assets/img/tongue0-4.png"></ion-col>
     </ion-row>
     <ion-row justify-content-center>
-      <ion-col><img class="img-info" src="assets/img/tongue0-4.png"></ion-col>
-      <ion-col><img class="img-info" src="assets/img/tongue0-4.png"></ion-col>
-      <ion-col><img class="img-info" src="assets/img/tongue0-4.png"></ion-col>
+      <ion-col><img (click)="choose()" class="img-info" src="assets/img/tongue0-4.png"></ion-col>
+      <ion-col><img (click)="choose()" class="img-info" src="assets/img/tongue0-4.png"></ion-col>
+      <ion-col><img (click)="choose()" class="img-info" src="assets/img/tongue0-4.png"></ion-col>
     </ion-row>
-    <ion-row justify-content-center>
-      <ion-col><img class="img-info" src="assets/img/tongue0-4.png"></ion-col>
-      <ion-col><img class="img-info" src="assets/img/tongue0-4.png"></ion-col>
-      <ion-col><img class="img-info" src="assets/img/tongue0-4.png"></ion-col>
-    </ion-row>
-     
+   
   </ion-grid>
 
 </ion-content>

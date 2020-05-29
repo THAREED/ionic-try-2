@@ -1,11 +1,12 @@
-*{
+ion-content{    
     font-family: 'Sarabun', sans-serif;
+    // font-weight: bold;
+    // font-size: 1.5rem;
+    --background: url('src/assets/img/login_bg.png') no-repeat center/cover fixed;
     color: #4BA4E8;
 }
-ion-content{
-    --background: url('src/assets/img/login_bg.png') no-repeat center/cover fixed;
-}
 ion-title{
+    font-family: 'Sarabun', sans-serif;
     color: #496AA8;    
 }
 ion-col{
@@ -17,6 +18,9 @@ ion-col{
 ion-grid{
     margin: 12px;
 }
+.level{
+    margin-top: -5px;
+}
 .icon-btn{
     margin: 0px;
     padding: 0px;
@@ -27,10 +31,7 @@ ion-grid{
 .label-bor{
     border-bottom: 0.5pt solid #5DBAE8;
     margin: 5px 8px 5px 8px;
-}
-.level{
-    height: 20px;
-    margin-bottom: 4px;
+    color: #4BA4E8;
 }
 .blank-col{
     background-color: transparent;
@@ -38,9 +39,11 @@ ion-grid{
 }
 .text-size-s{
     font-size: 0.8em;
+    margin-bottom: 10px;
 }
 .text-size-ss{
     font-size: 0.78em;
+    margin-bottom: 10.4px;
 }
 
 .menu-btn{

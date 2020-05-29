@@ -9,47 +9,37 @@
 <ion-content>
   <ion-grid padding>
     <ion-row>
-      <ion-col size="9">
-        <label class="title-score">คะแนนดิบ: <b>20</b> </label><br>
-        <label class="title-score">หยุดเวลา: <b>2</b> </label><br>
-        <label class="title-score">การใช้ตัวช่วย: <b>1</b> </label><br>
-        <label class="title-score txt-hilight">         
-          <img class="score-icon" src="assets/icon/คะแนน.png" alt="icon/Score">
-          คะแนนสุทธิ(100): <b>80</b> </label><br>
-      </ion-col>
       <ion-col>
-        <img class="user-level" src="assets/icon/new-student.png" alt="icon/new-student">
+        <img class="user-level" src="assets/icon/score0.png" alt="icon/new-student">
       </ion-col>
+      <ion-col><br>
+        <label class="title-score">ทำไป: <b>{{ s }}</b> ข้อ</label><br>
+        <label class="title-score">หยุดเวลา: <b>{{ s }}</b> ครั้ง</label><br>
+        <label class="title-score">ใช้ตัวช่วย: <b>{{ s }}</b> ครั้ง</label><br>
+        <label class="title-score txt-hilight">         
+          คะแนนรวม:
+          <b>{{ s }}%</b></label><br>
+      </ion-col>
+      
     </ion-row>
     <ion-row class="answer" justify-content-center>เฉลยแบบฝึกหัด</ion-row>
     <ion-row class="level-0">
       <ion-row class="ans-level">ระดับ 0 สุขภาพดี</ion-row>
       <ion-row>
-        <ion-col class="card-img">
+        <ion-col *ngFor="let item of images" class="card-img">
           <img src="assets/img/tongue0-4.png">
-          <img class="posi" src="assets/icon/ถูก.png">
-        </ion-col>
-        <ion-col class="card-img">
-          <img src="assets/img/tongue0-4.png">
-          <img class="posi" src="assets/icon/ถูก.png">
-        </ion-col>
-        <ion-col class="card-img">
-          <img src="assets/img/tongue0-4.png">
-          <img class="posi" src="assets/icon/ถูก.png">
         </ion-col>
       </ion-row>
-      <ion-row>
+      <!-- <ion-row>
         <ion-col class="card-img">
           <img src="assets/img/tongue0-4.png">
-          <img class="posi" src="assets/icon/ผิด.png">
         </ion-col>
         <ion-col class="card-img">
           <img src="assets/img/tongue0-4.png">
-          <img class="posi" src="assets/icon/ผิด.png">
         </ion-col>
         <ion-col>
         </ion-col>
-      </ion-row>
+      </ion-row> -->
     </ion-row>
 
     <ion-row class="level-1">
@@ -57,21 +47,17 @@
       <ion-row>
         <ion-col class="card-img">
           <img src="assets/img/tongue0-4.png">
-          <img class="posi" src="assets/icon/ถูก.png">
         </ion-col>
         <ion-col class="card-img">
           <img src="assets/img/tongue0-4.png">
-          <img class="posi" src="assets/icon/ถูก.png">
         </ion-col>
         <ion-col class="card-img">
           <img src="assets/img/tongue0-4.png">
-          <img class="posi" src="assets/icon/ผิด.png">
         </ion-col>
       </ion-row>
       <ion-row>
         <ion-col class="card-img">
           <img src="assets/img/tongue0-4.png">
-          <img class="posi" src="assets/icon/ผิด.png">
         </ion-col>
         <ion-col>
         </ion-col>
@@ -85,15 +71,12 @@
       <ion-row>
         <ion-col class="card-img">
           <img src="assets/img/tongue0-4.png">
-          <img class="posi" src="assets/icon/ถูก.png">
         </ion-col>
         <ion-col class="card-img">
           <img src="assets/img/tongue0-4.png">
-          <img class="posi" src="assets/icon/ถูก.png">
         </ion-col>
         <ion-col class="card-img">
           <img src="assets/img/tongue0-4.png">
-          <img class="posi" src="assets/icon/ถูก.png">
         </ion-col>
       </ion-row>
       

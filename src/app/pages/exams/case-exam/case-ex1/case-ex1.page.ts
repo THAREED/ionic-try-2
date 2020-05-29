@@ -4,6 +4,7 @@ import { AuthUser } from 'src/app/models/auth_user';
 import { Lesson } from '../../../../models/lesson';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
+import { AlertController } from '@ionic/angular';
 import { tap } from 'rxjs/operators';
 import { BehaviorSubject } from 'rxjs';
 import { DataService } from 'src/app/services/data.service';
@@ -44,7 +45,8 @@ export class CaseEx1Page implements OnInit {
     private router: Router,
     private http: HttpClient,
     private route: ActivatedRoute,
-    private dataService: DataService
+    private dataService: DataService,
+    private alertController: AlertController
   ) { }
 
   ionViewWillEnter() {
@@ -222,14 +224,14 @@ export class CaseEx1Page implements OnInit {
     if (this.timer === 0) {
       this.startTimer(2);
     } else {
-      this.startTimer(this.timer);
+      this.startTimer(this.timer/60);
     }
   }
 
   stopTimer() {
     clearInterval(this.interval);
     numbers.push(this.selectedRadioGroup);
-    this.dataService.setData('test', numbers);
+    this.dataService.setExerciseChoice('test', numbers);
     this.router.navigate(['/case-checkans', this.idParam, 'test']);
   }
 
@@ -261,8 +263,17 @@ export class CaseEx1Page implements OnInit {
       this.seq++;
       this.changeLesson();
     } else {
-      this.dataService.setData('test', numbers);
+      this.dataService.setExerciseChoice('test', numbers);
       this.router.navigate(['/case-checkans', this.idParam, 'test']);
     }
+  }
+  async helpAlert() {
+    const alert = await this.alertController.create({
+      header: 'วิธีทำ',
+      subHeader: 'เลือกระดับความผิดปกติให้ครบทั้ง 7 ตำแหน่ง',
+      message: 'ระดับ 0 สุขภาพดี <br>ระดับ 1 เริ่มมีปัญหาแล้วนะ <br>ระดับ 2 ไปหาหมอด่วน',
+      buttons: ['เข้าใจแล้ว']
+    });
+    await alert.present();
   }
 }

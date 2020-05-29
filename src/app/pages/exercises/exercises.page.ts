@@ -38,28 +38,28 @@ export class ExercisesPage implements OnInit {
 
   }
   ex1() {
-    return this.router.navigate(['/ex1',  this.user_id, 'lip']);
+    return this.router.navigate(['/ex1-rule',  this.user_id, 'lip']);
   }
   ex2() {
-    return this.router.navigate(['/ex1',  this.user_id, 'tongue']);
+    return this.router.navigate(['/ex1-rule',  this.user_id, 'tongue']);
   }
   ex3() {
-    return this.router.navigate(['/ex1',  this.user_id, 'gum']);
+    return this.router.navigate(['/ex1-rule',  this.user_id, 'gum']);
   }
   ex4() {
-    return this.router.navigate(['/ex1',  this.user_id, 'saliva']);
+    return this.router.navigate(['/ex1-rule',  this.user_id, 'saliva']);
   }
   ex5() {
-    return this.router.navigate(['/ex1', this.user_id, 'teeth']);
+    return this.router.navigate(['/ex1-rule', this.user_id, 'teeth']);
   }
   ex6() {
-    return this.router.navigate(['/ex1',  this.user_id, 'denture']);
+    return this.router.navigate(['/ex1-rule',  this.user_id, 'denture']);
   }
   ex7() {
-    return this.router.navigate(['/ex1',  this.user_id, 'cleanliness']);
+    return this.router.navigate(['/ex1-rule',  this.user_id, 'cleanliness']);
   }
   ex8() {
-    return this.router.navigate(['/ex1',  this.user_id, 'pain']);
+    return this.router.navigate(['/ex1-rule',  this.user_id, 'pain']);
   }
 
   ionViewWillEnter() {

@@ -1,5 +1,6 @@
 *, ion-label{
-    font-family: 'Sarabun', sans-serif;
+    font-family: 'Peach Play','Sarabun', sans-serif;
+    font-weight: bold;
 }
 ion-content{
     --background: url('src/assets/img/login_bg.png') no-repeat center/cover fixed;
@@ -12,13 +13,16 @@ ion-content{
 }
 .app_name{
     text-align: center;
+    font-size: 1.6rem;
 }
 .placeholder{
     text-align: center;
     color: #5DBAE7;
     background-color: white;
+    font-size: 1.5rem;
 }
 ion-button, ion-input, .box-shadow{
+    margin-top: 16px;
     box-shadow: 0px 3px 5px #00000040;
     border-radius: 10px;
 }
@@ -31,9 +35,20 @@ ion-checkbox{
     color: #4BA4E8;
     float: left;
     margin-left: 5px;
+    font-size: 1.2rem;
 }
 #no_account{
-    font-size: 85%;
     color: #483737;
     margin-top: 22%;
+    font-size: 1.2rem;
+}
+.login-btn{
+    color: white;
+    border-radius: 10px;
+    font-size: 1.5rem;
+}
+.margin-b{
+    margin-bottom: 20px;
+    width: 90%;
+    margin-left: 5%;
 }

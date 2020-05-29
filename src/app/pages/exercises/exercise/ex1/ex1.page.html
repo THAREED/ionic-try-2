@@ -5,7 +5,7 @@
   </ion-header>
 <ion-content padding>
   <ion-grid>
-    <ion-row>
+    <!-- <ion-row>
         <img class="score-icon" src="assets/icon/คะแนน.png" alt="icon/Score">
         <div class="score-txt">
           <label>26</label>
@@ -15,19 +15,51 @@
           <img src="assets/icon/หยุด.png">
           <label class="timer">1.46 นาที</label>
         </div>
+    </ion-row> -->
+    <ion-row></ion-row>
+    <ion-row class="tool">
+        <label class="timer">{{ time | async }} <label class="min">นาที</label></label>
+        <ion-buttons *ngIf="state === 'start' "  class="stop-button">
+          <ion-button (click)="pauseTimer()"> <img class="home-btn" src="assets/icon/หยุด.png"></ion-button>
+        </ion-buttons>
+        <ion-buttons *ngIf="state === 'pause' "  class="pause-button">
+          <ion-button (click)="continueTimer()"> <img class="home-btn" src="assets/icon/เล่นต่อ.png"></ion-button>
+        </ion-buttons>
+        <ion-buttons class="help-button">
+          <ion-button (click)="helpAlert()"> <img class="home-btn" src="assets/icon/ตัวช่วย.png" alt="icon/helper"></ion-button>
+        </ion-buttons>
     </ion-row>
+  <ion-row class="article">
+      ข้อ {{ seq }}.
+  </ion-row> 
+  
     <ion-row class="card-img" justify-content-center>
-      <img src="assets/img/tongue0-4.png">
+      <img [src]="src">
+      <ion-label> • ภาพนี้อยู่ในระดับความผิดปกติใด • </ion-label>
     </ion-row>
-    <div class="level-tab level-0">
-      ระดับ 0 สุขภาพดี
-    </div>
-    <div class="level-tab level-1">
-      ระดับ 1 เริ่มมีปัญหาแล้วนะ
-    </div>
-    <div class="level-tab level-2">
-      ระดับ 2 ไปหาหมอด่วน
-     </div>
+    <ion-row>
+      
+    </ion-row>
+    <ion-row>
+      <!-- <form [formGroup]="myForm"> -->
+        <ion-list class="hidden-list-bg" lines="none">
+          <ion-radio-group radio-group  [(ngModel)]="meeting" name = "meeting" >
+            <ion-item class="group-radio level-0">
+              <ion-label class="thai-word">ระดับ 0 สุขภาพดี</ion-label>
+              <ion-radio (click)="radioGroupChange('0')" value="0" slot="start"></ion-radio>
+            </ion-item>
+            <ion-item class="group-radio level-1">
+              <ion-label class="thai-word">ระดับ 1 เริ่มมีปัญหาแล้วนะ</ion-label>
+              <ion-radio (click)="radioGroupChange('1')" value="1" slot="start"></ion-radio>
+            </ion-item>
+            <ion-item class="group-radio level-2">
+              <ion-label class="thai-word">ระดับ 2 ไปหาหมอด่วน</ion-label>
+              <ion-radio (click)="radioGroupChange('2')" value="2" slot="start"></ion-radio>
+            </ion-item>
+          </ion-radio-group>
+        </ion-list>
+      <!-- </form>    -->
+    </ion-row>
 
   </ion-grid>
 

@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'Peach Play';
+    src: url('PeachPlay.woff2') format('woff2'),
+        url('PeachPlay.woff') format('woff'),
+        url('PeachPlay.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+

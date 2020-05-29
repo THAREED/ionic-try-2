@@ -5,15 +5,24 @@ import { Injectable } from '@angular/core';
 })
 export class DataService {
 
-  private data = [];
+  private exerciseChoice = [];
+  private examChoice = [];
 
   constructor() { }
 
-  setData(id, data) {
-    this.data[id] = data;
+  setExamChoice(id, choice) {
+    this.examChoice[id] = choice;
   }
 
-  getData(id){
-    return this.data[id];
+  getEamhoice(id){
+    return this.examChoice[id];
+  }
+
+  setExerciseChoice(id, choice) {
+    this.exerciseChoice[id] = choice;
+  }
+
+  getChoice(id){
+    return this.exerciseChoice[id];
   }
 }

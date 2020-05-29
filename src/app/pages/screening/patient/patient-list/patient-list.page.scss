@@ -1,6 +1,6 @@
 *{
     font-family: 'Sarabun', sans-serif;
-    color: #4BA4E8;
+    color: #496AA8;
 }
 ion-content{
     --background: url('src/assets/img/login_bg.png') no-repeat center/cover fixed;
@@ -13,7 +13,6 @@ ion-title{
     height: 24px;
     width: 18px;
 }
-
 .txt-right{
     text-align: right;
 }
@@ -26,13 +25,13 @@ ion-title{
 img{
     border-radius: 6px;
 }
-.case-card{
-    background-color: white;
-    border: solid 1px #4BA4E8 ;
-    border-radius: 10px;
-    padding-left: 5px;
-    margin-top: 15px;
-}
+// .case-card{
+//     background-color: white;
+//     border: solid 1px #4BA4E8 ;
+//     border-radius: 10px;
+//     padding-left: 5px;
+//     margin-top: 15px;
+// }
 .case-card ion-row{
     margin-top: 10px;
 }
@@ -91,6 +90,15 @@ img{
 .level-2{
     background-color: #FD7878;
 }
+.bg-0{
+    background-color: #DFFFE7;
+}
+.bg-1{
+    background-color: #FFF0DF;
+}
+.bg-2{
+    background-color: #FFDFDF;
+}
 .mar-top{
     margin-top: 15px;
 }
@@ -127,4 +135,26 @@ img{
 .emergency ion-col{
     font-size: smaller;
     text-align: center;
+}
+.case-card{
+    background-color: rgb(191, 226, 253);
+    border-radius: 10px;
+    box-shadow: 0px 3px 3px wheat;
+    margin-bottom: 20px;
+}
+table{
+    width: 100%;
+    margin: 10px;
+    border-collapse: separate;
+    border-spacing: 5px;
+}
+th{
+    padding: 6px;
+    text-align: center;
+}
+td{
+    padding: 10px;
+    text-align: center;
+    border-radius: 20px;
+    background-color: white;
 }

@@ -16,13 +16,15 @@ div.tool{
     right: 16px;
     width: 50%;
 }
-.stop-button{
-    width: 36px;
-    height: 36px;
-    box-shadow: 3px 2px 1px #00000040;
-    border-radius: 100%;
-    margin-left: -16px;
+.stop-button {
+    margin-left: -25px;
     margin-top: 2px;
+}
+.stop-button img{    
+    height: 95%;
+    border-radius: 100%;
+    box-shadow: 3px 2px 1px #00000040;
+    margin-bottom: 2px;
 }
 .timer{
     background-color: #ffffff;
@@ -55,12 +57,10 @@ div.tool{
     height: 48px;
 }
 ion-row .s-left{
-    background-color: whitesmoke;
     box-shadow: 3px 0px 1px snow;
     padding: 2px;
 }
 ion-row .s-right{
-    background-color: whitesmoke;
     box-shadow: -3px 0px 1px snow;
     padding: 2px;
 }
@@ -120,6 +120,7 @@ ion-radio{
 .recheck-text{
     font-size: 20px;
     font-weight: bolder;
+    margin-top: 20px;
 }
 .level-tab{
     padding: 8px;
@@ -142,4 +143,7 @@ ion-radio{
     padding: 2px 5px 2px 10px;
     margin-right: 16px;
     border-radius: 0px 0px 5px 0px;
+}
+ion-radio{
+    --color: white;
 }

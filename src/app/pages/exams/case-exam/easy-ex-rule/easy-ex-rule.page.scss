@@ -1,0 +1,45 @@
+*{
+    font-family: 'Sarabun', sans-serif;
+  }
+  ion-content{
+    --background: url('src/assets/img/login_bg.png') no-repeat center/cover fixed;
+  }
+  ion-card{
+      margin: 25% 10% 10% 10%;
+      text-align: center;
+      background-color: white;
+      border: 1px solid #5DBAE8;
+  }
+  ion-card-content{
+    line-height: 30px;
+  }
+  .level-0{
+    background-color: #17F6AD;
+  }
+  .level-1{
+    background-color: #FEA54C;
+  }
+  .level-2{
+    background-color: #FD7878;
+  }
+  .level-tab{
+    padding: 5px 5px 5px 0px;
+    background-color: #C4E5FF;
+  }
+  .flip-t{
+    color: red;
+    line-height: 30px;
+  }
+  ion-button{
+    color: white;
+    box-shadow: 0px 3px 5px #00000040;
+    border-radius: 10px;
+    width: 40%;
+  }
+  ion-card-content img{
+      width: 30%;
+      margin-left: 35%;
+  }
+  ion-card-title{
+      line-height: 30px;
+  }

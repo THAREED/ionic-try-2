@@ -5,15 +5,15 @@
       <img class="logo" src="assets/img/logo and name.png">
       <h6 class="app_name">ระบบฝึกคัดกรองความผิดปกติทางทันตกรรมสำหรับ อสม. และพยาบาล</h6>
       <form #form="ngForm" (ngSubmit)="login(form)">
-        <div padding>
+        <div class="margin-b">
           <ion-input class="box-shadow placeholder" type="text" [(ngModel)]="username" name="username" placeholder="ชื่อผู้ใช้ เช่น สมหวัง"></ion-input>
         </div>
-        <div padding>
+        <div  class="margin-b">
           <ion-input class="box-shadow placeholder" ngModel type="password" [(ngModel)]="password" name="password" placeholder="รหัสผ่าน 8 ตัวอักษร">
           </ion-input>
         </div>
-        <div padding>
-          <ion-button type="submit" expand="block">เข้าสู่ระบบ</ion-button>
+        <div  class="margin-b">
+          <ion-button class="login-btn" type="submit" expand="block">เข้าสู่ระบบ</ion-button>
         </div>
       </form>
     </ion-col>
@@ -22,9 +22,9 @@
   <ion-row>
     <ion-col style="margin-left: 15%;">
       <ion-checkbox checked></ion-checkbox>
-      <ion-label id="remember-label"> จำรหัสผ่าน</ion-label>
+      <ion-label id="remember-label"> บันทึกรหัส</ion-label>
     </ion-col>
-    <ion-col style="margin-right: 15%; text-align: right;">
+    <ion-col style="margin-right: 15%; text-align: right; font-size: 1.2rem;">
       <a href="https://www.w3schools.com">ลืมรหัสผ่าน?</a>
     </ion-col>
   </ion-row>

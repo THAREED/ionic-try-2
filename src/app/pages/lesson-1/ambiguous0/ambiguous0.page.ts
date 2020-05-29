@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute } from "@angular/router";
 import { Lesson } from '../../../models/lesson';
 import { HttpClient } from '@angular/common/http';
 import { tap } from 'rxjs/operators';
 
-let split;
+var split
 @Component({
   selector: 'app-ambiguous0',
   templateUrl: './ambiguous0.page.html',
@@ -19,10 +19,10 @@ export class Ambiguous0Page implements OnInit {
   ambi0_txt: String;
   ambi0_img: String;
   lesson: Lesson;
-  SERVER_ADDRESS = 'http://localhost:3000';
+  SERVER_ADDRESS = 'http://localhost:3000'; // Your Node Address
   constructor(
     private http: HttpClient,
-    private router: Router,
+    private router: Router,    
     private route: ActivatedRoute
   ) { }
 
@@ -35,8 +35,8 @@ export class Ambiguous0Page implements OnInit {
   // prevPage(){
   //   this.router.navigate(['/lesson12', this.param]);
   // }
-  nextPage() {
-    this.router.navigate(['/lesson14', this.idParam, this.lessonParam]);
+  nextPage(){
+    this.router.navigate(['/lesson13', this.idParam, this.lessonParam]);
   }
   ionViewWillEnter() {
     this.http.get<Lesson>(`${this.SERVER_ADDRESS}/lesson/` + this.lessonParam)
@@ -52,7 +52,7 @@ export class Ambiguous0Page implements OnInit {
       this.ambi0_txt = split[0];
       this.ambi0_img = split[1];
     });
-  }
+}
 
 
 }

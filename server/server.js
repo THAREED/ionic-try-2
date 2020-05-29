@@ -1,4 +1,5 @@
 const express = require('express')
+const fs = require('fs');
 const bodyParser = require('body-parser')
 const app = express()
 const port = 3000
@@ -20,6 +21,17 @@ app.get('/', (request, response) => {
     response.json({
         info: 'Node.js, Express, and Postgres API'
     })
+})
+
+app.get('/image_list', (request, response) => {
+    try {
+        const https = require('https');
+        const fileUrl = new URL('/output.txt', 'http://localhost:51412');
+        var data = fs.readFileSync(fileUrl);
+        console.log(data);    
+    } catch(e) {
+        console.log('Error:', e.stack);
+    }
 })
 
 app.get('/users', vhv.getUsers)

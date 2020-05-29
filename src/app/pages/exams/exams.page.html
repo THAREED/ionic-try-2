@@ -7,103 +7,53 @@
 
 <ion-content>
   <ion-grid padding>
-    <ion-button (click)="startExam()" expand="block" class="do-exam"><img src="assets/icon/แบบทดสอบ.png" alt="icon/howto"> <label>ทำแบบทดสอบ</label> </ion-button>  
+    <ion-row class="row-user">
+      <ion-col size="4">
+        <img class="user" src="assets/icon/user0.png">
+      </ion-col>
+      <ion-col><br>
+        <p>ระดับ: มือใหม่</p>
+        <p>ประสบการณ์: <label class="exp" >21.67%</label></p>
+      </ion-col>
+    </ion-row> 
+    <ion-progress-bar value="0.2167" reversed="false"></ion-progress-bar><br> 
+    <img src="assets/icon/ด่าน1.png">
+    <ion-button  class="task" (click)="startEasyExam()">ทำอีกครั้ง</ion-button> 
+    <ion-row class="diff">ระดับ: ง่าย</ion-row>
+
+    <img src="assets/icon/ด่าน2.png">
+    <ion-button  class="task" (click)="startExam()">ทำแบบทดสอบ 2</ion-button> 
+    <ion-row class="diff">ระดับ: ปานกลาง</ion-row>
+
+    <img src="assets/icon/ด่าน3.png">
+    <ion-button disabled class="task">ทำแบบทดสอบ 3</ion-button> 
+    <ion-row class="diff">ระดับ: ยาก</ion-row>
+
     <b><br>ประวัติการทำแบบทดสอบ</b>
     <p class="txt-right font-xs">ข้อมูลตั้งแต่ 23/09/2562 - วันนี้</p>
-    <ion-row  class="case-card">
-      <ion-row *ngFor="let a of item">
-      <ion-col size="8">
-        <label class="case-id">กรณี #{{ a.case_number }}</label><label class="case-status level-2">ฉุกเฉิน</label>
-        <p class="case-detail">{{ a.gender }}, {{ a.age }} ปี</p>
-          <ion-row>
-            <ion-col class="pad-0">
-              <img src="assets/img/tongue0-4.png">
-            </ion-col>
-            <ion-col>
-              <img src="assets/img/tongue0-4.png">
-            </ion-col>
-            <ion-col>
-              <img src="assets/img/tongue0-4.png">
-            </ion-col>
-          </ion-row>
-      </ion-col>
-      <ion-col>
-        <p class="lint-h-s txt-right font-xs">{{ a.date }}</p>
-        <p class="lint-h-s font-l txt-center font-w-b">{{ a.case_score }} คะแนน</p>
-        <ion-button expand="block" class="button-icon"><img src="assets/icon/คะแนน.png" alt="icon/history"> <label>ดูประวัติ</label> </ion-button>  
-      </ion-col> 
-    </ion-row>
-
-    <!-- <ion-row>
-      <ion-col size="8">
-        <label class="case-id">กรณี #255961</label><label class="case-status level-2">ฉุกเฉิน</label>
-        <p class="case-detail">ชาย, 43 ปี</p>
-          <ion-row >
-            <ion-col class="pad-0">
-              <img src="assets/img/tongue0-4.png">
-            </ion-col>
-            <ion-col>
-              <img src="assets/img/tongue0-4.png">
-            </ion-col>
-            <ion-col>
-              <img src="assets/img/tongue0-4.png">
-            </ion-col>
-          </ion-row>
-      </ion-col>
-      <ion-col>
-        <p class="lint-h-s txt-right font-xs">23/09/2562</p>
-        <p class="lint-h-s font-l txt-center font-w-b">82 คะแนน</p>
-        <ion-button expand="block" class="button-icon"><img src="assets/icon/คะแนน.png" alt="icon/history"> <label>ดูประวัติ</label> </ion-button>  
-      </ion-col> 
-    </ion-row>
-
-    <ion-row>
-      <ion-col size="8">
-        <label class="case-id">กรณี #255961</label><label class="case-status level-0">สุขภาพดี</label>
-        <p class="case-detail">หญิง, 52 ปี</p>
-          <ion-row >
-            <ion-col class="pad-0">
-              <img src="assets/img/tongue0-4.png">
-            </ion-col>
-            <ion-col>
-              <img src="assets/img/tongue0-4.png">
-            </ion-col>
-            <ion-col>
-              <img src="assets/img/tongue0-4.png">
-            </ion-col>
-          </ion-row>
-      </ion-col>
-      <ion-col>
-        <p class="lint-h-s txt-right font-xs">23/09/2562</p>
-        <p class="lint-h-s font-l txt-center font-w-b">82 คะแนน</p>
-        <ion-button expand="block" class="button-icon"><img src="assets/icon/คะแนน.png" alt="icon/history"> <label>ดูประวัติ</label> </ion-button>  
-      </ion-col> 
-    </ion-row>
-
-    <ion-row>
-      <ion-col size="8">
-        <label class="case-id">กรณี #255961</label><label class="case-status level-1">ควรพบ</label>
-        <p class="case-detail">หญิง, 46 ปี</p>
-          <ion-row >
-            <ion-col class="pad-0">
-              <img src="assets/img/tongue0-4.png">
-            </ion-col>
-            <ion-col>
-              <img src="assets/img/tongue0-4.png">
-            </ion-col>
-            <ion-col>
-              <img src="assets/img/tongue0-4.png">
-            </ion-col>
-          </ion-row>
-      </ion-col>
-      <ion-col>
-        <p class="lint-h-s txt-right font-xs">23/09/2562</p>
-        <p class="lint-h-s font-l txt-center font-w-b">82 คะแนน</p>
-        <ion-button expand="block" class="button-icon"><img src="assets/icon/คะแนน.png" alt="icon/history"> <label>ดูประวัติ</label> </ion-button>  
-      </ion-col> 
-    </ion-row> -->
-
-
+    <ion-row class="case-card">
+      <table>
+        <tr>
+          <th>ครั้ง</th>
+          <th>ระดับ</th> 
+          <th>ค่าประสบการณ์</th>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>ง่าย(ลิ้น)</td>
+          <td class="exp">+10%</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>ง่าย(เหงือก)</td>
+          <td class="exp">+5%</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>ง่าย(น้ำลาย)</td>
+          <td class="exp">+6.67%</td>
+        </tr>
+      </table>
     </ion-row>
     
   </ion-grid>

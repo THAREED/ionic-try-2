@@ -41,7 +41,7 @@ export class Lesson21Page implements OnInit {
       this.router.navigate(['/ambiguous1', this.idParam, this.lessonParam]);
     } else {
       // this.router.navigate(['/lesson31', this.param]);
-      this.router.navigate(['/lesson24', this.idParam, this.lessonParam]);
+      this.router.navigate(['/lesson15', this.idParam, this.lessonParam]);
     }
   }
   ionViewWillEnter() {

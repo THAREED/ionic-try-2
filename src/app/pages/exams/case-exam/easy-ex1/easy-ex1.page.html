@@ -1,0 +1,54 @@
+<ion-header translucent="true">
+  <ion-toolbar color="secondary">   
+    <!-- <ion-buttons collapse="true" slot="start"> -->
+    <ion-buttons slot="end">
+      <ion-button (click)="helpAlert()"> <img class="home-btn" src="assets/icon/วิธีใช้.png" alt="icon/howto"></ion-button>
+    </ion-buttons> 
+    <ion-title class="thai-word">แบบทดสอบ</ion-title>               
+  </ion-toolbar>
+</ion-header>
+<ion-content padding>
+  <ion-grid>
+    <ion-row></ion-row>
+    <ion-row class="tool">
+        <label class="timer">1.46 <label class="min">นาที</label></label>
+        <ion-buttons class="stop-button">
+          <ion-button (click)="stopTimer()"> <img class="home-btn" src="assets/icon/หยุด.png" alt="icon/stop"></ion-button>
+        </ion-buttons>
+        <ion-buttons class="help-button">
+          <ion-button (click)="helper()"> <img class="home-btn" src="assets/icon/ตัวช่วย.png" alt="icon/helper"></ion-button>
+        </ion-buttons>
+  </ion-row>
+  <ion-row class="article">
+      ข้อ 1.
+  </ion-row> 
+  
+    <ion-row class="card-img" justify-content-center>
+      <img src="assets/img/tongue0-4.png">
+      <ion-label> • ภาพนี้อยู่ในระดับความผิดปกติใด • </ion-label>
+    </ion-row>
+    <ion-row>
+      
+    </ion-row>
+    <ion-row>
+      <ion-list class="hidden-list-bg" lines="none">
+        <ion-radio-group radio-group [(ngModel)]="meeting" name = "meeting">
+          <ion-item class="group-radio level-0">
+            <ion-label class="thai-word">ระดับ 0 สุขภาพดี</ion-label>
+            <ion-radio value="0" slot="start"></ion-radio>
+          </ion-item>
+          <ion-item class="group-radio level-1">
+            <ion-label class="thai-word">ระดับ 1 เริ่มมีปัญหาแล้วนะ</ion-label>
+            <ion-radio value="1" slot="start"></ion-radio>
+          </ion-item>
+          <ion-item class="group-radio level-2">
+            <ion-label class="thai-word">ระดับ 2 ไปหาหมอด่วน</ion-label>
+            <ion-radio value="2" slot="start"></ion-radio>
+          </ion-item>
+        </ion-radio-group>
+      </ion-list>
+    </ion-row>
+
+  </ion-grid>
+
+</ion-content>

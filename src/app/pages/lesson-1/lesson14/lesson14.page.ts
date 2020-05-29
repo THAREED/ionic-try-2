@@ -39,7 +39,7 @@ export class Lesson14Page implements OnInit {
   ) {}
 
   startTimer(duration: number) {
-      this.src = this.paths[this.seq - 1];
+      this.src = 'http://localhost:51412/' + this.paths[this.seq - 1];
       this.state = 'start';
       clearInterval(this.interval);
       this.timer = duration; // second
@@ -105,7 +105,25 @@ export class Lesson14Page implements OnInit {
     this.idParam = this.route.snapshot.paramMap.get('id');
     this.lessonParam = this.route.snapshot.paramMap.get('lesson');
     if (this.lessonParam === 'lip') {
-      this.paths = [];
+      this.paths = [
+        '1_0_001.png',
+        '1_0_002.png',
+        '1_0_003.png',
+        '1_0_004.png',
+        '1_0_005.png',
+        '1_0_006.png',
+        '1_0_007.png',
+        '1_0_008.png',
+        '1_1_001.png',
+        '1_1_002.png',
+        '1_1_003.png',
+        '1_1_004.png',
+        '1_2_001.png',
+        '1_2_002.png',
+        '1_2_003.png',
+        '1_2_004.png',
+        '1_2_005.png'
+      ];
     }
     if (this.lessonParam === 'tongue') {
       this.paths = [];

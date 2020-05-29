@@ -2,7 +2,7 @@
   <ion-toolbar color="secondary">   
     <!-- <ion-buttons collapse="true" slot="start"> -->
     <ion-buttons slot="end">
-      <ion-button> <img class="home-btn" src="assets/icon/วิธีใช้.png" alt="icon/howto"></ion-button>
+      <ion-button (click)="helpAlert()"> <img class="home-btn" src="assets/icon/วิธีใช้.png" alt="icon/howto"></ion-button>
     </ion-buttons> 
     <ion-title class="thai-word">แบบทดสอบ</ion-title>               
   </ion-toolbar>
@@ -13,8 +13,12 @@
     <ion-row justify-content-center>{{ seq }}/8</ion-row>
     <ion-row>
         <label class="timer">{{ time | async }} <label class="min">นาที</label></label>
-        <img class="stop-button" *ngIf="state === 'start' "(click) ="pauseTimer()"  src="assets/icon/หยุด.png">
-        <img class="stop-button" *ngIf="state === 'pause' "(click) ="continueTimer()" src="assets/icon/เล่นต่อ.png">
+        <ion-buttons *ngIf="state === 'start' "  class="stop-button">
+          <ion-button (click)="pauseTimer()"> <img class="home-btn" src="assets/icon/หยุด.png"></ion-button>
+        </ion-buttons>
+        <ion-buttons *ngIf="state === 'pause' "  class="pause-button">
+          <ion-button (click)="continueTimer()"> <img class="home-btn" src="assets/icon/เล่นต่อ.png"></ion-button>
+        </ion-buttons>
         <label class="case-info">ชาย, 57 ปี</label>
     </ion-row>
     <ion-row class="card-img" justify-content-center>

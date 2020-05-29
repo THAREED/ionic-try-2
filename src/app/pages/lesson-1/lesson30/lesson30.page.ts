@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import { async } from '@angular/core/testing';
+import { ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: 'app-lesson30',
@@ -9,13 +10,17 @@ import { async } from '@angular/core/testing';
   styleUrls: ['./lesson30.page.scss'],
 })
 export class Lesson30Page implements OnInit {
-
+  idParam: string;
+  lessonParam: string;
   constructor(
     private router: Router,    
     public alertController: AlertController,  
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit() {
+    this.idParam = this.route.snapshot.paramMap.get('id');
+    this.lessonParam = this.route.snapshot.paramMap.get('lesson');
   }
   async goHome(){
     const alert = await this.alertController.create({
@@ -28,6 +33,6 @@ export class Lesson30Page implements OnInit {
     this.router.navigate(['']);
   }
   nextPage(){
-    //ไปหน้า 31 
+    this.router.navigate(['/lesson34', this.idParam, this.lessonParam]);
   }
 }

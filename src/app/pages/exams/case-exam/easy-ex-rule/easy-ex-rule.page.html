@@ -1,0 +1,24 @@
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle class="level-tab">แบบทดสอบ - ระดับง่าย</ion-card-subtitle>
+      <ion-card-title>ทดสอบแยกระดับ<br>ความผิดปกติของลิ้น</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+      <img src="assets/icon/ลิ้น.png">
+      ต่อไปนี้จะเป็นการทดสอบความรู้<br>
+      ใช้วิธีการเดียวกับแบบฝึกหัด<br>โดยเราจะแสดงรูปภาพช่องปาก<br>แล้วให้ท่านเลือกตอบระดับความผิดปกติ<br>
+      <ion-label class="flip-t">ระบบจะนับเวลาถอยหลัง 2 นาที  </ion-label> เมื่อหมดเวลาจึงสรุปคะแนนของท่านให้
+
+    <ion-row>
+      <ion-col>
+        <ion-button color="warning" (click)="goHome()">ยังไม่พร้อม</ion-button>
+        <ion-button (click)="startEasyExam()">เริ่มเลย</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-card-content>
+</ion-card>
+
+
+</ion-content>

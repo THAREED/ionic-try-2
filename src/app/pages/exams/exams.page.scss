@@ -1,6 +1,6 @@
 *{
     font-family: 'Sarabun', sans-serif;
-    color: #4BA4E8;
+    color: #496AA8;
 }
 ion-content{
     --background: url('src/assets/img/login_bg.png') no-repeat center/cover fixed;
@@ -12,83 +12,22 @@ ion-title{
 .home-btn{
     width: 26px;
 }
-.do-exam img{
-    width: 56px;
-    height: auto;
-    // background-color: #DCF7FC;
-}
-.do-exam{
-    height: 100px;
-    
-}
-.do-exam label{
-    color: white;
-    padding-left: 20px;
-    font-size: x-large;
-    font-weight: bolder;
-    text-shadow: 0px 2px 0px #00000040;
-}
 .txt-right{
     text-align: right;
 }
-.txt-center{
-    text-align: center;
-}
-.case-id{
-    text-decoration: underline;
-}
-img{
-    border-radius: 6px;
-}
+
 .case-card{
-    background-color: white;
-    border: solid 1px #4BA4E8 ;
+    background-color: rgb(191, 226, 253);
     border-radius: 10px;
     padding-left: 5px;
+    box-shadow: 0px 3px 3px wheat;
 }
 .case-card ion-row{
     margin-top: 10px;
 }
-.font-m{
-    font-size: medium;
-}
+
 .font-xs{
     font-size: x-small;
-}
-.font-s{
-    font-size: small;
-}
-.button-icon img{
-    width: 18px;
-}
-.button-icon label{
-    color: white;
-    padding-left: 5px;
-}
-.lint-h-s{
-    line-height: 10px;
-}
-.font-w-b{
-    font-weight: bolder;
-}
-.case-id{
-    margin-top: 0px;
-}
-.case-detail{
-    font-size: small;
-    line-height: 10px;
-    margin-bottom: 8px;
-}
-.first-col{
-    margin-left: 0px;
-    padding-left: 0px;
-}
-.case-status{
-    margin-left: 15px;
-    padding: 2px;
-    font-size: small;
-    color: #061E4C;
-    border-radius: 3px;
 }
 .level-0{
     background-color: #17F6AD;
@@ -98,4 +37,63 @@ img{
 }
 .level-2{
     background-color: #FD7878;
+}
+
+ion-progress-bar{
+    --progress-background: #4BA4E8;// #496AA8;
+    --buffer-background: repeating-linear-gradient(145deg, rgb(191, 226, 253), white 5%, rgb(209, 235, 255) 5%);// rgb(176, 212, 240);
+    height: 10px;
+    border-radius: 10px;
+}
+ion-list{
+    background-color: transparent;
+}
+.user{
+    padding: 2%;
+}
+.row-user{
+    border-radius: 10px 10px 0px 0px;
+    // background: linear-gradient(0deg, transparent 60%,#B4DCEE 90%);
+}
+.row-user p{
+    color: #496AA8;
+}
+.task{
+    float: right;
+    margin-top: -17%;
+    margin-right: 5%; 
+    color: white;
+    width: 60%; 
+}
+.diff{
+    margin-top: -5px;
+    margin-bottom: 10px;
+    font-size: small;
+}
+table{
+    width: 100%;
+    margin: 10px;
+    border-collapse: separate;
+    border-spacing: 15px;
+}
+th{
+    padding: 10px;
+    text-align: center;
+}
+td{
+    // border: solid 1px #4BA4E8;
+    padding: 10px;
+    text-align: center;
+    border-radius: 20px;
+    background-color: white;
+}
+.exp{
+    font-size: large;
+    animation: mymove 1s infinite;
+}
+@keyframes mymove {
+    50% {
+        color: yellowgreen;
+        font-weight: bolder;
+    }
 }

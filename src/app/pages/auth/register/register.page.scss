@@ -1,13 +1,15 @@
-*{
-    color: #496AA8;
-    font-family: 'Sarabun', sans-serif;
+*, .thai-word{
+    font-family: 'Peach Play', 'Sarabun', sans-serif;
+    font-weight: bold;
+    font-size: 1.5rem;
 }
 ion-header{
     margin-top: 12px;
 }
-ion-title{
+ion-title, h6{
     text-align: left;
     color: #496AA8;
+    margin-top: 5px;
 }
 ion-toolbar{
     box-shadow: 0px 3px 3px wheat;
@@ -23,35 +25,35 @@ ion-content{
     --background: url('src/assets/img/login_bg.png') no-repeat center/cover fixed;
 }
 
-.thai-word{
-    font-family: 'Sarabun', sans-serif;
-}
-.text-s{
-    font-size: 0.8em;
-}
-
 ion-item {
     --background: white;
-    border: 1px solid #5DBAE8;
+    // border: 1px solid #5DBAE8;
     border-radius: 10px;
     font-size: large;
     --background-activated: wheat;
+    box-shadow: 0px 3px 5px #00000040;
 }
+ion-item ion-label {
+    color: #5DBAE8;
+}
+ion-radio{
+    --color-checked: #496AA8;
+    --color: #5DBAE8;
+}
+
 ion-list{
     border-radius: 10px;  
     margin-bottom: 0px;  
 }
 
 ion-input{
-    // background-color: rgb(245, 222, 179);
-    // opacity: 0.7;
     background-color: white;
     border-radius: 10px;  
     text-align: center; 
-    color:  #496AA8;
-    border: 1px solid #5DBAE8;
+    color:  #5DBAE7;
+    font-weight: bold;
+    box-shadow: 0px 3px 5px #00000040;
 }
-
 .regis-btn{
     color: white;
     margin-top: 16px;
@@ -70,6 +72,10 @@ ion-input{
     margin-bottom: 5px;
 }
 
-ion-radio{
-    --color: #5DBAE8;
+.gender{
+    box-shadow: 0px 3px 5px #00000040;
+    
+}
+ion-select{
+    color: #5DBAE8;
 }

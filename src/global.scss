@@ -10,9 +10,17 @@
 @import '~@ionic/angular/css/text-transformation.css';
 @import '~@ionic/angular/css/flex-utils.css';
 
+@font-face {
+    font-family: 'Peach Play';
+    src: url('src/assets/font/PeachPlay.woff2')format('woff2'),
+        url('src/assets/font/PeachPlay.woff') format('woff'),
+        url('src/assets/font/PeachPlay.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
 
 *, .thai-word{
-    font-family: 'Sarabun', sans-serif;
+    font-family:'Sarabun', sans-serif;
     color: #496AA8;
 }
 ion-header{

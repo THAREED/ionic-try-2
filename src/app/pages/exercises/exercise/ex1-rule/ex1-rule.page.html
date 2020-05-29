@@ -1,0 +1,24 @@
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle class="level-tab">แบบฝึกหัด</ion-card-subtitle>
+      <ion-card-title>ฝึกแยก{{ title }}</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+      ต่อไปนี้จะเป็นการฝึกแยกระดับของ<br>
+      {{ title }}โดยเราจะแสดงรูปภาพช่องปาก <br>แล้วให้ท่านเลือกตอบระดับความผิดปกติ<br>
+      ระบบจะนับเวลาถอยหลัง 2 นาที<br>เมื่อหมดเวลาจึงสรุปคะแนนของท่านให้
+      <ion-label class="flip-t"><br>ขอให้ท่านโชคดี มีสติสำหรับแบบทดสอบ</ion-label>  
+
+    <ion-row>
+      <ion-col>
+        <ion-button color="warning" (click)="goHome()">ยังไม่พร้อม</ion-button>
+        <ion-button (click)="ex1()">เริ่มเลย</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-card-content>
+</ion-card>
+
+
+</ion-content>

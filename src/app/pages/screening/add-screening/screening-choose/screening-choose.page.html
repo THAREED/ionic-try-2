@@ -1,0 +1,49 @@
+<ion-header translucent="true">
+	<ion-toolbar color="secondary">
+		<ion-back-button text=""  slot="start" color="tertiary"></ion-back-button>
+    <ion-title class="thai-word">คัดกรอง - ตัวช่วย</ion-title>    
+    <ion-label slot="end" class="thai-word page">1/8  </ion-label>  
+	</ion-toolbar>
+  </ion-header>
+
+<ion-content>
+  <ion-grid padding>
+    <ion-row>
+        <label class="title">ริมฝีปาก</label>
+        <label class="case-info">ชื่อผู้รับคัดกรอง, 57 ปี</label>
+    </ion-row>
+    <ion-row class="card-img" justify-content-center>
+      <img class="display" src="assets/img/tongue0-4.png">
+      <ion-row>
+        <ion-col class="choose-label">
+          <ion-label>ระดับ 0</ion-label>
+        </ion-col>
+        <ion-col>
+          <ion-button class="render-button" (click)="confirm()" type="submit" expand="block">ยืนยัน</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-row>
+     <ion-row justify-content-center>
+      <ion-col><img (click)="choose()" class="img-info" src="assets/img/tongue0-4.png"></ion-col>
+      <ion-col><img (click)="choose()" class="img-info" src="assets/img/tongue0-4.png"></ion-col>
+      <ion-col><img (click)="choose()" class="img-info" src="assets/img/tongue0-4.png"></ion-col>
+    </ion-row>
+    <ion-row justify-content-center>
+      <ion-col><img (click)="choose()" class="img-info" src="assets/img/tongue0-4.png"></ion-col>
+      <ion-col><img (click)="choose()" class="img-info choose" src="assets/img/tongue0-4.png"></ion-col>
+      <ion-col><img (click)="choose()" class="img-info" src="assets/img/tongue0-4.png"></ion-col>
+    </ion-row>
+    <ion-row justify-content-center>
+      <ion-col><img (click)="choose()" class="img-info " src="assets/img/tongue0-4.png"></ion-col>
+      <ion-col><img (click)="choose()" class="img-info" src="assets/img/tongue0-4.png"></ion-col>
+      <ion-col><img (click)="choose()" class="img-info" src="assets/img/tongue0-4.png"></ion-col>
+    </ion-row>
+    <ion-row justify-content-center>
+      <ion-col><img (click)="choose()" class="img-info" src="assets/img/tongue0-4.png"></ion-col>
+      <ion-col><img (click)="choose()" class="img-info" src="assets/img/tongue0-4.png"></ion-col>
+      <ion-col><img (click)="choose()" class="img-info" src="assets/img/tongue0-4.png"></ion-col>
+    </ion-row>
+   
+  </ion-grid>
+
+</ion-content>

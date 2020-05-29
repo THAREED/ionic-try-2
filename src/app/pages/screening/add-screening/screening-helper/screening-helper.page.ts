@@ -17,5 +17,8 @@ export class ScreeningHelperPage implements OnInit {
   confirm(){
     this.route.navigate(['screening-step1']);
   }
+  choose(){
+    this.route.navigate(['screening-choose']);
+  }
 
 }

@@ -45,7 +45,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/exercises/exercise/ex1/ex1.module').then( m => m.Ex1PageModule)
   },
   {
-    path: 'ex1-score',
+    path: 'ex1-score/:id/:lesson',
     loadChildren: () => import('./pages/exercises/exercise/ex1-score/ex1-score.module').then( m => m.Ex1ScorePageModule)
   },
   {
@@ -97,15 +97,15 @@ const routes: Routes = [
     loadChildren: () => import('./pages/screening/add-screening/screening-recheck/screening-recheck.module').then( m => m.ScreeningRecheckPageModule)
   },
   {
-    path: 'lesson13',
+    path: 'lesson13/:id/:lesson',
     loadChildren: () => import('./pages/lesson-1/lesson13/lesson13.module').then( m => m.Lesson13PageModule)
   },
   {
-    path: 'lesson15',
+    path: 'lesson15/:id/:lesson',
     loadChildren: () => import('./pages/lesson-1/lesson15/lesson15.module').then( m => m.Lesson15PageModule)
   },
   {
-    path: 'lesson30',
+    path: 'lesson30/:id/:lesson',
     loadChildren: () => import('./pages/lesson-1/lesson30/lesson30.module').then( m => m.Lesson30PageModule)
   },
   {
@@ -115,6 +115,26 @@ const routes: Routes = [
   {
     path: 'edit-case',
     loadChildren: () => import('./pages/screening/patient/edit-case/edit-case.module').then( m => m.EditCasePageModule)
+  },
+  {
+    path: 'ex1-rule/:id/:lesson',
+    loadChildren: () => import('./pages/exercises/exercise/ex1-rule/ex1-rule.module').then( m => m.Ex1RulePageModule)
+  },
+  {
+    path: 'easy-ex-rule',
+    loadChildren: () => import('./pages/exams/case-exam/easy-ex-rule/easy-ex-rule.module').then( m => m.EasyExRulePageModule)
+  },
+  {
+    path: 'easy-ex1',
+    loadChildren: () => import('./pages/exams/case-exam/easy-ex1/easy-ex1.module').then( m => m.EasyEx1PageModule)
+  },
+  {
+    path: 'easy-ex1-score',
+    loadChildren: () => import('./pages/exams/case-exam/easy-ex1-score/easy-ex1-score.module').then( m => m.EasyEx1ScorePageModule)
+  },
+  {
+    path: 'screening-choose',
+    loadChildren: () => import('./pages/screening/add-screening/screening-choose/screening-choose.module').then( m => m.ScreeningChoosePageModule)
   },
 ];
 @NgModule({

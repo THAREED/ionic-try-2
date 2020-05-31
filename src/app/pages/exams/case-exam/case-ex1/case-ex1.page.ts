@@ -19,13 +19,6 @@ export class CaseEx1Page implements OnInit {
   state: 'start' | 'pause' = 'pause';
   item: Array<string>;
   ans: Array<string>;
-  lipPath: Array<string>;
-  tonguePath: Array<string>;
-  gumPath: Array<string>;
-  salivaPath: Array<string>;
-  teethPath: Array<string>;
-  denturePath: Array<string>;
-  cleanlinessPath: Array<string>;
   selectedRadioGroup: any;
   idParam: String;
   index: number;
@@ -50,116 +43,7 @@ export class CaseEx1Page implements OnInit {
   ) { }
 
   ionViewWillEnter() {
-    this.lipPath = [
-
-      '1_0_001.png',
-      '1_0_002.png',
-      '1_0_003.png',
-      '1_0_004.png',
-      '1_0_005.png',
-      '1_0_006.png',
-      '1_0_007.png',
-      '1_0_008.png',
-      '1_1_001.png',
-      '1_1_002.png',
-      '1_1_003.png',
-      '1_1_004.png',
-      '1_2_001.png',
-      '1_2_002.png',
-      '1_2_003.png',
-      '1_2_004.png',
-      '1_2_005.png'
-    ];
-    this.tonguePath = [
-      '2_0_001.png',
-      '2_0_002.png',
-      '2_1_001.png',
-      '2_1_002.png',
-      '2_2_001.png',
-      '2_2_002.png',
-      '2_2_003.png'
-    ];
-    this.gumPath = [
-      '3_0_001.png',
-      '3_0_002.png',
-      '3_0_003.png',
-      '3_0_004.png',
-      '3_0_005.png',
-      '3_0_006.png',
-      '3_1_001.png',
-      '3_1_002.png',
-      '3_1_003.png',
-      '3_1_004.png',
-      '3_2_001.png',
-      '3_2_002.png',
-      '3_2_003.png',
-      '3_2_004.png',
-      '3_2_005.png',
-      '3_2_006.png',
-      '3_2_007.png',
-      '3_2_008.png',
-      '3_2_009.png',
-      '3_2_010.png',
-      '3_2_011.png',
-      '3_2_012.png',
-      '3_2_013.png',
-      '3_2_014.png'
-    ];
-    this.salivaPath = [
-      '4_0_001.png',
-      '4_1_001.png',
-      '4_1_002.png',
-      '4_1_003.png',
-      '4_2_001.png'
-    ];
-    this.teethPath = [
-      '5_0_001.png',
-      '5_0_002.png',
-      '5_0_003.png',
-      '5_0_004.png',
-      '5_0_005.png',
-      '5_0_006.png',
-      '5_0_007.png',
-      '5_0_008.png',
-      '5_0_009.png',
-      '5_0_010.png',
-      '5_1_001.png',
-      '5_1_002.png',
-      '5_1_003.png',
-      '5_1_004.png',
-      '5_1_005.png',
-      '5_1_006.png',
-      '5_1_007.png',
-      '5_1_008.png',
-      '5_2_001.png',
-      '5_2_002.png',
-      '5_2_003.png',
-      '5_2_004.png',
-      '5_2_005.png',
-      '5_2_006.png',
-      '5_2_007.png',
-      '5_2_008.png',
-      '5_2_009.png',
-      '5_2_010.png'
-    ];
-    this.denturePath = [
-      '6_0_001.png',
-      '6_0_002.png',
-      '6_0_003.png',
-      '6_0_004.png',
-      '6_1_001.png',
-      '6_1_002.png',
-      '6_1_003.png',
-      '6_2_001.png',
-      '6_2_002.png'
-    ];
-    this.cleanlinessPath = [
-      '7_2_001.png',
-      '7_2_002.png',
-      '7_2_003.png',
-      '7_2_004.png',
-      '7_2_005.png'
-    ];
+    
     this.http.get<Lesson>(`${this.SERVER_ADDRESS}/lesson/lip`)
     .pipe(
       tap(lesson => {
@@ -170,7 +54,7 @@ export class CaseEx1Page implements OnInit {
       this.char0 = lesson[0].characteristic_0;
       this.char1 = lesson[0].characteristic_1;
       this.char2 = lesson[0].characteristic_2;
-      this.src = 'http://localhost:51412/' + this.shuffle(this.lipPath)[0];
+      // this.src = 'http://localhost:51412/' + this.shuffle(this.lipPath)[0];
     });
   }
 

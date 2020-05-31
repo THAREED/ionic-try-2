@@ -112,9 +112,8 @@ export class Ex1Page implements OnInit {
     else{
       this.wrong()
     }
-    console.log(images[this.seq-1])
-    console.log(tmp)
-    this.seq++
+    // console.log(images[this.seq-1])
+    // console.log(tmp)
     choices.push(tmp);
     if(this.state === 'pause'){
       this.continueTimer();
@@ -125,6 +124,7 @@ export class Ex1Page implements OnInit {
     if(this.seq === this.x.length){
       this.stopTimer()
     }
+    this.seq++
   }
 
   startTimer(duration: number) {
@@ -180,18 +180,6 @@ export class Ex1Page implements OnInit {
       this.stopTimer();
     }
   }
-
-  // ionViewWillEnter() {
-  //   this.http.get<Lesson>(`${this.SERVER_ADDRESS}/lesson/` + this.lessonParam)
-  //   .pipe(
-  //     tap(lesson => {
-  //       return lesson;
-  //     })
-  //   ).subscribe(lesson => {
-  //     this.lesson = lesson;
-  //     this.title = lesson[0].title;
-  //   });
-  // }
 
   async helpAlert() {
     this.help++;

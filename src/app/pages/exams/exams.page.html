@@ -18,15 +18,21 @@
     </ion-row> 
     <ion-progress-bar [value]=exp_prog reversed="false"></ion-progress-bar><br> 
     <img src="assets/icon/ด่าน1.png">
-    <ion-button  class="task" (click)="startEasyExam()">ทำอีกครั้ง</ion-button> 
+    <ion-button  class="task" (click)="startEasyExam()">ทำแบบทดสอบ 1</ion-button> 
     <ion-row class="diff">ระดับ: ง่าย</ion-row>
 
     <img src="assets/icon/ด่าน2.png">
-    <ion-button  class="task" (click)="startExam()">ทำแบบทดสอบ 2</ion-button> 
+    <ion-button  *ngIf="user_level === 'มือฝึกหัด' || user_level === 'ผู้เชียวชาญ'; else disable2"class="task" (click)="startExam()">ทำแบบทดสอบ 2</ion-button>
+    <ng-template #disable2>
+      <ion-button  disabled class="task" (click)="startMediumExam()">ทำแบบทดสอบ 2</ion-button>
+    </ng-template>
     <ion-row class="diff">ระดับ: ปานกลาง</ion-row>
 
     <img src="assets/icon/ด่าน3.png">
-    <ion-button disabled class="task">ทำแบบทดสอบ 3</ion-button> 
+    <ion-button  *ngIf="user_level === 'ผู้เชียวชาญ'; else disable3"class="task" (click)="startExam()">ทำแบบทดสอบ 3</ion-button>
+    <ng-template #disable3>
+      <ion-button  disabled class="task" (click)="startHardExam()">ทำแบบทดสอบ 3</ion-button>
+    </ng-template>
     <ion-row class="diff">ระดับ: ยาก</ion-row>
 
     <b><br>ประวัติการทำแบบทดสอบ</b>

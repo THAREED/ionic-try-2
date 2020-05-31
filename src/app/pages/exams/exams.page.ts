@@ -19,6 +19,7 @@ export class ExamsPage implements OnInit {
   user_exp: string;
   user_level: string;
   exp_prog: number;
+  state: string;
   SERVER_ADDRESS = 'http://localhost:3000';
   constructor(
     private authService: AuthService,
@@ -41,7 +42,7 @@ export class ExamsPage implements OnInit {
             this.user_exp = progress[0].user_exp;
             this.user_level = progress[0].user_level;
             this.exp_prog = parseFloat(this.user_exp)/100;
-            console.log(this.exp_prog)
+            
             // const ob = Object.keys(exam_detail).map(function(index) {
             //   const data = exam_detail[index];
             //   return data;

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-case-rule',
@@ -7,16 +8,22 @@ import { Router } from '@angular/router';
   styleUrls: ['./case-rule.page.scss'],
 })
 export class CaseRulePage implements OnInit {
-
+  idParam: String;
   constructor(
-    private route:Router,
-  ) { }
-
-  ngOnInit() {
-  }
+    private router:Router,
+    private route: ActivatedRoute
+    ) { }
+    
+    ngOnInit() {
+      this.idParam = this.route.snapshot.paramMap.get('id');
+    }
   nextPage()
   {
-    this.route.navigate(['case-ex1']);
+    this.router.navigate(['case-ex1', this.idParam]);
+  }
+  goHome()
+  {
+    this.router.navigate(['exam']);
   }
 
 }

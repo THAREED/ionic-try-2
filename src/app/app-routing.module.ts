@@ -133,7 +133,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/exams/case-exam/case-rule/case-rule.module').then( m => m.CaseRulePageModule)
   },
   {
-    path: 'easy-ex1-score/:id',
+    path: 'easy-ex1-score/:id/:data',
     loadChildren: () => import('./pages/exams/case-exam/easy-ex1-score/easy-ex1-score.module').then( m => m.EasyEx1ScorePageModule)
   },
   {

@@ -121,15 +121,19 @@ const routes: Routes = [
     loadChildren: () => import('./pages/exercises/exercise/ex1-rule/ex1-rule.module').then( m => m.Ex1RulePageModule)
   },
   {
-    path: 'easy-ex-rule',
+    path: 'easy-ex-rule/:id',
     loadChildren: () => import('./pages/exams/case-exam/easy-ex-rule/easy-ex-rule.module').then( m => m.EasyExRulePageModule)
   },
   {
-    path: 'easy-ex1',
+    path: 'easy-ex1/:id',
     loadChildren: () => import('./pages/exams/case-exam/easy-ex1/easy-ex1.module').then( m => m.EasyEx1PageModule)
   },
   {
-    path: 'easy-ex1-score',
+    path: 'case-rule/:id',
+    loadChildren: () => import('./pages/exams/case-exam/case-rule/case-rule.module').then( m => m.CaseRulePageModule)
+  },
+  {
+    path: 'easy-ex1-score/:id',
     loadChildren: () => import('./pages/exams/case-exam/easy-ex1-score/easy-ex1-score.module').then( m => m.EasyEx1ScorePageModule)
   },
   {

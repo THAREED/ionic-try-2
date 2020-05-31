@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AlertController } from '@ionic/angular';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-easy-ex-rule',
@@ -8,16 +8,18 @@ import { AlertController } from '@ionic/angular';
   styleUrls: ['./easy-ex-rule.page.scss'],
 })
 export class EasyExRulePage implements OnInit {
-
+  idParam: String;
   constructor(
-    private route:Router,
+    private router:Router,
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit() {
+    this.idParam = this.route.snapshot.paramMap.get('id');
   }
   startEasyExam()
   {
-    this.route.navigate(['easy-ex1']);
+    this.router.navigate(['easy-ex1', this.idParam]);
   }
 
 }

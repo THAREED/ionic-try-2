@@ -47,6 +47,24 @@ const updateLessProg = (request, response) => {
     )
 }
 
+const updateCaseProg = (request, response) => {
+    const id = parseInt(request.params.id)
+    const case_num = request.params.case_num
+    const {
+        progress
+    } = request.body
+
+    pool.query(
+        `UPDATE user_progression SET ${case_num} = $1 WHERE user_id = $2`,
+        [progress, id],
+        (error, results) => {
+            if (error) {
+                throw error
+            }
+        }
+    )
+}
+
 const updateExp = (request, response) => {
     const id = parseInt(request.params.id)
     const {
@@ -80,5 +98,6 @@ module.exports = {
     updateLessProg,
     getExam,
     updateExp,
-    insertCase
+    insertCase,
+    updateCaseProg
 }

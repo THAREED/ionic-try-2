@@ -17,6 +17,7 @@ export class ExamsPage implements OnInit {
   firstname: String;
   user_id: String;
   user_exp: string;
+  user_level: string;
   exp_prog: number;
   SERVER_ADDRESS = 'http://localhost:3000';
   constructor(
@@ -38,6 +39,7 @@ export class ExamsPage implements OnInit {
             })
           ).subscribe(progress => {
             this.user_exp = progress[0].user_exp;
+            this.user_level = progress[0].user_level;
             this.exp_prog = parseFloat(this.user_exp)/100;
             console.log(this.exp_prog)
             // const ob = Object.keys(exam_detail).map(function(index) {
@@ -68,7 +70,10 @@ export class ExamsPage implements OnInit {
 
   ngOnInit() {
   }
+  startEasyExam() {
+    this.router.navigate(['easy-ex-rule', this.user_id]);
+  }
   startExam() {
-    this.router.navigate(['case-ex1', this.user_id]);
+    this.router.navigate(['case-rule', this.user_id]);
   }
 }

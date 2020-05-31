@@ -24,6 +24,8 @@ export class Ex1ScorePage implements OnInit {
   exp: number;
   exp_txt: string;
   old_exp: number;
+  case_num: String;
+  state: string;
   SERVER_ADDRESS = 'http://localhost:3000';
   constructor(
     private dataService: DataService,
@@ -41,6 +43,7 @@ export class Ex1ScorePage implements OnInit {
   private wrong_ans = []
 
   ngOnInit() {
+    this.state = '0'
     const id = this.route.snapshot.paramMap.get('data');
     this.idParam = this.route.snapshot.paramMap.get('id');
     this.ans_data = this.dataService.getExerciseChoice(id);
@@ -73,6 +76,16 @@ export class Ex1ScorePage implements OnInit {
 
     this.score_sum = ((this.right_ans - this.pause - (this.help * 2)) / this.cnt) * 100
     this.score_sum = Math.round((this.score_sum + Number.EPSILON) * 100) / 100
+    if(this.score_sum < 65){
+      this.state = "1"
+    }
+    else if(this.score_sum >= 65 && this.score_sum < 80){
+      this.state = "2"
+    }
+    else{
+      this.state = "3"
+    }
+
     if (this.score_sum > 0) {
       this.exp = Math.round((((this.score_sum) / 20) + Number.EPSILON) * 100) / 100
       this.exp_txt = '+' + this.exp
@@ -88,8 +101,9 @@ export class Ex1ScorePage implements OnInit {
       })
     ).subscribe(progress => {
       this.old_exp = progress[0].user_exp;
-      if (this.exp < 0) {
-        this.http.put(`${this.SERVER_ADDRESS}/progress/${this.idParam}/`, { exp: this.old_exp })
+      var tmp_exp = this.old_exp + this.exp;
+      if (tmp_exp < 0) {
+        this.http.put(`${this.SERVER_ADDRESS}/progress/${this.idParam}/`, { exp: 0 })
           .subscribe(data => {
             console.log(data);
           });

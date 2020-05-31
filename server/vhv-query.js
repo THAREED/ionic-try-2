@@ -223,7 +223,7 @@ const register = (request, response) => {
                 if (error) {
                     throw error
                 } else {
-                    pool.query('INSERT INTO user_progression (user_id, less_1_prog, less_2_prog, less_3_prog, less_4_prog, less_5_prog, less_6_prog, less_7_prog, less_8_prog, case_1_num, case_2_num, case_3_num, case_4_num, case_5_num, case_6_num, case_7_num, case_8_num) VALUES ((SELECT id FROM auth_users WHERE username=$1), 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ,0 ,0 ,0 ,0, 0, 0)', [username], (error, results) => {
+                    pool.query('INSERT INTO user_progression (user_id, less_1_prog, less_2_prog, less_3_prog, less_4_prog, less_5_prog, less_6_prog, less_7_prog, less_8_prog, case_1_num, case_2_num, case_3_num, case_4_num, case_5_num, case_6_num, case_7_num, case_8_num, user_exp) VALUES ((SELECT id FROM auth_users WHERE username=$1), 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ,0 ,0 ,0 ,0, 0, 0, 0)', [username], (error, results) => {
                         if (error) {
                             throw error
                         }

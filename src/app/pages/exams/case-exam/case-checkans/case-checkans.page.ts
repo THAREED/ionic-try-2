@@ -11,6 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class CaseCheckansPage implements OnInit {
   data: Array<String>;
+
   constructor(
     private router:Router,
     public alertController: AlertController,
@@ -20,7 +21,7 @@ export class CaseCheckansPage implements OnInit {
 
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('data');
-    this.data = this.dataService.getChoice(id);
+    this.data = this.dataService.getExamChoice(id);
   }
   SendAns()
   {

@@ -1,9 +1,8 @@
-
-  <ion-header translucent="true">
-    <ion-toolbar color="secondary">
-      <ion-menu-button color="tertiary" slot="start" autoHide="false"></ion-menu-button>          
-      <ion-title class="thai-word">สรุปคะแนนและประวัติแบบฝึกหัด - {{ title }}</ion-title>     
-    </ion-toolbar>
+<ion-header translucent="true">
+  <ion-toolbar color="secondary">
+    <ion-menu-button color="tertiary" slot="start" autoHide="false"></ion-menu-button>
+    <ion-title class="thai-word">สรุปคะแนนและประวัติแบบฝึกหัด - {{ title }}</ion-title>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content>
@@ -13,73 +12,43 @@
         <img class="user-level" src="assets/icon/score0.png" alt="icon/new-student">
       </ion-col>
       <ion-col><br>
-        <label class="title-score">ทำไป: <b>{{ s }}</b> ข้อ</label><br>
-        <label class="title-score">หยุดเวลา: <b>{{ s }}</b> ครั้ง</label><br>
-        <label class="title-score">ใช้ตัวช่วย: <b>{{ s }}</b> ครั้ง</label><br>
-        <label class="title-score txt-hilight">         
+        <label class="title-score">ทำถูก: <b>{{ right_ans }}</b> ข้อ จาก <b>{{ cnt }}</b> ข้อ</label><br>
+        <label class="title-score">หยุดเวลา: <b>{{ pause }}</b> ครั้ง</label><br>
+        <label class="title-score">ใช้ตัวช่วย: <b>{{ help }}</b> ครั้ง</label><br>
+        <label class="title-score txt-hilight">
           คะแนนรวม:
-          <b>{{ s }}%</b></label><br>
+          <b>{{ score_sum }}%</b></label><br>
+        <label class="title-score exp">
+          ค่าประสบการณ์: {{ exp }}</label><br>
       </ion-col>
-      
+
     </ion-row>
     <ion-row class="answer" justify-content-center>เฉลยแบบฝึกหัด</ion-row>
     <ion-row class="level-0">
       <ion-row class="ans-level">ระดับ 0 สุขภาพดี</ion-row>
-      <ion-row>
-        <ion-col *ngFor="let item of images" class="card-img">
-          <img src="assets/img/tongue0-4.png">
+      <ion-row *ngFor="let item of images_0">
+        <ion-col *ngFor="let x of item" class="card-img">
+          <img [src]=x>
         </ion-col>
       </ion-row>
-      <!-- <ion-row>
-        <ion-col class="card-img">
-          <img src="assets/img/tongue0-4.png">
-        </ion-col>
-        <ion-col class="card-img">
-          <img src="assets/img/tongue0-4.png">
-        </ion-col>
-        <ion-col>
-        </ion-col>
-      </ion-row> -->
     </ion-row>
 
     <ion-row class="level-1">
-      <ion-row class="ans-level">ระดับ 0 เริ่มมีปัญหาแล้วนะ</ion-row>
-      <ion-row>
-        <ion-col class="card-img">
-          <img src="assets/img/tongue0-4.png">
-        </ion-col>
-        <ion-col class="card-img">
-          <img src="assets/img/tongue0-4.png">
-        </ion-col>
-        <ion-col class="card-img">
-          <img src="assets/img/tongue0-4.png">
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col class="card-img">
-          <img src="assets/img/tongue0-4.png">
-        </ion-col>
-        <ion-col>
-        </ion-col>
-        <ion-col>
+      <ion-row class="ans-level">ระดับ 1 เริ่มมีปัญหาแล้วนะ</ion-row>
+      <ion-row *ngFor="let item of images_1">
+        <ion-col *ngFor="let x of item" class="card-img">
+          <img [src]=x>
         </ion-col>
       </ion-row>
     </ion-row>
 
     <ion-row class="level-2">
       <ion-row class="ans-level">ระดับ 2 ไปหาหมอด่วน</ion-row>
-      <ion-row>
-        <ion-col class="card-img">
-          <img src="assets/img/tongue0-4.png">
-        </ion-col>
-        <ion-col class="card-img">
-          <img src="assets/img/tongue0-4.png">
-        </ion-col>
-        <ion-col class="card-img">
-          <img src="assets/img/tongue0-4.png">
+      <ion-row *ngFor="let item of images_2">
+        <ion-col *ngFor="let x of item" class="card-img">
+          <img [src]=x>
         </ion-col>
       </ion-row>
-      
     </ion-row>
   </ion-grid>
 

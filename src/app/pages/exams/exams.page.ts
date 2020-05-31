@@ -16,6 +16,8 @@ export class ExamsPage implements OnInit {
   authUser: AuthUser;
   firstname: String;
   user_id: String;
+  user_exp: string;
+  exp_prog: number;
   SERVER_ADDRESS = 'http://localhost:3000';
   constructor(
     private authService: AuthService,
@@ -28,26 +30,41 @@ export class ExamsPage implements OnInit {
       user => {
         this.authUser = user;
         this.user_id = this.authUser[0].id;
-        this.getExam(this.user_id);
+        // this.getExam(this.user_id);
+        this.http.get(`${this.SERVER_ADDRESS}/progress/` + this.user_id)
+          .pipe(
+            tap(progress => {
+              return progress;
+            })
+          ).subscribe(progress => {
+            this.user_exp = progress[0].user_exp;
+            this.exp_prog = parseFloat(this.user_exp)/100;
+            console.log(this.exp_prog)
+            // const ob = Object.keys(exam_detail).map(function(index) {
+            //   const data = exam_detail[index];
+            //   return data;
+            // });
+            // this.item = ob;
+          });
       }
     );
   }
 
-  getExam(user_id) {
-    this.user_id = user_id;
-    this.http.get(`${this.SERVER_ADDRESS}/exam/` + this.user_id)
-    .pipe(
-      tap(exam_detail => {
-        return exam_detail;
-      })
-    ).subscribe(exam_detail => {
-      const ob = Object.keys(exam_detail).map(function(index) {
-        const data = exam_detail[index];
-        return data;
-      });
-      this.item = ob;
-    });
-  }
+  // getExam(user_id) {
+  //   this.user_id = user_id;
+  //   this.http.get(`${this.SERVER_ADDRESS}/exam/` + this.user_id)
+  //   .pipe(
+  //     tap(exam_detail => {
+  //       return exam_detail;
+  //     })
+  //   ).subscribe(exam_detail => {
+  //     const ob = Object.keys(exam_detail).map(function(index) {
+  //       const data = exam_detail[index];
+  //       return data;
+  //     });
+  //     this.item = ob;
+  //   });
+  // }
 
   ngOnInit() {
   }

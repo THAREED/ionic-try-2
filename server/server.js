@@ -23,17 +23,6 @@ app.get('/', (request, response) => {
     })
 })
 
-app.get('/image_list', (request, response) => {
-    try {
-        const https = require('https');
-        const fileUrl = new URL('/output.txt', 'http://localhost:51412');
-        var data = fs.readFileSync(fileUrl);
-        console.log(data);    
-    } catch(e) {
-        console.log('Error:', e.stack);
-    }
-})
-
 app.get('/users', vhv.getUsers)
 app.get('/users/:id', vhv.getUserById)
 app.get('/auth_users', vhv.getAuthUsers)
@@ -64,6 +53,7 @@ app.get('/lesson/cleanliness/', lesson.getCleanliness)
 app.get('/lesson/pain/', lesson.getPain)
 
 app.get('/progress/:id', vhv_progress.getProg)
+app.put('/progress/:id/', vhv_progress.updateExp)
 app.put('/progress/:id/:less_num', vhv_progress.updateLessProg)
 
 app.get('/exam/:id', vhv_progress.getExam)

@@ -45,7 +45,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/exercises/exercise/ex1/ex1.module').then( m => m.Ex1PageModule)
   },
   {
-    path: 'ex1-score/:id/:lesson',
+    path: 'ex1-score/:id/:data',
     loadChildren: () => import('./pages/exercises/exercise/ex1-score/ex1-score.module').then( m => m.Ex1ScorePageModule)
   },
   {

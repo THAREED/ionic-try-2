@@ -13,10 +13,10 @@
       </ion-col>
       <ion-col><br>
         <p>ระดับ: มือใหม่</p>
-        <p>ประสบการณ์: <label class="exp" >21.67%</label></p>
+        <p>ประสบการณ์: <label class="exp" >{{ user_exp }}%</label></p>
       </ion-col>
     </ion-row> 
-    <ion-progress-bar value="0.2167" reversed="false"></ion-progress-bar><br> 
+    <ion-progress-bar [value]=exp_prog reversed="false"></ion-progress-bar><br> 
     <img src="assets/icon/ด่าน1.png">
     <ion-button  class="task" (click)="startEasyExam()">ทำอีกครั้ง</ion-button> 
     <ion-row class="diff">ระดับ: ง่าย</ion-row>

@@ -47,6 +47,23 @@ const updateLessProg = (request, response) => {
     )
 }
 
+const updateExp = (request, response) => {
+    const id = parseInt(request.params.id)
+    const {
+        exp
+    } = request.body
+
+    pool.query(
+        `UPDATE user_progression SET user_exp = $1 WHERE user_id = $2`,
+        [exp, id],
+        (error, results) => {
+            if (error) {
+                throw error
+            }
+        }
+    )
+}
+
 const insertCase = (request, response) => {
     const id = parseInt(request.params.id)
     pool.query('INSERT INTO exam_detail (user_id, case_number) VALUES ((SELECT id FROM auth_users WHERE user_id=$1), 0)', [id], (error, results) => {
@@ -62,5 +79,6 @@ module.exports = {
     getProg,
     updateLessProg,
     getExam,
+    updateExp,
     insertCase
 }

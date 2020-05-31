@@ -7,9 +7,10 @@ import { tap } from 'rxjs/operators';
 import { BehaviorSubject } from 'rxjs';
 import { AlertController } from '@ionic/angular';
 import { ImageService } from 'src/app/services/image.service';
-
+import { DataService } from 'src/app/services/data.service';
 
 const choices = new Array();
+const images = new Array();
 @Component({
   selector: 'app-ex1',
   templateUrl: './ex1.page.html',
@@ -27,17 +28,20 @@ export class Ex1Page implements OnInit {
   time: BehaviorSubject<string> = new BehaviorSubject('0.0');
   timer: number;
   seq: number;
+  pause_cnt: number;
+  help: number;
   interval;
   SERVER_ADDRESS = 'http://localhost:3000';
 
-  private lip = [];
-
+  private x = [];
+  
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private http: HttpClient,
     private imageService: ImageService,
-    private alertController: AlertController
+    private alertController: AlertController,
+    private dataService: DataService,
   ) { }
 
   ngOnInit() {
@@ -45,10 +49,12 @@ export class Ex1Page implements OnInit {
     this.lessonParam = this.route.snapshot.paramMap.get('lesson');
     this.idParam = this.route.snapshot.paramMap.get('id');
     if(this.lessonParam == 'lip'){
-      this.lip = this.shuffle(this.imageService.getLipImage_0().concat(this.imageService.getLipImage_1()).concat(this.imageService.getLipImage_2()))
+      this.x = this.shuffle(this.imageService.getLipImage_0().concat(this.imageService.getLipImage_1()).concat(this.imageService.getLipImage_2()))
     }
-    this.src = 'http://localhost:51412/' + this.lip[0]
+    this.src = this.x[0]
     this.seq = 1;
+    this.pause_cnt = 0;
+    this.help = 0;
   }
 
 
@@ -63,31 +69,24 @@ export class Ex1Page implements OnInit {
     return paths;
   }
 
-  // radioGroupChange(event) {
-  //   this.seq++
-  //   this.selectedRadioGroup = String(event.detail.value);
-  //   choices.push(this.selectedRadioGroup);
-  //   if(this.seq < this.lip.length){
-  //     this.src = 'http://localhost:51412/' + this.lip[this.seq]
-  //   }
-  //   console.log(choices)
-
-  // }
-
   radioGroupChange(value) {
+    images.push(this.x[this.seq-1])
     this.seq++
     let tmp = String(value);
     choices.push(tmp);
-    if(this.seq < this.lip.length){
-      this.src = 'http://localhost:51412/' + this.lip[this.seq]
+    if(this.state === 'pause'){
+      this.continueTimer();
     }
-    console.log(choices)
-
+    if(this.seq < this.x.length){
+      this.src = this.x[this.seq]
+    }
+    if(this.seq === this.x.length){
+      this.stopTimer()
+    }
   }
 
   startTimer(duration: number) {
     this.state = 'start';
-    console.log(this.state);
     clearInterval(this.interval);
     this.timer = duration * 60; // second
     this.updateTimeValue();
@@ -99,10 +98,10 @@ export class Ex1Page implements OnInit {
   pauseTimer() {
     clearInterval(this.interval);
     this.state = 'pause';
-    console.log(this.state);
   }
-
+  
   continueTimer() {
+    this.pause_cnt++;
     clearInterval(this.interval);
     if (this.timer === 0) {
       this.startTimer(2);
@@ -113,7 +112,12 @@ export class Ex1Page implements OnInit {
 
   stopTimer() {
     clearInterval(this.interval);
-    this.router.navigate(['/ex1-score', this.idParam, this.lessonParam]);
+    this.dataService.setExerciseChoice('score', choices);
+    this.dataService.setExerciseImage('score', images);
+    this.dataService.setPauseCnt(this.pause_cnt);
+    this.dataService.setHelpCnt(this.help);
+    this.dataService.setCnt(this.seq);
+    this.router.navigate(['/ex1-score', this.idParam, 'score']);
   }
 
   updateTimeValue() {
@@ -144,6 +148,7 @@ export class Ex1Page implements OnInit {
   }
 
   async helpAlert() {
+    this.help++;
     const alert = await this.alertController.create({
       header: 'วิธีทำ',
       subHeader: 'เลือกระดับความผิดปกติให้ครบทั้ง 7 ตำแหน่ง',

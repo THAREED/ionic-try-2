@@ -47,7 +47,7 @@ export class AppComponent {
         console.log(error);
         },
         () => {
-        this.navCtrl.navigateRoot('/login');
+        this.navCtrl.navigateRoot('login');
         }
     );
   }

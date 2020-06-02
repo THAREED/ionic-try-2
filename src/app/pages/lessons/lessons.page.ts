@@ -36,6 +36,7 @@ export class LessonsPage implements OnInit {
   ) {}
 
   ngOnInit() {
+    
   }
   lesson1() {
     return this.route.navigate(['/lesson11', this.user_id, 'lip']);

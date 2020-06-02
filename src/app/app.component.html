@@ -10,7 +10,9 @@
       <ion-list>
         <ion-item>
           <ion-thumbnail slot="start">
-            <img class="user-img" src="assets/icon/man.png">
+            <img *ngIf="data.getUserGender() === 'none'" class="user-img">
+            <img *ngIf="data.getUserGender() === 'male'" class="user-img" src='assets/icon/man.png'>
+            <img *ngIf="data.getUserGender() === 'female'" class="user-img" src='assets/icon/woman.png'>
           </ion-thumbnail>
           <ion-label >
             <h2>{{ data.getUserFirstname() }} {{ data.getUserLastname() }}</h2>

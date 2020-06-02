@@ -9,7 +9,9 @@
   <ion-grid padding>
     <ion-row class="row-user">
       <ion-col size="4">
-        <img class="user" src="assets/icon/user0.png">
+        <img *ngIf="user_level === 'มือใหม่'" class="user" src="assets/icon/user0.png">
+        <img *ngIf="user_level === 'มือฝึกหัด'" class="user" src="assets/icon/user1.png">
+        <img *ngIf="user_level === 'ผู้เชี่ยวชาญ'" class="user" src="assets/icon/user2.png">
       </ion-col>
       <ion-col><br>
         <p>ระดับ: {{ user_level }}</p>
@@ -45,20 +47,13 @@
           <th>ค่าประสบการณ์</th>
         </tr>
         <tr *ngFor="let x of item">
-          <td>1</td>
+          <td></td>
           <td>{{ x.level }}</td>
-          <td class="exp">{{ x.exam_exp }}%</td>
+          <td class="exp" *ngIf="x.exam_exp > 0; else negative" >+{{ x.exam_exp }}%</td>
+          <ng-template #negative>
+            <td class="exp">{{ x.exam_exp }}%</td>
+          </ng-template>
         </tr>
-        <!-- <tr>
-          <td>2</td>
-          <td>ง่าย(เหงือก)</td>
-          <td class="exp">+5%</td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td>ง่าย(น้ำลาย)</td>
-          <td class="exp">+6.67%</td>
-        </tr> -->
       </table>
     </ion-row>
     

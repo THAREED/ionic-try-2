@@ -25,6 +25,24 @@ export class Lesson30Page implements OnInit {
     if(this.lessonParam === 'lip'){
       this.title = 'ริมฝีปาก'
     }
+    if(this.lessonParam === 'tongue'){
+      this.title = 'ลิ้น'
+    }
+    if(this.lessonParam === 'gum'){
+      this.title = 'เหงือก'
+    }
+    if(this.lessonParam === 'saliva'){
+      this.title = 'น้ำลาย'
+    }
+    if(this.lessonParam === 'teeth'){
+      this.title = 'ฟันธรรมชาติ'
+    }
+    if(this.lessonParam === 'denture'){
+      this.title = 'ฟันเทียม'
+    }
+    if(this.lessonParam === 'cleanliness'){
+      this.title = 'ความสะอาด'
+    }
   }
   async goHome(){
     const alert = await this.alertController.create({

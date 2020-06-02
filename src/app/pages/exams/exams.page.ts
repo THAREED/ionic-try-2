@@ -4,6 +4,7 @@ import { AuthService } from 'src/app/services/auth.service';
 import { HttpClient } from '@angular/common/http';
 import { tap } from 'rxjs/operators';
 import { Router } from '@angular/router';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-exams',
@@ -12,7 +13,6 @@ import { Router } from '@angular/router';
 })
 export class ExamsPage implements OnInit {
   item: Array<string>;
-  idParam: String;
   authUser: AuthUser;
   firstname: String;
   user_id: String;
@@ -29,7 +29,8 @@ export class ExamsPage implements OnInit {
   constructor(
     private authService: AuthService,
     private router: Router,
-    private http: HttpClient
+    private http: HttpClient,
+    private data: DataService
   ) { }
 
   ionViewWillEnter() {
@@ -37,7 +38,7 @@ export class ExamsPage implements OnInit {
       user => {
         this.authUser = user;
         this.user_id = this.authUser[0].id;
-        // this.getExam(this.user_id);
+        this.data.setUser(this.authUser[0].firstname, this.authUser[0].lastname, this.authUser[0].gender)
         this.http.get(`${this.SERVER_ADDRESS}/progress/` + this.user_id)
           .pipe(
             tap(progress => {
@@ -45,12 +46,28 @@ export class ExamsPage implements OnInit {
             })
           ).subscribe(progress => {
             this.user_exp = progress[0].user_exp;
-            if(parseFloat(this.user_exp) >= 32 && parseFloat(this.user_exp) < 52){
-              console.log('yes1')
+            if(parseFloat(this.user_exp) < 32){
+              this.user_level = '0';
+              this.http.put(`${this.SERVER_ADDRESS}/progress/${this.user_id}/level/${this.user_level}`,{})
+              .subscribe(data => {
+                console.log(data);
+              });
             }
-            if(parseFloat(this.user_exp) >= 52){
-              console.log('yes2')
+            else if(parseFloat(this.user_exp) >= 32 && parseFloat(this.user_exp) < 52){
+              this.user_level = '1';
+              this.http.put(`${this.SERVER_ADDRESS}/progress/${this.user_id}/level/${this.user_level}`,{})
+              .subscribe(data => {
+                console.log(data);
+              });
             }
+            else{
+              this.user_level = '2';
+              this.http.put(`${this.SERVER_ADDRESS}/progress/${this.user_id}/level/${this.user_level}`, {})
+              .subscribe(data => {
+                console.log(data);
+              });
+            }
+            this.data.setUserLevel(this.user_level);
             this.user_level = progress[0].user_level;
             if(this.user_level === '0'){
               this.user_level = 'มือใหม่'
@@ -81,23 +98,8 @@ export class ExamsPage implements OnInit {
           });
       }
     );
-  }
 
-  // getExam(user_id) {
-  //   this.user_id = user_id;
-  //   this.http.get(`${this.SERVER_ADDRESS}/exam/` + this.user_id)
-  //   .pipe(
-  //     tap(exam_detail => {
-  //       return exam_detail;
-  //     })
-  //   ).subscribe(exam_detail => {
-  //     const ob = Object.keys(exam_detail).map(function(index) {
-  //       const data = exam_detail[index];
-  //       return data;
-  //     });
-  //     this.item = ob;
-  //   });
-  // }
+  }
 
   ngOnInit() {
     

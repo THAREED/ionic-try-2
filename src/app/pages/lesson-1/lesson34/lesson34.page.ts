@@ -66,12 +66,15 @@ export class Lesson34Page implements OnInit {
   }
 
   stopTimer() {
+    this.seq = null
     clearInterval(this.interval);
     if (this.lessonProg <= 3) {
       this.updateProgress(this.idParam, '3', this.less_num);
     }
     this.screenOrientation.unlock();
-    this.router.navigate(['app']);
+    this.router.navigate(['app']).then(() => {
+      window.location.reload();
+    });
   }
 
   nextTimer() {
@@ -106,29 +109,26 @@ export class Lesson34Page implements OnInit {
   ngOnInit() {
     this.lessonParam = this.route.snapshot.paramMap.get('lesson');
     this.idParam = this.route.snapshot.paramMap.get('id');
-    if (this.lessonParam === 'lip') {
+    if(this.lessonParam === 'lip'){
       this.paths = this.image.getLipImage_2()
     }
-    if (this.lessonParam === 'tongue') {
-      this.paths = [];
+    if(this.lessonParam === 'tongue'){
+      this.paths = this.image.getTongueImage_2()
     }
-    if (this.lessonParam === 'gum') {
-      this.paths = [];
+    if(this.lessonParam === 'gum'){
+      this.paths = this.image.getGumImage_2()
     }
-    if (this.lessonParam === 'saliva') {
-      this.paths = [];
+    if(this.lessonParam === 'saliva'){
+      this.paths = this.image.getSalivaImage_2()
     }
-    if (this.lessonParam === 'teeth') {
-      this.paths = [];
+    if(this.lessonParam === 'teeth'){
+      this.paths = this.image.getTeethImage_2()
     }
-    if (this.lessonParam === 'denture') {
-      this.paths = [];
+    if(this.lessonParam === 'denture'){
+      this.paths = this.image.getDentureImage_2()
     }
-    if (this.lessonParam === 'cleanliness') {
-      this.paths = [];
-    }
-    if (this.lessonParam === 'pain') {
-      this.paths = [];
+    if(this.lessonParam === 'cleanliness'){
+      this.paths = this.image.getCleanImage_2()
     }
     let i = this.paths.length, j, temp;
     while (--i > 0) {
@@ -140,9 +140,6 @@ export class Lesson34Page implements OnInit {
     this.seq = 1;
     this.startTimer(5);
     this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.LANDSCAPE);
-  }
-  nextPage() {
-      this.router.navigate(['/lesson21', this.idParam, this.lessonParam]);
   }
 
   updateProgress(user_id: String, progress: String, less_num: String) {

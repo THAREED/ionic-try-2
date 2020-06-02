@@ -6,6 +6,7 @@ import { tap } from 'rxjs/operators';
 import { AuthUser } from 'src/app/models/auth_user';
 import { AuthService } from 'src/app/services/auth.service';
 import { Storage } from '@ionic/storage';
+import { DataService } from '../../services/data.service'
 
 @Component({
   selector: 'app-exercises',
@@ -31,7 +32,7 @@ export class ExercisesPage implements OnInit {
     private router: Router,
     private http: HttpClient,
     private authService: AuthService,
-    private storage: Storage,
+    private data: DataService
   ) { }
 
   ngOnInit() {
@@ -68,6 +69,7 @@ export class ExercisesPage implements OnInit {
         this.authUser = user;
         this.user_id = this.authUser[0].id;
         this.getProgress(this.user_id);
+        this.data.setUser(this.authUser[0].firstname, this.authUser[0].lastname, this.authUser[0].gender)
       }
     );
   }
@@ -81,6 +83,7 @@ export class ExercisesPage implements OnInit {
       })
     ).subscribe(progress => {
       this.progress = progress;
+      this.data.setUserLevel(progress[0].user_level)
       this.case_1 = progress[0].case_1_num;
       this.case_2 = progress[0].case_2_num;
       this.case_3 = progress[0].case_3_num;

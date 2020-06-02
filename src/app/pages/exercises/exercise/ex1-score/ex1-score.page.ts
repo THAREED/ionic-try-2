@@ -51,6 +51,9 @@ export class Ex1ScorePage implements OnInit {
     this.pause = this.dataService.getPauseCnt();
     this.cnt = this.dataService.getCnt();
     this.help = this.dataService.getHelpCnt();
+  }
+
+  ionViewWillEnter(){
     for (let i = 0; i < this.ans_data.length; i++) {
       if (this.ans_data[i] === this.img_data[i].toString().split("_")[1]) {
         if (this.ans_data[i] === '0') {

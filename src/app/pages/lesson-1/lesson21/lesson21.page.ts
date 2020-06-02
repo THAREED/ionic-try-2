@@ -41,9 +41,39 @@ export class Lesson21Page implements OnInit {
     this.lessonParam = this.route.snapshot.paramMap.get('lesson');
     this.screenOrientation.unlock();
     if(this.lessonParam === 'lip'){
-      this.src_m_1 = this.image.getLipImage_1()[0]
-      this.src_m_2 = this.image.getLipImage_1()[2]
-      this.src = this.image.getLipImage_1()[1]
+      this.src_m_1 = this.image.getLipImage_0()[1]
+      this.src_m_2 = this.image.getLipImage_0()[5]
+      this.src = this.image.getLipImage_0()[1]
+    }
+    if(this.lessonParam === 'tongue'){
+      this.src_m_1 = this.image.getTongueImage_1()[1]
+      this.src_m_2 = this.image.getTongueImage_1()[2]
+      this.src = this.image.getTongueImage_1()[1]
+    }
+    if(this.lessonParam === 'gum'){
+      this.src_m_1 = this.image.getGumImage_1()[1]
+      this.src_m_2 = this.image.getGumImage_1()[2]
+      this.src = this.image.getGumImage_1()[1]
+    }
+    if(this.lessonParam === 'saliva'){
+      this.src_m_1 = this.image.getSalivaImage_1()[1]
+      this.src_m_2 = this.image.getSalivaImage_1()[2]
+      this.src = this.image.getSalivaImage_1()[1]
+    }
+    if(this.lessonParam === 'teeth'){
+      this.src_m_1 = this.image.getTeethImage_1()[1]
+      this.src_m_2 = this.image.getTeethImage_1()[2]
+      this.src = this.image.getTeethImage_1()[1]
+    }
+    if(this.lessonParam === 'denture'){
+      this.src_m_1 = this.image.getDentureImage_1()[1]
+      this.src_m_2 = this.image.getDentureImage_1()[2]
+      this.src = this.image.getDentureImage_1()[1]
+    }
+    if(this.lessonParam === 'cleanliness'){
+      this.src_m_1 = this.image.getCleanImage_1()[1]
+      this.src_m_2 = this.image.getCleanImage_1()[2]
+      this.src = this.image.getCleanImage_1()[1]
     }
   }
   nextPage() {

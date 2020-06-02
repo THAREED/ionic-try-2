@@ -43,6 +43,10 @@ export class EasyEx1ScorePage implements OnInit {
   private wrong_ans = []
 
   ngOnInit() {
+   
+  }
+
+  ionViewWillEnter(){
     this.state = '0'
     const id = this.route.snapshot.paramMap.get('data');
     this.idParam = this.route.snapshot.paramMap.get('id');

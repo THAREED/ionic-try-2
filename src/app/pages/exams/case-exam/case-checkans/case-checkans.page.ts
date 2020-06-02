@@ -5,6 +5,7 @@ import { DataService } from 'src/app/services/data.service';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { tap } from 'rxjs/operators';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-case-checkans',
@@ -27,6 +28,7 @@ export class CaseCheckansPage implements OnInit {
   class4: string;
   class5: string;
   class6: string;
+  text: string;
   SERVER_ADDRESS = 'http://localhost:3000';
   
   private right_ans = 0;
@@ -46,72 +48,144 @@ export class CaseCheckansPage implements OnInit {
     this.pause = this.dataService.getPauseCnt();
     this.images = this.dataService.getExamImage(this.id);
     this.cnt = this.dataService.getCnt();
+  }
+
+  ionViewWillEnter(){
+    if(this.id === 'medium'){
+      if(this.data[0] === '1'){
+        this.right_ans++;
+        this.class1 = 'level-tab level-1'
+      }
+      else if(this.data[0] === '0'){
+        this.class1 = 'level-tab level-0'
+      }
+      else{
+        this.class1 = 'level-tab level-2'
+      }
+      
+      if(this.data[1] === '1'){
+        this.right_ans++;
+        this.class2 = 'level-tab level-1'
+      }
+      else if(this.data[1] === '0')(
+        this.class2 = 'level-tab level-0'
+      )
+      else{
+        this.class2 = 'level-tab level-2'
+      }
+  
+      if(this.data[2] === '0'){
+        this.right_ans++;
+        this.class3 = 'level-tab level-0'
+      }
+      else if(this.data[2] === '1'){
+        this.class3 = 'level-tab level-1'
+      }
+      else{
+        this.class3 = 'level-tab level-2'
+      }
+  
+      if(this.data[3] === '1'){
+        this.class4 = 'level-tab level-1'
+        this.right_ans++;
+      }
+      else if(this.data[3] === '0'){
+        this.class4 = 'level-tab level-0'
+      }
+      else{
+        this.class4 = 'level-tab level-2'
+      }
+  
+      if(this.data[4] === '1'){
+        this.right_ans++;
+        this.class5 = 'level-tab level-1'
+      }
+      else if(this.data[4] === '0'){
+        this.class5 = 'level-tab level-0'
+      }
+      else{
+        this.class5 = 'level-tab level-2'
+      }
+  
+      if(this.data[5] === '0'){
+        this.right_ans++;
+        this.class6 = 'level-tab level-0'
+      }
+      else if(this.data[5] === '1'){
+        this.class6 = 'level-tab level-1'
+      }
+      else{
+        this.class6 = 'level-tab level-2'
+      }
+    }
+    else{
+      if(this.data[0] === '1'){
+        this.class1 = 'level-tab level-1'
+      }
+      else if(this.data[0] === '0'){
+        this.class1 = 'level-tab level-0'
+      }
+      else{
+        this.right_ans++;
+        this.class1 = 'level-tab level-2'
+      }
+      
+      if(this.data[1] === '1'){
+        this.class2 = 'level-tab level-1'
+      }
+      else if(this.data[1] === '0')(
+        this.class2 = 'level-tab level-0'
+      )
+      else{
+        this.right_ans++;
+        this.class2 = 'level-tab level-2'
+      }
+  
+      if(this.data[2] === '0'){
+        this.class3 = 'level-tab level-0'
+      }
+      else if(this.data[2] === '1'){
+        this.class3 = 'level-tab level-1'
+      }
+      else{
+        this.right_ans++;
+        this.class3 = 'level-tab level-2'
+      }
+  
+      if(this.data[3] === '1'){
+        this.class4 = 'level-tab level-1'
+      }
+      else if(this.data[3] === '0'){
+        this.class4 = 'level-tab level-0'
+      }
+      else{
+        this.right_ans++;
+        this.class4 = 'level-tab level-2'
+      }
+  
+      if(this.data[4] === '1'){
+        this.right_ans++;
+        this.class5 = 'level-tab level-1'
+      }
+      else if(this.data[4] === '0'){
+        this.class5 = 'level-tab level-0'
+      }
+      else{
+        this.class5 = 'level-tab level-2'
+      }
+  
+      if(this.data[5] === '0'){
+        this.class6 = 'level-tab level-0'
+      }
+      else if(this.data[5] === '1'){
+        this.class6 = 'level-tab level-1'
+      }
+      else{
+        this.right_ans++;
+        this.class6 = 'level-tab level-2'
+      }
+    }
     
-    if(this.data[0] === '1'){
-      this.right_ans++;
-      this.class1 = 'level-tab level-1'
-    }
-    else if(this.data[0] === '0'){
-      this.class1 = 'level-tab level-0'
-    }
-    else{
-      this.class1 = 'level-tab level-2'
-    }
-    
-    if(this.data[1] === '1'){
-      this.right_ans++;
-      this.class2 = 'level-tab level-1'
-    }
-    else if(this.data[1] === '0')(
-      this.class2 = 'level-tab level-0'
-    )
-    else{
-      this.class2 = 'level-tab level-2'
-    }
-
-    if(this.data[2] === '0'){
-      this.right_ans++;
-      this.class3 = 'level-tab level-0'
-    }
-    else if(this.data[2] === '1'){
-      this.class3 = 'level-tab level-1'
-    }
-    else{
-      this.class3 = 'level-tab level-2'
-    }
-
-    if(this.data[3] === '1'){
-      this.class4 = 'level-tab level-1'
-      this.right_ans++;
-    }
-    else if(this.data[3] === '0'){
-      this.class4 = 'level-tab level-0'
-    }
-    else{
-      this.class4 = 'level-tab level-2'
-    }
-
-    if(this.data[4] === '1'){
-      this.right_ans++;
-      this.class5 = 'level-tab level-1'
-    }
-    else if(this.data[4] === '0'){
-      this.class5 = 'level-tab level-0'
-    }
-    else{
-      this.class5 = 'level-tab level-2'
-    }
-
-    if(this.data[5] === '0'){
-      this.right_ans++;
-      this.class6 = 'level-tab level-0'
-    }
-    else if(this.data[5] === '1'){
-      this.class6 = 'level-tab level-1'
-    }
-    else{
-      this.class6 = 'level-tab level-2'
-    }
   }
 
   sendAns()
@@ -136,7 +210,6 @@ export class CaseCheckansPage implements OnInit {
         console.log(data)
       });
     }
-    
     this.http.get(`${this.SERVER_ADDRESS}/progress/` + this.idParam)
     .pipe(
       tap(progress => {
@@ -149,18 +222,22 @@ export class CaseCheckansPage implements OnInit {
       if(a < 0){
         this.http.put(`${this.SERVER_ADDRESS}/progress/${this.idParam}/`, { exp: 0 })
           .subscribe(data => {
+            console.log(a);
             console.log(data);
         });
       }
       else{
         this.http.put(`${this.SERVER_ADDRESS}/progress/${this.idParam}/`, { exp: a })
         .subscribe(data => {
+          console.log(a);
           console.log(data);
         });
       }
 
     });
-    this.router.navigate(['app/tabs/exam']);
+    this.router.navigate(['app']).then(() => {
+      window.location.reload();
+    });
   }
   async helpAlert() {
     const alert = await this.alertController.create({

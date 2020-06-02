@@ -111,6 +111,20 @@ const updateExp = (request, response) => {
     )
 }
 
+const updateLevel = (request, response) => {
+    const id = parseInt(request.params.id)
+    const level = parseInt(request.params.level)
+    pool.query(
+        `UPDATE user_progression SET user_level = $1 WHERE user_id = $2`,
+        [level, id],
+        (error, results) => {
+            if (error) {
+                throw error
+            }
+        }
+    )
+}
+
 const updateExam1Prog = (request, response) => {
     const id = parseInt(request.params.id)
     const {
@@ -184,5 +198,6 @@ module.exports = {
     updateExam2Prog,
     updateExam3Prog,
     getHistory,
-    updateHistory
+    updateHistory,
+    updateLevel
 }

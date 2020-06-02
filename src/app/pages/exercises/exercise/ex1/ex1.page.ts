@@ -51,6 +51,10 @@ export class Ex1Page implements OnInit {
   ) { }
 
   ngOnInit() {
+
+  }
+
+  ionViewWillEnter(){
     this.startTimer(2);
     this.lessonParam = this.route.snapshot.paramMap.get('lesson');
     this.idParam = this.route.snapshot.paramMap.get('id');
@@ -58,6 +62,36 @@ export class Ex1Page implements OnInit {
       this.x = this.shuffle(this.imageService.getLipImage_0().concat(this.imageService.getLipImage_1()).concat(this.imageService.getLipImage_2()))
       this.case = '1';
       this.title = 'ริมฝึปาก'
+    }
+    if(this.lessonParam == 'tongue'){
+      this.x = this.shuffle(this.imageService.getTongueImage_0().concat(this.imageService.getTongueImage_1()).concat(this.imageService.getTongueImage_2()))
+      this.case = '2';
+      this.title = 'ลิ้น'
+    }
+    if(this.lessonParam == 'gum'){
+      this.x = this.shuffle(this.imageService.getGumImage_0().concat(this.imageService.getGumImage_1()).concat(this.imageService.getGumImage_2()))
+      this.case = '3';
+      this.title = 'เหงือก'
+    }
+    if(this.lessonParam == 'saliva'){
+      this.x = this.shuffle(this.imageService.getSalivaImage_0().concat(this.imageService.getSalivaImage_1()).concat(this.imageService.getSalivaImage_2()))
+      this.case = '4';
+      this.title = 'น้ำลาย'
+    }
+    if(this.lessonParam == 'teeth'){
+      this.x = this.shuffle(this.imageService.getTeethImage_0().concat(this.imageService.getTeethImage_1()).concat(this.imageService.getTeethImage_2()))
+      this.case = '5';
+      this.title = 'ฟันธรรมชาติ'
+    }
+    if(this.lessonParam == 'denture'){
+      this.x = this.shuffle(this.imageService.getDentureImage_0().concat(this.imageService.getDentureImage_1()).concat(this.imageService.getDentureImage_2()))
+      this.case = '6';
+      this.title = 'ฟันเทียม'
+    }
+    if(this.lessonParam == 'cleanliness'){
+      this.x = this.shuffle(this.imageService.getCleanImage_0().concat(this.imageService.getCleanImage_1()).concat(this.imageService.getCleanImage_2()))
+      this.case = '7';
+      this.title = 'ความสะอาด'
     }
     this.http.get<Lesson>(`${this.SERVER_ADDRESS}/lesson/` + this.lessonParam)
     .pipe(
@@ -88,9 +122,38 @@ export class Ex1Page implements OnInit {
         tmp = parseInt(old_prog) + 1;
         this.progress = tmp.toString();
       }
+      if(this.case === '2'){
+        old_prog = progress[0].case_2_num;
+        tmp = parseInt(old_prog) + 1;
+        this.progress = tmp.toString();
+      }
+      if(this.case === '3'){
+        old_prog = progress[0].case_3_num;
+        tmp = parseInt(old_prog) + 1;
+        this.progress = tmp.toString();
+      }
+      if(this.case === '4'){
+        old_prog = progress[0].case_4_num;
+        tmp = parseInt(old_prog) + 1;
+        this.progress = tmp.toString();
+      }
+      if(this.case === '5'){
+        old_prog = progress[0].case_5_num;
+        tmp = parseInt(old_prog) + 1;
+        this.progress = tmp.toString();
+      }
+      if(this.case === '6'){
+        old_prog = progress[0].case_6_num;
+        tmp = parseInt(old_prog) + 1;
+        this.progress = tmp.toString();
+      }
+      if(this.case === '7'){
+        old_prog = progress[0].case_7_num;
+        tmp = parseInt(old_prog) + 1;
+        this.progress = tmp.toString();
+      }
     });
   }
-
 
   shuffle(paths) {
     let i = paths.length, j, temp;
@@ -112,8 +175,6 @@ export class Ex1Page implements OnInit {
     else{
       this.wrong()
     }
-    // console.log(images[this.seq-1])
-    // console.log(tmp)
     choices.push(tmp);
     if(this.state === 'pause'){
       this.continueTimer();

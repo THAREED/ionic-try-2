@@ -51,6 +51,10 @@ export class EasyEx1Page implements OnInit {
   ) { }
 
   ngOnInit() {
+    
+  }
+
+  ionViewWillEnter(){
     this.startTimer(2);
     this.lessonParam = this.route.snapshot.paramMap.get('lesson');
     this.idParam = this.route.snapshot.paramMap.get('id');
@@ -79,7 +83,6 @@ export class EasyEx1Page implements OnInit {
     this.pause_cnt = 0;
     this.help = 0;
   }
-
 
   shuffle(paths) {
     let i = paths.length, j, temp;

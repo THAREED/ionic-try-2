@@ -117,16 +117,20 @@ export class CaseEx1Page implements OnInit {
   }
 
   ngOnInit() {
+    
+  }
+
+  ionViewWillEnter(){
     this.diff = this.route.snapshot.paramMap.get('difficulty');
     if(this.diff === 'medium'){
       this.x = this.medium
-      this.item = ['tongue', 'gum', 'saliva', 'denture', 'cleanliness'];
+      this.item = ['lip', 'tongue', 'gum', 'saliva', 'denture', 'cleanliness'];
     }
     else{
       this.x = this.hard
-      this.item = ['tongue', 'gum', 'saliva', 'teeth', 'cleanliness'];
+      this.item = ['lip', 'tongue', 'gum', 'saliva', 'teeth', 'cleanliness'];
     }
-    this.http.get<Lesson>(`${this.SERVER_ADDRESS}/lesson/lip`)
+    this.http.get<Lesson>(`${this.SERVER_ADDRESS}/lesson/` + this.item[0])
     .pipe(
       tap(lesson => {
         return lesson;
@@ -151,12 +155,12 @@ export class CaseEx1Page implements OnInit {
   }
 
   checkAns() {
-    numbers.push(this.selectedRadioGroup);
+    numbers[this.index] = this.selectedRadioGroup;
     if (this.index < 5) {
       this.seq++;
       this.index++;
       this.src = this.x[this.index]
-      this.http.get<Lesson>(`${this.SERVER_ADDRESS}/lesson/${this.item[this.index-1]}`)
+      this.http.get<Lesson>(`${this.SERVER_ADDRESS}/lesson/${this.item[this.index]}`)
       .pipe(
         tap(lesson => {
           return lesson;
@@ -172,6 +176,25 @@ export class CaseEx1Page implements OnInit {
       this.stopTimer()
     }
   }
+
+  prevPage() {
+    this.seq--;
+    this.index--;
+    numbers[this.index] = this.selectedRadioGroup;
+    this.src = this.x[this.index]
+    this.http.get<Lesson>(`${this.SERVER_ADDRESS}/lesson/${this.item[this.index]}`)
+    .pipe(
+      tap(lesson => {
+        return lesson;
+    })
+    ).subscribe(lesson => {
+      this.title = lesson[0].title;
+      this.char0 = lesson[0].characteristic_0;
+      this.char1 = lesson[0].characteristic_1;
+      this.char2 = lesson[0].characteristic_2;
+    });
+  }
+
   async helpAlert() {
     const alert = await this.alertController.create({
       header: 'วิธีทำ',

@@ -67,6 +67,7 @@ export class Lesson14Page implements OnInit {
   }
 
   stopTimer() {
+    this.seq = null
     clearInterval(this.interval);
     if (this.lessonProg <= 1) {
       this.updateProgress(this.idParam, '1', this.less_num);
@@ -76,7 +77,7 @@ export class Lesson14Page implements OnInit {
 
   nextTimer() {
     clearInterval(this.interval);
-    if (this.seq >= 5) {
+    if (this.seq === 5) {
       this.stopTimer();
     } else {
       this.seq++;
@@ -106,29 +107,26 @@ export class Lesson14Page implements OnInit {
   ngOnInit() {
     this.idParam = this.route.snapshot.paramMap.get('id');
     this.lessonParam = this.route.snapshot.paramMap.get('lesson');
-    if (this.lessonParam === 'lip') {
+    if(this.lessonParam === 'lip'){
       this.paths = this.image.getLipImage_0()
     }
-    if (this.lessonParam === 'tongue') {
-      this.paths = [];
+    if(this.lessonParam === 'tongue'){
+      this.paths = this.image.getTongueImage_0()
     }
-    if (this.lessonParam === 'gum') {
-      this.paths = [];
+    if(this.lessonParam === 'gum'){
+      this.paths = this.image.getGumImage_0()
     }
-    if (this.lessonParam === 'saliva') {
-      this.paths = [];
+    if(this.lessonParam === 'saliva'){
+      this.paths = this.image.getSalivaImage_0()
     }
-    if (this.lessonParam === 'teeth') {
-      this.paths = [];
+    if(this.lessonParam === 'teeth'){
+      this.paths = this.image.getTeethImage_0()
     }
-    if (this.lessonParam === 'denture') {
-      this.paths = [];
+    if(this.lessonParam === 'denture'){
+      this.paths = this.image.getDentureImage_0()
     }
-    if (this.lessonParam === 'cleanliness') {
-      this.paths = [];
-    }
-    if (this.lessonParam === 'pain') {
-      this.paths = [];
+    if(this.lessonParam === 'cleanliness'){
+      this.paths = this.image.getCleanImage_0()
     }
     let i = this.paths.length, j, temp;
     while (--i > 0) {

@@ -54,6 +54,7 @@ app.get('/lesson/pain/', lesson.getPain)
 
 app.get('/progress/:id', vhv_progress.getProg)
 app.put('/progress/:id/', vhv_progress.updateExp)
+app.put('/progress/:id/level/:level', vhv_progress.updateLevel)
 app.put('/progress/:id/:less_num', vhv_progress.updateLessProg)
 app.put('/progress/:id/:case_num', vhv_progress.updateCaseProg)
 app.put('/progress/:id/:exam1_num', vhv_progress.updateExam1Prog)

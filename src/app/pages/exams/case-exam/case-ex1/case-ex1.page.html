@@ -46,7 +46,12 @@
       </ion-list>
     </ion-row>
      <ion-row>
-      <ion-col><ion-button disabled color="warning" class="render-button" (click)="prevPage()" type="submit" expand="block">ย้อนกลับ</ion-button>       </ion-col>
+      <ion-col>
+        <ion-button  *ngIf="seq > 1; else disable" color="warning" class="render-button" (click)="prevPage()" type="submit" expand="block">ย้อนกลับ</ion-button>
+        <ng-template #disable>
+          <ion-button disabled color="warning" class="render-button" type="submit" expand="block">ย้อนกลับ</ion-button>
+        </ng-template>
+      </ion-col>
       <ion-col><ion-button class="render-button" (click)="checkAns()" type="submit" expand="block">ต่อไป</ion-button>       </ion-col>
      </ion-row>
   </ion-grid>

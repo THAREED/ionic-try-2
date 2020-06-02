@@ -39,6 +39,7 @@ export class LoginPage implements OnInit {
       },
       error => {
         console.log(error);
+        this.alertService.presentToast('User not found');
       },
       () => {
         this.menu.enable(true);

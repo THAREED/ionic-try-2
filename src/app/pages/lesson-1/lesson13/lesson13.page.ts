@@ -10,6 +10,7 @@ import { ActivatedRoute } from "@angular/router";
 export class Lesson13Page implements OnInit {
   idParam: string;
   lessonParam: string;
+  title: string;
   constructor(
     private router: Router, 
     private route: ActivatedRoute   
@@ -18,6 +19,9 @@ export class Lesson13Page implements OnInit {
   ngOnInit() {
     this.idParam = this.route.snapshot.paramMap.get('id');
     this.lessonParam = this.route.snapshot.paramMap.get('lesson');
+    if(this.lessonParam === 'lip'){
+      this.title = 'ริมฝีปาก'
+    }
   }
   goHome(){
     this.router.navigate(['']);

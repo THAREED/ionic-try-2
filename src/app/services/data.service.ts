@@ -12,7 +12,32 @@ export class DataService {
   private pauseCnt;
   private cnt;
   private help;
+  private firstname;
+  private lastname;
+  private gender;
+  private level;
   constructor() { }
+
+  setUser(firstname, lastname, gender) {
+    this.firstname = firstname
+    this.lastname = lastname
+    this.gender = gender
+  }
+  setUserLevel(level) {
+    this.level = level
+  }
+  getUserFirstname(){
+    return this.firstname
+  }
+  getUserLastname(){
+    return this.lastname
+  }
+  getUserGender(){
+    return this.gender
+  }
+  getUserLevel(){
+    return this.level
+  }
 
   setExamChoice(id, choice) {
     this.examChoice[id] = choice;

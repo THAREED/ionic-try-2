@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Lesson } from '../../../models/lesson';
 import { HttpClient } from '@angular/common/http';
 import { tap } from 'rxjs/operators';
+import { ImageService } from '../../../services/image.service';
 
 let split;
 @Component({
@@ -22,16 +23,25 @@ export class Lesson12Page implements OnInit {
   lessonParam: String;
   idParam: String;
   lesson: Lesson;
+  src_m_1: String;
+  src_m_2: String;
+  src: String;
   SERVER_ADDRESS = 'http://localhost:3000';
   constructor(
     private http: HttpClient,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private image: ImageService
   ) { }
 
   ngOnInit() {
     this.lessonParam = this.route.snapshot.paramMap.get('lesson');
     this.idParam = this.route.snapshot.paramMap.get('id');
+    if(this.lessonParam === 'lip'){
+      this.src_m_1 = this.image.getLipImage_0()[1]
+      this.src_m_2 = this.image.getLipImage_0()[5]
+      this.src = this.image.getLipImage_0()[1]
+    }
   }
   nextPage() {
     if (this.ambiguous0 != null) {

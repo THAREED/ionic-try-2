@@ -61,7 +61,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/lesson-1/lesson34/lesson34.module').then( m => m.Lesson34PageModule)
   },
   {
-    path: 'case-ex1/:id',
+    path: 'case-ex1/:id/:difficulty',
     loadChildren: () => import('./pages/exams/case-exam/case-ex1/case-ex1.module').then( m => m.CaseEx1PageModule)
   },
   {
@@ -129,7 +129,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/exams/case-exam/easy-ex1/easy-ex1.module').then( m => m.EasyEx1PageModule)
   },
   {
-    path: 'case-rule/:id',
+    path: 'case-rule/:id/:difficulty',
     loadChildren: () => import('./pages/exams/case-exam/case-rule/case-rule.module').then( m => m.CaseRulePageModule)
   },
   {

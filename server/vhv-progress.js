@@ -29,6 +29,35 @@ const getExam = (request, response) => {
     })
 }
 
+const getHistory = (request, response) => {
+    const id = parseInt(request.params.id)
+
+    pool.query('SELECT * FROM user_exp_history WHERE user_id = $1 ORDER BY date DESC LIMIT 5', [id], (error, results) => {
+        if (error) {
+            throw error
+        }
+        response.status(201).json(results.rows)
+    })
+}
+
+const updateHistory = (request, response) => {
+    const id = parseInt(request.params.id)
+    const {
+        exp,
+        level
+    } = request.body
+
+    pool.query(
+        'INSERT INTO user_exp_history (user_id, exam_exp, level, date) VALUES ($1, $2, $3, now())',
+        [id, exp, level],
+        (error, results) => {
+            if (error) {
+                throw error
+            }
+        }
+    )
+}
+
 const updateLessProg = (request, response) => {
     const id = parseInt(request.params.id)
     const less_num = request.params.less_num
@@ -82,6 +111,57 @@ const updateExp = (request, response) => {
     )
 }
 
+const updateExam1Prog = (request, response) => {
+    const id = parseInt(request.params.id)
+    const {
+        prog
+    } = request.body
+
+    pool.query(
+        `UPDATE user_progression SET exam1_prog = $1 WHERE user_id = $2`,
+        [prog, id],
+        (error, results) => {
+            if (error) {
+                throw error
+            }
+        }
+    )
+}
+
+const updateExam2Prog = (request, response) => {
+    const id = parseInt(request.params.id)
+    const {
+        prog
+    } = request.body
+
+    pool.query(
+        `UPDATE user_progression SET exam2_prog = $1 WHERE user_id = $2`,
+        [prog, id],
+        (error, results) => {
+            if (error) {
+                throw error
+            }
+        }
+    )
+}
+
+const updateExam3Prog = (request, response) => {
+    const id = parseInt(request.params.id)
+    const {
+        prog
+    } = request.body
+
+    pool.query(
+        `UPDATE user_progression SET exam3_prog = $1 WHERE user_id = $2`,
+        [prog, id],
+        (error, results) => {
+            if (error) {
+                throw error
+            }
+        }
+    )
+}
+
 const insertCase = (request, response) => {
     const id = parseInt(request.params.id)
     pool.query('INSERT INTO exam_detail (user_id, case_number) VALUES ((SELECT id FROM auth_users WHERE user_id=$1), 0)', [id], (error, results) => {
@@ -99,5 +179,10 @@ module.exports = {
     getExam,
     updateExp,
     insertCase,
-    updateCaseProg
+    updateCaseProg,
+    updateExam1Prog,
+    updateExam2Prog,
+    updateExam3Prog,
+    getHistory,
+    updateHistory
 }

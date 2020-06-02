@@ -19,8 +19,13 @@ export class ExamsPage implements OnInit {
   user_exp: string;
   user_level: string;
   exp_prog: number;
+  exam1_prog: number;
+  exam2_prog: number;
+  exam3_prog: number;
   state: string;
+  tmp: any;
   SERVER_ADDRESS = 'http://localhost:3000';
+
   constructor(
     private authService: AuthService,
     private router: Router,
@@ -40,14 +45,39 @@ export class ExamsPage implements OnInit {
             })
           ).subscribe(progress => {
             this.user_exp = progress[0].user_exp;
+            if(parseFloat(this.user_exp) >= 32 && parseFloat(this.user_exp) < 52){
+              console.log('yes1')
+            }
+            if(parseFloat(this.user_exp) >= 52){
+              console.log('yes2')
+            }
             this.user_level = progress[0].user_level;
+            if(this.user_level === '0'){
+              this.user_level = 'มือใหม่'
+            }
+            if(this.user_level === '1'){
+              this.user_level = 'มือฝึกหัด'
+            }
+            if(this.user_level === '2'){
+              this.user_level = 'ผู้เชี่ยวชาญ'
+            }
             this.exp_prog = parseFloat(this.user_exp)/100;
-            
-            // const ob = Object.keys(exam_detail).map(function(index) {
-            //   const data = exam_detail[index];
-            //   return data;
-            // });
-            // this.item = ob;
+            this.exam1_prog = progress[0].exam1_prog;
+            this.exam2_prog = progress[0].exam2_prog;
+            this.exam3_prog = progress[0].exam3_prog;
+
+          });
+          this.http.get(`${this.SERVER_ADDRESS}/exp/` + this.user_id + `/history`)
+          .pipe(
+            tap(progress => {
+              return progress;
+            })
+          ).subscribe(progress => {
+            const ob = Object.keys(progress).map(function(index) {
+            const data = progress[index];
+            return data;
+          });
+            this.item = ob;
           });
       }
     );
@@ -70,11 +100,15 @@ export class ExamsPage implements OnInit {
   // }
 
   ngOnInit() {
+    
   }
   startEasyExam() {
     this.router.navigate(['easy-ex-rule', this.user_id]);
   }
-  startExam() {
-    this.router.navigate(['case-rule', this.user_id]);
+  startMediumExam() {
+    this.router.navigate(['case-rule', this.user_id, 'medium']);
+  }
+  startHardExam() {
+    this.router.navigate(['case-rule', this.user_id, 'hard']);
   }
 }

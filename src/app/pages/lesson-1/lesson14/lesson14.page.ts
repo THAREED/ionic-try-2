@@ -4,9 +4,10 @@ import { ActivatedRoute } from '@angular/router';
 import { Lesson } from '../../../models/lesson';
 import { HttpClient, HttpHeaders, } from '@angular/common/http';
 import { tap } from 'rxjs/operators';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, from } from 'rxjs';
 import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
 import { Progress } from '../../../models/progress';
+import { ImageService } from '../../../services/image.service';
 
 @Component({
   selector: 'app-lesson14',
@@ -35,11 +36,12 @@ export class Lesson14Page implements OnInit {
     private http: HttpClient,
     private router: Router,
     private route: ActivatedRoute,
-    private screenOrientation: ScreenOrientation
+    private screenOrientation: ScreenOrientation,
+    private image: ImageService
   ) {}
 
   startTimer(duration: number) {
-      this.src = 'http://localhost:51412/' + this.paths[this.seq - 1];
+      this.src = this.paths[this.seq - 1];
       this.state = 'start';
       clearInterval(this.interval);
       this.timer = duration; // second
@@ -105,25 +107,7 @@ export class Lesson14Page implements OnInit {
     this.idParam = this.route.snapshot.paramMap.get('id');
     this.lessonParam = this.route.snapshot.paramMap.get('lesson');
     if (this.lessonParam === 'lip') {
-      this.paths = [
-        '1_0_001.png',
-        '1_0_002.png',
-        '1_0_003.png',
-        '1_0_004.png',
-        '1_0_005.png',
-        '1_0_006.png',
-        '1_0_007.png',
-        '1_0_008.png',
-        '1_1_001.png',
-        '1_1_002.png',
-        '1_1_003.png',
-        '1_1_004.png',
-        '1_2_001.png',
-        '1_2_002.png',
-        '1_2_003.png',
-        '1_2_004.png',
-        '1_2_005.png'
-      ];
+      this.paths = this.image.getLipImage_0()
     }
     if (this.lessonParam === 'tongue') {
       this.paths = [];

@@ -152,6 +152,10 @@ export class EasyEx1Page implements OnInit {
     this.dataService.setPauseCnt(this.pause_cnt);
     this.dataService.setHelpCnt(this.help);
     this.dataService.setCnt(this.seq);
+    this.http.put(`${this.SERVER_ADDRESS}/progress/${this.idParam}/exam1_prog`, {progress: 1})
+    .subscribe(data => {
+      console.log(data);
+    });
     this.router.navigate(['/easy-ex1-score', this.idParam, 'score']);
   }
 

@@ -8,6 +8,7 @@ import { AuthService } from './services/auth.service';
 import { AlertService } from './services/alert.service';
 import { Storage } from '@ionic/storage';
 import { AuthUser } from 'src/app/models/auth_user';
+import { DataService } from '../app/services/data.service'
 
 @Component({
   selector: 'app-root',
@@ -25,6 +26,7 @@ export class AppComponent {
     private authService: AuthService,
     private alertService: AlertService,
     private navCtrl: NavController,
+    private data: DataService
   ) {
     this.initializeApp();
   }

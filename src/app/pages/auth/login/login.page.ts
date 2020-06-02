@@ -5,7 +5,7 @@ import { NgForm } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
 import { AlertService } from 'src/app/services/alert.service';
 import { Router } from '@angular/router';
-import { Storage } from '@ionic/storage';
+import { Storage } from '@ionic/storage'
 
 @Component({
   selector: 'app-login',
@@ -19,8 +19,7 @@ export class LoginPage implements OnInit {
     private authService: AuthService,
     private navCtrl: NavController,
     private alertService: AlertService,
-    private menu: MenuController,
-    private storage: Storage,
+    private menu: MenuController
   ){}
 
   ngOnInit() {

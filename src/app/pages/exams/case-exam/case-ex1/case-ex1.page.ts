@@ -21,6 +21,7 @@ export class CaseEx1Page implements OnInit {
   ans: Array<string>;
   selectedRadioGroup: any;
   idParam: String;
+  diff: String;
   index: number;
   seq: number;
   authUser: AuthUser;
@@ -30,10 +31,30 @@ export class CaseEx1Page implements OnInit {
   char0: String;
   char1: String;
   char2: String;
+  pause: number;
   time: BehaviorSubject<string> = new BehaviorSubject('0.0');
   timer: number;
   interval;
   SERVER_ADDRESS = 'http://localhost:3000';
+
+  
+  private medium = [
+    'assets/img/Case2/case02lips.png', 
+    'assets/img/Case2/case02tongue.png', 
+    'assets/img/Case2/case02gum.png', 
+    'assets/img/Case2/case02saliva.png',
+    'assets/img/Case2/case02denture.png',
+    'assets/img/Case2/case02teeth.png',
+  ]
+  private hard = [
+    'assets/img/Case3/case03lips-teeth-gum.png', 
+    'assets/img/Case3/case03saliva.png', 
+    'assets/img/Case3/case03lips-teeth-gum.png', 
+    'assets/img/Case3/case03saliva.png',
+    'assets/img/Case3/case03lips-teeth-gum.png', 
+    'assets/img/Case3/case03softtissue.png',
+  ]
+  private x =[]
   constructor(
     private router: Router,
     private http: HttpClient,
@@ -41,52 +62,6 @@ export class CaseEx1Page implements OnInit {
     private dataService: DataService,
     private alertController: AlertController
   ) { }
-
-  ionViewWillEnter() {
-    
-    this.http.get<Lesson>(`${this.SERVER_ADDRESS}/lesson/lip`)
-    .pipe(
-      tap(lesson => {
-        return lesson;
-      })
-    ).subscribe(lesson => {
-      this.title = lesson[0].title;
-      this.char0 = lesson[0].characteristic_0;
-      this.char1 = lesson[0].characteristic_1;
-      this.char2 = lesson[0].characteristic_2;
-      // this.src = 'http://localhost:51412/' + this.shuffle(this.lipPath)[0];
-    });
-  }
-
-  shuffle(paths) {
-    let i = paths.length, j, temp;
-    while (--i > 0) {
-      j = Math.floor(Math.random() * (i + 1));
-      temp = paths[j];
-      paths[j] = paths[i];
-      paths[i] = temp;
-    }
-    return paths;
-  }
-
-  changeLesson() {
-    this.http.get<Lesson>(`${this.SERVER_ADDRESS}/lesson/${this.item[this.index]}`)
-    .pipe(
-      tap(lesson => {
-        return lesson;
-      })
-    ).subscribe(lesson => {
-      this.title = lesson[0].title;
-      this.char0 = lesson[0].characteristic_0;
-      this.char1 = lesson[0].characteristic_1;
-      this.char2 = lesson[0].characteristic_2;
-    });
-    this.src = 'http://localhost:51412/' + this.shuffle(this[this.item[this.index] + 'Path'])[0];
-    this.index++;
-  }
-  radioGroupChange(event) {
-    this.selectedRadioGroup = String(event.detail.value);
-  }
 
   startTimer(duration: number) {
     this.state = 'start';
@@ -101,6 +76,7 @@ export class CaseEx1Page implements OnInit {
   pauseTimer() {
     clearInterval(this.interval);
     this.state = 'pause';
+    this.pause++;
   }
 
   continueTimer() {
@@ -114,9 +90,15 @@ export class CaseEx1Page implements OnInit {
 
   stopTimer() {
     clearInterval(this.interval);
-    numbers.push(this.selectedRadioGroup);
-    this.dataService.setExerciseChoice('test', numbers);
-    this.router.navigate(['/case-checkans', this.idParam, 'test']);
+    this.dataService.setExamChoice(this.diff, numbers);
+    this.dataService.setExamImage(this.diff, this.x);
+    this.dataService.setCnt(this.seq);
+    this.dataService.setPauseCnt(this.pause);
+    this.http.put(`${this.SERVER_ADDRESS}/progress/${this.idParam}/exam2_prog`, {progress: 1})
+    .subscribe(data => {
+      console.log(data);
+    });
+    this.router.navigate(['/case-checkans', this.idParam, this.diff]);
   }
 
   updateTimeValue() {
@@ -135,20 +117,59 @@ export class CaseEx1Page implements OnInit {
   }
 
   ngOnInit() {
+    this.diff = this.route.snapshot.paramMap.get('difficulty');
+    if(this.diff === 'medium'){
+      this.x = this.medium
+      this.item = ['tongue', 'gum', 'saliva', 'denture', 'cleanliness'];
+    }
+    else{
+      this.x = this.hard
+      this.item = ['tongue', 'gum', 'saliva', 'teeth', 'cleanliness'];
+    }
+    this.http.get<Lesson>(`${this.SERVER_ADDRESS}/lesson/lip`)
+    .pipe(
+      tap(lesson => {
+        return lesson;
+      })
+    ).subscribe(lesson => {
+      this.title = lesson[0].title;
+      this.char0 = lesson[0].characteristic_0;
+      this.char1 = lesson[0].characteristic_1;
+      this.char2 = lesson[0].characteristic_2;
+    });
     this.index = 0;
     this.seq = 1;
-    this.startTimer(2);
-    this.item = ['tongue', 'gum', 'saliva', 'teeth', 'denture', 'cleanliness'];
+    this.pause = 0;
+    this.src = this.x[this.index]
     this.idParam = this.route.snapshot.paramMap.get('id');
+    this.startTimer(2);
   }
+
+  
+  radioGroupChange(event) {
+    this.selectedRadioGroup = String(event.detail.value);
+  }
+
   checkAns() {
     numbers.push(this.selectedRadioGroup);
-    if (this.index < 6) {
+    if (this.index < 5) {
       this.seq++;
-      this.changeLesson();
+      this.index++;
+      this.src = this.x[this.index]
+      this.http.get<Lesson>(`${this.SERVER_ADDRESS}/lesson/${this.item[this.index-1]}`)
+      .pipe(
+        tap(lesson => {
+          return lesson;
+      })
+    ).subscribe(lesson => {
+      this.title = lesson[0].title;
+      this.char0 = lesson[0].characteristic_0;
+      this.char1 = lesson[0].characteristic_1;
+      this.char2 = lesson[0].characteristic_2;
+    });
+
     } else {
-      this.dataService.setExerciseChoice('test', numbers);
-      this.router.navigate(['/case-checkans', this.idParam, 'test']);
+      this.stopTimer()
     }
   }
   async helpAlert() {

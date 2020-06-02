@@ -22,14 +22,14 @@
     <ion-row class="diff">ระดับ: ง่าย</ion-row>
 
     <img src="assets/icon/ด่าน2.png">
-    <ion-button  *ngIf="user_level === 'มือฝึกหัด' || user_level === 'ผู้เชียวชาญ'; else disable2"class="task" (click)="startExam()">ทำแบบทดสอบ 2</ion-button>
+    <ion-button  *ngIf="exam1_prog === 1; else disable2"class="task" (click)="startMediumExam()">ทำแบบทดสอบ 2</ion-button>
     <ng-template #disable2>
       <ion-button  disabled class="task" (click)="startMediumExam()">ทำแบบทดสอบ 2</ion-button>
     </ng-template>
     <ion-row class="diff">ระดับ: ปานกลาง</ion-row>
 
     <img src="assets/icon/ด่าน3.png">
-    <ion-button  *ngIf="user_level === 'ผู้เชียวชาญ'; else disable3"class="task" (click)="startExam()">ทำแบบทดสอบ 3</ion-button>
+    <ion-button  *ngIf="exam2_prog === 1; else disable3"class="task" (click)="startHardExam()">ทำแบบทดสอบ 3</ion-button>
     <ng-template #disable3>
       <ion-button  disabled class="task" (click)="startHardExam()">ทำแบบทดสอบ 3</ion-button>
     </ng-template>
@@ -44,12 +44,12 @@
           <th>ระดับ</th> 
           <th>ค่าประสบการณ์</th>
         </tr>
-        <tr>
+        <tr *ngFor="let x of item">
           <td>1</td>
-          <td>ง่าย(ลิ้น)</td>
-          <td class="exp">+10%</td>
+          <td>{{ x.level }}</td>
+          <td class="exp">{{ x.exam_exp }}%</td>
         </tr>
-        <tr>
+        <!-- <tr>
           <td>2</td>
           <td>ง่าย(เหงือก)</td>
           <td class="exp">+5%</td>
@@ -58,7 +58,7 @@
           <td>3</td>
           <td>ง่าย(น้ำลาย)</td>
           <td class="exp">+6.67%</td>
-        </tr>
+        </tr> -->
       </table>
     </ion-row>
     

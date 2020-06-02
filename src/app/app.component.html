@@ -13,8 +13,10 @@
             <img class="user-img" src="assets/icon/man.png">
           </ion-thumbnail>
           <ion-label >
-            <h2>{{ firstname }} {{ lastname }}</h2>
-            <p>ระดับมือใหม่</p>
+            <h2>{{ data.getUserFirstname() }} {{ data.getUserLastname() }}</h2>
+            <p *ngIf="data.getUserLevel() === '0'">ระดับมือใหม่</p>
+            <p *ngIf="data.getUserLevel() === '1'">ระดับมือฝึกหัด</p>
+            <p *ngIf="data.getUserLevel() === '2'">ระดับผู้เชี่ยวชาญ</p>
           </ion-label>
         </ion-item>
       </ion-list>

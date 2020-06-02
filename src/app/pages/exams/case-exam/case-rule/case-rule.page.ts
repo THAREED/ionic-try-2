@@ -9,6 +9,8 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class CaseRulePage implements OnInit {
   idParam: String;
+  diff: String;
+  difficulty: String;
   constructor(
     private router:Router,
     private route: ActivatedRoute
@@ -16,14 +18,21 @@ export class CaseRulePage implements OnInit {
     
     ngOnInit() {
       this.idParam = this.route.snapshot.paramMap.get('id');
+      this.diff = this.route.snapshot.paramMap.get('difficulty');
+      if(this.diff === 'medium'){
+        this.difficulty = 'ปานกลาง'
+      }
+      else{
+        this.difficulty = 'ยาก'
+      }
     }
   nextPage()
   {
-    this.router.navigate(['case-ex1', this.idParam]);
+    this.router.navigate(['case-ex1', this.idParam, this.diff]);
   }
   goHome()
   {
-    this.router.navigate(['exam']);
+    this.router.navigate(['app/tabs/exam']);
   }
 
 }

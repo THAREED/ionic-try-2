@@ -19,7 +19,10 @@
         ริมฝีปาก
       </ion-row>       
       <ion-row justify-content-center>
-        {{ less_1 }}
+        <img *ngIf="less_1 === 'ไม่เคยเรียน' " class="level" src="assets/icon/ระดับ0.png">
+        <img *ngIf="less_1 === 'เรียนถึงระดับ 1' " class="level" src="assets/icon/ระดับ1.png">
+        <img *ngIf="less_1 === 'เรียนถึงระดับ 2' " class="level" src="assets/icon/ระดับ2.png">
+        <img *ngIf="less_1 === 'เรียนจบบทแล้ว' " class="level" src="assets/icon/ระดับ3.png">
         <!-- <img class="level" src="assets/icon/ระดับ0.png"> -->
       </ion-row> 
     </ion-col>
@@ -34,7 +37,10 @@
         ลิ้น
       </ion-row>       
       <ion-row justify-content-center>
-        {{ less_2 }}
+        <img *ngIf="less_2 === 'ไม่เคยเรียน' " class="level" src="assets/icon/ระดับ0.png">
+        <img *ngIf="less_2 === 'เรียนถึงระดับ 1' " class="level" src="assets/icon/ระดับ1.png">
+        <img *ngIf="less_2 === 'เรียนถึงระดับ 2' " class="level" src="assets/icon/ระดับ2.png">
+        <img *ngIf="less_2 === 'เรียนจบบทแล้ว' " class="level" src="assets/icon/ระดับ3.png">
       </ion-row> 
     </ion-col>
 
@@ -48,7 +54,10 @@
         เหงือก
       </ion-row>       
       <ion-row justify-content-center>
-        {{ less_3 }}
+        <img *ngIf="less_3 === 'ไม่เคยเรียน' " class="level" src="assets/icon/ระดับ0.png">
+        <img *ngIf="less_3 === 'เรียนถึงระดับ 1' " class="level" src="assets/icon/ระดับ1.png">
+        <img *ngIf="less_3 === 'เรียนถึงระดับ 2' " class="level" src="assets/icon/ระดับ2.png">
+        <img *ngIf="less_3 === 'เรียนจบบทแล้ว' " class="level" src="assets/icon/ระดับ3.png">
       </ion-row> 
     </ion-col>
 
@@ -66,7 +75,10 @@
         น้ำลาย
       </ion-row>       
       <ion-row justify-content-center>
-        {{ less_4 }}
+        <img *ngIf="less_4 === 'ไม่เคยเรียน' " class="level" src="assets/icon/ระดับ0.png">
+        <img *ngIf="less_4 === 'เรียนถึงระดับ 1' " class="level" src="assets/icon/ระดับ1.png">
+        <img *ngIf="less_4 === 'เรียนถึงระดับ 2' " class="level" src="assets/icon/ระดับ2.png">
+        <img *ngIf="less_4 === 'เรียนจบบทแล้ว' " class="level" src="assets/icon/ระดับ3.png">
       </ion-row> 
     </ion-col>
 
@@ -80,7 +92,10 @@
         ฟันธรรมชาติ
       </ion-row>       
       <ion-row justify-content-center>
-        {{ less_5 }}
+        <img *ngIf="less_5 === 'ไม่เคยเรียน' " class="level" src="assets/icon/ระดับ0.png">
+        <img *ngIf="less_5 === 'เรียนถึงระดับ 1' " class="level" src="assets/icon/ระดับ1.png">
+        <img *ngIf="less_5 === 'เรียนถึงระดับ 2' " class="level" src="assets/icon/ระดับ2.png">
+        <img *ngIf="less_5 === 'เรียนจบบทแล้ว' " class="level" src="assets/icon/ระดับ3.png">
       </ion-row> 
     </ion-col>
 
@@ -94,8 +109,10 @@
         ฟันเทียม
       </ion-row>       
       <ion-row justify-content-center>
-        {{ less_6 }}
-        <!-- <img class="level" src="assets/icon/ระดับ2.png"> -->
+        <img *ngIf="less_6 === 'ไม่เคยเรียน' " class="level" src="assets/icon/ระดับ0.png">
+        <img *ngIf="less_6 === 'เรียนถึงระดับ 1' " class="level" src="assets/icon/ระดับ1.png">
+        <img *ngIf="less_6 === 'เรียนถึงระดับ 2' " class="level" src="assets/icon/ระดับ2.png">
+        <img *ngIf="less_6 === 'เรียนจบบทแล้ว' " class="level" src="assets/icon/ระดับ3.png">
       </ion-row> 
     </ion-col>
 
@@ -113,8 +130,10 @@
         ความสะอาด
       </ion-row>       
       <ion-row justify-content-center>
-        {{ less_7 }}
-        <!-- <img class="level" src="assets/icon/ระดับ2.png"> -->
+        <img *ngIf="less_7 === 'ไม่เคยเรียน' " class="level" src="assets/icon/ระดับ0.png">
+        <img *ngIf="less_7 === 'เรียนถึงระดับ 1' " class="level" src="assets/icon/ระดับ1.png">
+        <img *ngIf="less_7 === 'เรียนถึงระดับ 2' " class="level" src="assets/icon/ระดับ2.png">
+        <img *ngIf="less_7 === 'เรียนจบบทแล้ว' " class="level" src="assets/icon/ระดับ3.png">
       </ion-row> 
     </ion-col>
 
@@ -128,8 +147,10 @@
         ความเจ็บปวด
       </ion-row>       
       <ion-row justify-content-center>
-        {{ less_8 }}
-        <!-- <img class="level" src="assets/icon/ระดับ3.png"> -->
+        <img *ngIf="less_8 === 'ไม่เคยเรียน' " class="level" src="assets/icon/ระดับ0.png">
+        <img *ngIf="less_8 === 'เรียนถึงระดับ 1' " class="level" src="assets/icon/ระดับ1.png">
+        <img *ngIf="less_8 === 'เรียนถึงระดับ 2' " class="level" src="assets/icon/ระดับ2.png">
+        <img *ngIf="less_8 === 'เรียนจบบทแล้ว' " class="level" src="assets/icon/ระดับ3.png">
       </ion-row> 
     </ion-col>
 

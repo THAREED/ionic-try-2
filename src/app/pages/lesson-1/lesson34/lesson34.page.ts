@@ -7,6 +7,7 @@ import { tap } from 'rxjs/operators';
 import { BehaviorSubject } from 'rxjs';
 import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
 import { Progress } from '../../../models/progress';
+import { ImageService } from '../../../services/image.service';
 
 @Component({
   selector: 'app-lesson34',
@@ -28,15 +29,18 @@ export class Lesson34Page implements OnInit {
   lesson: Lesson;
   progress: Progress;
   lessonProg: Number;
+  src: String;
   SERVER_ADDRESS = 'http://localhost:3000';
   constructor(
     private http: HttpClient,
     private router: Router,
     private route: ActivatedRoute,
-    private screenOrientation: ScreenOrientation
+    private screenOrientation: ScreenOrientation,
+    private image: ImageService
   ) { }
 
   startTimer(duration: number) {
+      this.src = this.paths[this.seq - 1];
       this.state = 'start';
       clearInterval(this.interval);
       this.timer = duration; // second
@@ -67,7 +71,7 @@ export class Lesson34Page implements OnInit {
       this.updateProgress(this.idParam, '3', this.less_num);
     }
     this.screenOrientation.unlock();
-    this.router.navigate(['/app']);
+    this.router.navigate(['app']);
   }
 
   nextTimer() {
@@ -103,7 +107,7 @@ export class Lesson34Page implements OnInit {
     this.lessonParam = this.route.snapshot.paramMap.get('lesson');
     this.idParam = this.route.snapshot.paramMap.get('id');
     if (this.lessonParam === 'lip') {
-      this.paths = [];
+      this.paths = this.image.getLipImage_2()
     }
     if (this.lessonParam === 'tongue') {
       this.paths = [];

@@ -2,12 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { AuthUser } from 'src/app/models/auth_user';
-import { AlertService } from 'src/app/services/alert.service';
-import { NavController } from '@ionic/angular';
 import { HttpClient } from '@angular/common/http';
 import { tap } from 'rxjs/operators';
 import { Progress } from '../../models/progress';
-import { Storage } from '@ionic/storage';
+import { DataService } from '../../services/data.service'
 
 @Component({
   selector: 'app-lessons',
@@ -34,6 +32,7 @@ export class LessonsPage implements OnInit {
     private route: Router,
     private http: HttpClient,
     private authService: AuthService,
+    private data: DataService
   ) {}
 
   ngOnInit() {
@@ -69,6 +68,7 @@ export class LessonsPage implements OnInit {
         this.authUser = user;
         this.user_id = this.authUser[0].id;
         this.getProgress(this.user_id);
+        this.data.setUser(this.authUser[0].firstname, this.authUser[0].lastname, this.authUser[0].gender)
       }
     );
   }
@@ -81,7 +81,7 @@ export class LessonsPage implements OnInit {
         return progress;
       })
     ).subscribe(progress => {
-      this.progress = progress;
+      this.data.setUserLevel(progress[0].user_level)
       if (progress[0].less_1_prog === 0) {
         this.less_1 = 'ไม่เคยเรียน';
       }

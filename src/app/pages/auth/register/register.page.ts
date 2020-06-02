@@ -31,21 +31,6 @@ export class RegisterPage implements OnInit {
 
  
   //ปุ่มกดให้บันทึกค่าแล้วไปหน้า after
-  onClick(gender, firstname, lastname, phone, username, password, password2, career){
-
-    //เก็บค่าใน storage ที่ชื่อ input1 ก่อน โดยเอาค่า txtNumber ที่ทำการแมพ ngModel ไว้มาเก็บ
-    this.storage.set('gender', gender);
-    this.storage.set('firstname', firstname);
-    this.storage.set('lastname', lastname);
-    this.storage.set('phone', phone);
-    this.storage.set('username', username);
-    this.storage.set('password', password);
-    this.storage.set('password2', password2);
-    this.storage.set('career', career);
-
-    //ไปหน้า p2 (หรืออาจจะไม่มีหน้านี้ก็ได้สามารถแสดงผลในหน้าไหนก็ได้)
-    // this.router.navigateByUrl('/app');
-  }
   register(form: NgForm) {
     if(form.value.password == form.value.password2){
       this.authService.register(
@@ -75,7 +60,6 @@ export class RegisterPage implements OnInit {
           console.log(error);
         },
         () => {
-          
         }
       );
     }

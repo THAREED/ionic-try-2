@@ -4,7 +4,6 @@ import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { tap } from 'rxjs/operators';
 
-
 @Component({
   selector: 'app-easy-ex1-score',
   templateUrl: './easy-ex1-score.page.html',
@@ -91,13 +90,12 @@ export class EasyEx1ScorePage implements OnInit {
     else{
       this.state = "3"
     }
-
+    
+    this.exp = Math.round(((this.score_sum / 20) + Number.EPSILON) * 100) / 100
     if (this.score_sum > 0) {
-      this.exp = Math.round((((this.score_sum) / 20) + Number.EPSILON) * 100) / 100
       this.exp_txt = '+' + this.exp
     }
     else {
-      this.exp = Math.round((((this.score_sum) / 20) + Number.EPSILON) * 100) / 100
       this.exp_txt = '' + this.exp
     }
     this.http.get(`${this.SERVER_ADDRESS}/progress/` + this.idParam)
@@ -107,6 +105,11 @@ export class EasyEx1ScorePage implements OnInit {
       })
     ).subscribe(progress => {
       this.old_exp = progress[0].user_exp;
+      this.http.post(`${this.SERVER_ADDRESS}/exp/`+ this.idParam + `/history`,
+      {exp: this.exp, level: 'ง่าย'})
+      .subscribe(data =>{
+        console.log(data)
+      });
       let a = ((this.old_exp*100)+(this.exp*100))/100
       if(a < 0){
         this.http.put(`${this.SERVER_ADDRESS}/progress/${this.idParam}/`, { exp: 0 })
@@ -118,7 +121,7 @@ export class EasyEx1ScorePage implements OnInit {
         this.http.put(`${this.SERVER_ADDRESS}/progress/${this.idParam}/`, { exp: a })
         .subscribe(data => {
           console.log(data);
-      });
+        });
       }
 
     });

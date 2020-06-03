@@ -23,6 +23,11 @@ app.get('/', (request, response) => {
     })
 })
 
+
+app.get('/patient/', vhv.getPatient)
+app.get('/patient/:id', vhv.getPatientById)
+app.post('/patient/', vhv.addPatient)
+
 app.get('/users', vhv.getUsers)
 app.get('/users/:id', vhv.getUserById)
 app.get('/auth_users', vhv.getAuthUsers)

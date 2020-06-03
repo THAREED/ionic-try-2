@@ -1,11 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController, NavController, MenuController } from '@ionic/angular';
-import { LoginPage } from '../login/login.page';
+import { NavController } from '@ionic/angular';
 import { NgForm } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
 import { AlertService } from 'src/app/services/alert.service';
-import { Router } from '@angular/router';
-import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-register',
@@ -18,12 +15,9 @@ export class RegisterPage implements OnInit {
   
 
   constructor(
-    private modalController: ModalController,
     private authService: AuthService,
     private navCtrl: NavController,
-    private alertService: AlertService,
-    private storage: Storage,
-    private router: Router
+    private alertService: AlertService
   ) { }
 
   ngOnInit() {

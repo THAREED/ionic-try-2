@@ -274,7 +274,49 @@ const login = (request, response) => {
     })
 }
 
+const getPatient = (request, response) => {
+    pool.query('SELECT * FROM patient',(error, results) => {
+        if (error) {
+            throw error
+        }
+        response.status(200).json(results.rows)
+    })
+}
+
+const getPatientById = (request, response) => {
+    const id = request.params.id
+    pool.query('SELECT * FROM patient WHERE user_id = $1',[id],(error, results) => {
+        if (error) {
+            throw error
+        }
+        response.status(200).json(results.rows)
+    })
+}
+
+const addPatient = (request, response) => {
+    const {
+        user_id,
+        firstname,
+        lastname,
+        gender,
+        birth,
+        allow_pic,
+    } = request.body
+
+    pool.query('INSERT INTO patient (user_id, firstname, lastname, gender, birth, allow_pic, create_at) VALUES ((SELECT id FROM auth_users WHERE id=$1), $2, $3, $4, $5, $6, now())', 
+    [user_id, firstname, lastname, gender, birth, allow_pic], 
+    (error, results) => {
+        if (error) {
+            throw error
+        }
+        response.status(200).json(results.rows)
+    })
+}
+
 module.exports = {
+    getPatient,
+    addPatient,
+    getPatientById,
     getUsers,
     getUserById,
     createUser,

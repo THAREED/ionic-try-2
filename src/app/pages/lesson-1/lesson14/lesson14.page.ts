@@ -151,8 +151,7 @@ export class Lesson14Page implements OnInit {
   }
 
   getProgress(user_id) {
-    this.user_id = user_id;
-    console.log(this.user_id);
+    this.user_id = user_id;;
     this.http.get<Progress>(`${this.SERVER_ADDRESS}/progress/` + this.user_id)
     .pipe(
       tap(progress => {

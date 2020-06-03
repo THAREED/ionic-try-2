@@ -5,51 +5,53 @@
 	</ion-toolbar>
   </ion-header>
 <ion-content>
-  <ion-grid padding>
-    <ion-row>
-      <b class="header-page">ข้อมูลผู้เข้ารับการคัดกรอง</b>
-    </ion-row>
-    <ion-row>
-        <ion-input class="thai-word" required type="text"  [(ngModel)]="firstname" name="firstname" placeholder="ชื่อ"></ion-input>
-    </ion-row>
-    <ion-row>
-        <ion-input class="thai-word" required type="text"  [(ngModel)]="lastname" name="lastname" placeholder="สกุล"></ion-input>
-    </ion-row>
-    <ion-row>
-      <ion-col size="4">
-        <ion-list class="hidden-list-bg">
-          <ion-item>
-            <ion-select [(ngModel)]="gender" name="gender" placeholder="เพศ">
-              <ion-list-header>
-                <ion-label>กรุณาเลือกเพศ</ion-label>
-              </ion-list-header>
-              <ion-select-option value="famale">หญิง</ion-select-option>
-              <ion-select-option value="male">ชาย</ion-select-option>
-              <ion-select-option value="none">ไม่ระบุ</ion-select-option>
-            </ion-select>
+  <form #form="ngForm" (ngSubmit)="add(form)">
+    <ion-grid padding>
+      <ion-row>
+        <b class="header-page">ข้อมูลผู้เข้ารับการคัดกรอง</b>
+      </ion-row>
+      <ion-row>
+          <ion-input class="thai-word" required type="text"  [(ngModel)]="firstname" name="firstname" placeholder="ชื่อ"></ion-input>
+      </ion-row>
+      <ion-row>
+          <ion-input class="thai-word" required type="text"  [(ngModel)]="lastname" name="lastname" placeholder="สกุล"></ion-input>
+      </ion-row>
+      <ion-row>
+        <ion-col size="4">
+          <ion-list class="hidden-list-bg">
+            <ion-item>
+              <ion-select [(ngModel)]="gender" name="gender" placeholder="เพศ">
+                <ion-list-header>
+                  <ion-label>กรุณาเลือกเพศ</ion-label>
+                </ion-list-header>
+                <ion-select-option value="female">หญิง</ion-select-option>
+                <ion-select-option value="male">ชาย</ion-select-option>
+                <ion-select-option value="none">ไม่ระบุ</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </ion-list>
+        </ion-col>
+        <ion-col size="8">
+          <ion-item class="mar-top thai-word">
+            <ion-label class="thai-word">วันเกิด</ion-label>
+            <ion-datetime value="2563-04-15" min="2483" max="2563-04" [(ngModel)]="date" name="date"
+              [dayShortNames]="customDayShortNames"
+              displayFormat="DD MMM YYYY"
+              monthShortNames="มกรา, กุมภา, มีนา, เมษา, พฤษภา, มิถุนา, กรกฎา, สิงหา, กันยา, ตุลา, พฤศจิกา, ธันวา"></ion-datetime>
           </ion-item>
-        </ion-list>
-      </ion-col>
-      <ion-col size="8">
-        <ion-item class="mar-top thai-word">
-          <ion-label class="thai-word">วันเกิด</ion-label>
-          <ion-datetime value="2563-04-15" min="2483" max="2563-04"
-            [dayShortNames]="customDayShortNames"
-            displayFormat="DD MMM YYYY"
-            monthShortNames="มกรา, กุมภา, มีนา, เมษา, พฤษภา, มิถุนา, กรกฎา, สิงหา, กันยา, ตุลา, พฤศจิกา, ธันวา"></ion-datetime>
-        </ion-item>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <p id="check-label"> <ion-checkbox checked></ion-checkbox> อนุญาตให้นำข้อมูลภาพถ่ายช่องปากไปใช้ เพื่อประโยชน์สำหรับการศึกษาต่อได้</p>
-    </ion-row>
-    <ion-row>
-      <div padding class="singname">ลายมือชื่อผู้รับการคัดกรอง</div>
-    </ion-row>
-    <ion-row>
-      <ion-col>
-        <ion-button (click) ="nextPage()" class="next-button" type="submit" expand="block">ต่อไป</ion-button>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <p id="check-label"> <ion-checkbox checked [(ngModel)]="check" name="check"></ion-checkbox> อนุญาตให้นำข้อมูลภาพถ่ายช่องปากไปใช้ เพื่อประโยชน์สำหรับการศึกษาต่อได้</p>
+      </ion-row>
+      <ion-row>
+        <div padding class="singname">ลายมือชื่อผู้รับการคัดกรอง</div>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-button (click) ="nextPage()" class="next-button" type="submit" expand="block">ต่อไป</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
 </ion-content>

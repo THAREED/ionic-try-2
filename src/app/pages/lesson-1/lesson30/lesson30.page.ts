@@ -52,7 +52,10 @@ export class Lesson30Page implements OnInit {
       buttons: ['ตกลง']
     });
     await alert.present();
-    this.router.navigate(['']);
+    setTimeout(()=>alert.dismiss(),2000);
+    this.router.navigate(['']).then(() => {
+      window.location.reload();
+    });
   }
   nextPage(){
     this.router.navigate(['/lesson34', this.idParam, this.lessonParam]);

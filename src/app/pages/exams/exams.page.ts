@@ -39,6 +39,7 @@ export class ExamsPage implements OnInit {
         this.authUser = user;
         this.user_id = this.authUser[0].id;
         this.data.setUser(this.authUser[0].firstname, this.authUser[0].lastname, this.authUser[0].gender)
+        console.log(this.data.getUserGender())
         this.http.get(`${this.SERVER_ADDRESS}/progress/` + this.user_id)
           .pipe(
             tap(progress => {
@@ -46,27 +47,6 @@ export class ExamsPage implements OnInit {
             })
           ).subscribe(progress => {
             this.user_exp = progress[0].user_exp;
-            if(parseFloat(this.user_exp) < 32){
-              this.user_level = '0';
-              this.http.put(`${this.SERVER_ADDRESS}/progress/${this.user_id}/level/${this.user_level}`,{})
-              .subscribe(data => {
-                console.log(data);
-              });
-            }
-            else if(parseFloat(this.user_exp) >= 32 && parseFloat(this.user_exp) < 52){
-              this.user_level = '1';
-              this.http.put(`${this.SERVER_ADDRESS}/progress/${this.user_id}/level/${this.user_level}`,{})
-              .subscribe(data => {
-                console.log(data);
-              });
-            }
-            else{
-              this.user_level = '2';
-              this.http.put(`${this.SERVER_ADDRESS}/progress/${this.user_id}/level/${this.user_level}`, {})
-              .subscribe(data => {
-                console.log(data);
-              });
-            }
             this.data.setUserLevel(this.user_level);
             this.user_level = progress[0].user_level;
             if(this.user_level === '0'){

@@ -20,7 +20,7 @@
     </ion-row>
     <ion-row justify-content-center >
         <img class="slide s-left"  src="assets/icon/เลื่อนซ้าย.png">
-      <ion-col *ngFor="let item of images">
+      <ion-col *ngFor="let item of images.slice(0, 3);">
         <img class="img-set" [src]=item>
       </ion-col>
         <img class="slide s-right"  src="assets/icon/เลื่อนขวา.png">

@@ -27,6 +27,8 @@ export class LessonsPage implements OnInit {
   less_8: String;
   progress: Progress;
   username: String;
+  user_exp: string;
+  user_level: string;
   SERVER_ADDRESS = 'http://localhost:3000';
   constructor(
     private route: Router,
@@ -82,6 +84,43 @@ export class LessonsPage implements OnInit {
         return progress;
       })
     ).subscribe(progress => {
+      this.user_exp = progress[0].user_exp;
+      if(parseFloat(this.user_exp) < 32){
+        this.user_level = '0';
+        this.http.put(`${this.SERVER_ADDRESS}/progress/${this.user_id}/level/${this.user_level}`,{})
+        .subscribe(data => {
+          console.log(data);
+        });
+      }
+      else if(
+        parseFloat(this.user_exp) >= 32 && 
+        parseFloat(this.user_exp) < 52 && 
+        progress[0].case_1_num >= 1 && 
+        progress[0].case_2_num >= 1 &&
+        progress[0].case_3_num >= 1 &&
+        progress[0].case_4_num >= 1 &&
+        progress[0].case_5_num >= 1 &&
+        progress[0].case_6_num >= 1 &&
+        progress[0].case_7_num >= 1 
+      ){
+        this.user_level = '1';
+        this.http.put(`${this.SERVER_ADDRESS}/progress/${this.user_id}/level/${this.user_level}`,{})
+        .subscribe(data => {
+          console.log(data);
+        });
+      }
+      else if(
+        parseFloat(this.user_exp) > 52 && 
+        progress[0].exam1_prog >= 1 && 
+        progress[0].exam2_prog >= 1 && 
+        progress[0].exam2_prog >= 1
+      ){
+        this.user_level = '2';
+        this.http.put(`${this.SERVER_ADDRESS}/progress/${this.user_id}/level/${this.user_level}`, {})
+        .subscribe(data => {
+          console.log(data);
+        });
+      }
       this.data.setUserLevel(progress[0].user_level)
       if (progress[0].less_1_prog === 0) {
         this.less_1 = 'ไม่เคยเรียน';

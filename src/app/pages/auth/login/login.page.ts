@@ -4,8 +4,6 @@ import { RegisterPage } from '../register/register.page';
 import { NgForm } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
 import { AlertService } from 'src/app/services/alert.service';
-import { Router } from '@angular/router';
-import { Storage } from '@ionic/storage'
 
 @Component({
   selector: 'app-login',
@@ -13,14 +11,13 @@ import { Storage } from '@ionic/storage'
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-
   constructor(
     private modalController: ModalController,
     private authService: AuthService,
     private navCtrl: NavController,
     private alertService: AlertService,
     private menu: MenuController
-  ){}
+  ){this.menu.enable(false, 'test');}
 
   ngOnInit() {
   }

@@ -26,7 +26,6 @@ export class ScreeningPage implements OnInit {
       user => {
         this.authUser = user;
         this.user_id = this.authUser[0].id;
-        console.log(this.user_id)
         this.http.get(`${this.SERVER_ADDRESS}/patient/` + this.user_id)
         .pipe(
           tap(patient => {

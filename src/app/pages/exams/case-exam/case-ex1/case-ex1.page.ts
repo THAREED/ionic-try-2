@@ -82,7 +82,7 @@ export class CaseEx1Page implements OnInit {
   continueTimer() {
     clearInterval(this.interval);
     if (this.timer === 0) {
-      this.startTimer(2);
+      this.startTimer(8);
     } else {
       this.startTimer(this.timer/60);
     }
@@ -146,7 +146,7 @@ export class CaseEx1Page implements OnInit {
     this.pause = 0;
     this.src = this.x[this.index]
     this.idParam = this.route.snapshot.paramMap.get('id');
-    this.startTimer(2);
+    this.startTimer(8);
   }
 
   

@@ -9,9 +9,12 @@
   <ion-grid padding>
     <ion-row class="row-user">
       <ion-col size="4">
-        <img *ngIf="user_level === 'มือใหม่'" class="user" src="assets/icon/user0.png">
-        <img *ngIf="user_level === 'มือฝึกหัด'" class="user" src="assets/icon/user1.png">
-        <img *ngIf="user_level === 'ผู้เชี่ยวชาญ'" class="user" src="assets/icon/user2.png">
+        <img *ngIf="user_level === 'มือใหม่' && data.getUserGender() === 'female'" class="user" src="assets/icon/user0.png">
+        <img *ngIf="user_level === 'มือฝึกหัด' && data.getUserGender() === 'female'" class="user" src="assets/icon/user1.png">
+        <img *ngIf="user_level === 'ผู้เชี่ยวชาญ' && data.getUserGender() === 'female'" class="user" src="assets/icon/user2.png">
+        <img *ngIf="user_level === 'มือใหม่' && data.getUserGender() === 'male'" class="user" src="assets/icon/user-0men.png">
+        <img *ngIf="user_level === 'มือฝึกหัด' && data.getUserGender() === 'male'" class="user" src="assets/icon/user-1men.png">
+        <img *ngIf="user_level === 'ผู้เชี่ยวชาญ' && data.getUserGender() === 'male'" class="user" src="assets/icon/user-2men.png">
       </ion-col>
       <ion-col><br>
         <p>ระดับ: {{ user_level }}</p>

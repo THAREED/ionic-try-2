@@ -1,12 +1,10 @@
 import { Component } from '@angular/core';
 
 import { Platform, NavController } from '@ionic/angular';
-import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { AuthService } from './services/auth.service';
 import { AlertService } from './services/alert.service';
-import { Storage } from '@ionic/storage';
 import { AuthUser } from 'src/app/models/auth_user';
 import { DataService } from '../app/services/data.service'
 
@@ -26,7 +24,7 @@ export class AppComponent {
     private authService: AuthService,
     private alertService: AlertService,
     private navCtrl: NavController,
-    private data: DataService
+    private data: DataService,
   ) {
     this.initializeApp();
   }
@@ -37,6 +35,7 @@ export class AppComponent {
       // this.authService.getToken();
     });
   }
+
 
   logout() {
     this.authService.logout().subscribe(

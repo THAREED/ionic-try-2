@@ -1,6 +1,6 @@
 <ion-app>
   <!-- <ion-router-outlet></ion-router-outlet> -->
-  <ion-menu contentId="content1" side="start">
+  <ion-menu contentId="content1" menuId="test" side="start" >
     <ion-header>
       <ion-toolbar color="secondary">
         <ion-title class="menu-title">PRACTEETH</ion-title>
@@ -31,7 +31,7 @@
         </ion-item>
       </ion-list>
       <ion-list>
-        <ion-item   [routerLink]="['/exercise']" >  
+        <ion-item  [routerLink]="['/exercise']" >  
             <img class="user-img-info" src="assets/icon/จำนวนแบบฝึกหัด.png">
           <ion-label>
             <p>36 แบบฝึกหัด</p>
@@ -39,7 +39,7 @@
         </ion-item>
       </ion-list>
       <ion-list>
-        <ion-item  [routerLink]="['/exam']">  
+        <ion-item [routerLink]="['/exam']">  
             <img class="user-img-info" src="assets/icon/แบบทดสอบ.png">
           <ion-label>
             <p>4 แบบทดสอบ</p>
@@ -47,7 +47,7 @@
         </ion-item>
       </ion-list>
       <ion-list>
-        <ion-item  [routerLink]="['/patient-list']">  
+        <ion-item [routerLink]="['/patient-list']">  
             <img class="user-img-info" src="assets/icon/ผู้ป่วยของฉัน.png">
           <ion-label>
             <p>ผู้ป่วยของฉัน 16 คน</p>
